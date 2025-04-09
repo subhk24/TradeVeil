@@ -3,67 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TradEvil - B2B Marketplace</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>TradeVeil - Demo</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); } 
+    }
+    .animate-slideIn { animation: slideIn 0.6s ease-out; }
+    .insta-gradient {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    }
+    .shadow-glow { box-shadow: 0 0 15px rgba(79, 70, 229, 0.3); } 
+    .hover-lift:hover { transform: translateY(-5px); transition: transform 0.3s ease; }
+  </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 min-h-screen font-sans antialiased">
 
-  
-  <header class="bg-blue-900 text-white p-4 shadow-md">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <div class="text-2xl font-bold">TradEvil</div>
-      <input type="text" placeholder="Search for products or suppliers..." class="w-1/2 p-2 rounded text-black" />
-      <div class="space-x-4">
-        <a href="#" class="hover:underline">Login</a>
-        <a href="#" class="hover:underline">Sign Up</a>
-      </div>
+  <header class="fixed top-0 left-0 right-0 z-10 bg-white shadow-lg py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-3xl font-extrabold text-gray-800 flex items-center">
+        <span class="insta-gradient text-transparent bg-clip-text animate-pulse">TradeVeil</span>
+        <i class="fas fa-exchange-alt ml-3 text-indigo-600 animate-spin-slow"></i>
+      </h1>
     </div>
   </header>
 
-  
-  <main class="max-w-7xl mx-auto mt-6 flex">
-    
-    <aside class="w-1/4 bg-white p-4 rounded shadow mr-4">
-      <h2 class="font-semibold mb-4 text-lg">Categories</h2>
-      <ul class="space-y-2 text-blue-800">
-        <li><a href="#" class="hover:underline">Industrial Supplies</a></li>
-        <li><a href="#" class="hover:underline">Electronics & Gadgets</a></li>
-        <li><a href="#" class="hover:underline">Machinery</a></li>
-        <li><a href="#" class="hover:underline">Food & Beverages</a></li>
-        <li><a href="#" class="hover:underline">Construction Materials</a></li>
-      </ul>
-    </aside>
-
-    <section class="flex-1 grid grid-cols-3 gap-6">
-      
-      <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
-        <img src="https://via.placeholder.com/150" alt="Product" class="w-full h-32 object-cover mb-2 rounded" />
-        <h3 class="font-semibold text-lg">Hydraulic Pump</h3>
-        <p class="text-sm text-gray-600">₹12,000 / Unit</p>
-        <p class="text-sm mt-1 text-green-600">Verified Supplier</p>
-      </div>
-
-      <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
-        <img src="https://via.placeholder.com/150" alt="Product" class="w-full h-32 object-cover mb-2 rounded" />
-        <h3 class="font-semibold text-lg">LED Flood Light</h3>
-        <p class="text-sm text-gray-600">₹800 / Piece</p>
-        <p class="text-sm mt-1 text-green-600">Verified Supplier</p>
-      </div>
-
-      <div class="bg-white p-4 rounded shadow hover:shadow-lg transition">
-        <img src="https://via.placeholder.com/150" alt="Product" class="w-full h-32 object-cover mb-2 rounded" />
-        <h3 class="font-semibold text-lg">Industrial Drill</h3>
-        <p class="text-sm text-gray-600">₹5,500 / Piece</p>
-        <p class="text-sm mt-1 text-green-600">Verified Supplier</p>
-      </div>
+  <main id="signupPage" class="pt-28 pb-20 px-4">
+    <section class="container mx-auto max-w-xl bg-white p-10 rounded-3xl shadow-glow animate-slideIn">
+      <h2 class="text-4xl font-bold text-center text-gray-800 mb-8 bg-clip-text text-transparent insta-gradient">Create Your Trade ID</h2>
+      <form id="signupForm" class="space-y-6">
+        <input type="text" id="businessName" placeholder="Business Name" value="DemoCorp Ltd." required class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm">
+        <input type="text" id="gstNumber" placeholder="GST Number" value="27AAAPL1234C1Z5" required class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm">
+        <input type="file" id="businessReport" required class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm">
+        <button type="submit" class="w-full insta-gradient text-white p-4 rounded-xl font-semibold shadow-md hover:opacity-90 transition hover-lift">Sign Up</button>
+      </form>
+      <div id="signupResult" class="mt-4 text-center font-semibold text-green-600"></div>
     </section>
   </main>
 
-  <footer class="bg-blue-900 text-white mt-10 p-4">
-    <div class="max-w-7xl mx-auto text-center">
-      © 2025 TradEvil. All rights reserved.
-    </div>
+  <main id="dashboardPage" class="hidden pt-28 pb-20 px-4">
+    <section class="container mx-auto max-w-2xl bg-white p-10 rounded-3xl shadow-glow animate-slideIn">
+      <h2 class="text-4xl font-bold text-center text-gray-800 mb-8 bg-clip-text text-transparent insta-gradient">Welcome to Your Dashboard</h2>
+      <div class="text-center mb-10">
+        <div id="qrcode" class="mx-auto p-6 bg-gray-100 rounded-2xl shadow-inner w-fit"></div>
+        <p class="mt-4 text-gray-700 font-medium">Scan to share your Trade ID</p>
+      </div>
+      <div class="space-y-6">
+        <input type="text" id="tradeId" placeholder="Enter Trade ID" value="TV-DEMO-123456" required class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm">
+        <textarea id="message" placeholder="Type your message..." class="w-full p-4 border border-gray-300 rounded-xl h-36 bg-gray-50 shadow-sm"></textarea>
+        <button onclick="sendMessage()" class="w-full insta-gradient text-white p-4 rounded-xl font-semibold shadow-md hover:opacity-90 transition hover-lift">Send Message</button>
+      </div>
+      <div id="chatBox" class="mt-8 space-y-4 max-h-64 overflow-y-auto"></div>
+    </section>
+  </main>
+
+  <footer class="bg-indigo-900 text-white py-6 text-center mt-20">
+    <p>&copy; 2025 TradeVeil Demo. All rights reserved.</p>
   </footer>
 
+  <script>
+    const signupForm = document.getElementById('signupForm');
+    const signupPage = document.getElementById('signupPage');
+    const dashboardPage = document.getElementById('dashboardPage');
+    const chatBox = document.getElementById('chatBox');
+
+    let demoTradeId = "TV-DEMO-" + Math.floor(Math.random() * 900000 + 100000);
+    const localMessages = JSON.parse(localStorage.getItem("demoMessages") || "[]");
+
+    function renderMessages() {
+      chatBox.innerHTML = '';
+      localMessages.forEach(({ sender, text }) => {
+        const color = sender === "you" ? "bg-gray-50" : "bg-indigo-50";
+        const label = sender === "you" ? "You" : `${demoTradeId} replied`;
+        chatBox.innerHTML += `
+          <div class="p-4 ${color} rounded-xl shadow-sm hover-lift">
+            <p class="text-sm text-gray-500">${label}</p>
+            <p class="text-gray-800">${text}</p>
+          </div>`;
+      });
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const businessName = document.getElementById('businessName').value;
+      const gstNumber = document.getElementById('gstNumber').value;
+
+      document.getElementById('signupResult').innerText = "✔️ Trade ID created: " + demoTradeId;
+
+      signupPage.classList.add('hidden');
+      dashboardPage.classList.remove('hidden');
+
+      new QRCode(document.getElementById("qrcode"), {
+        text: `TradeVeil ID: ${demoTradeId}`,
+        width: 150,
+        height: 150,
+        colorDark: "#1E3A8A",
+        colorLight: "#F9FAFB"
+      });
+
+      document.getElementById('tradeId').value = demoTradeId;
+    });
+
+    function sendMessage() {
+      const tradeId = document.getElementById('tradeId').value;
+      const message = document.getElementById('message').value;
+
+      if (!message.trim()) return;
+
+      localMessages.push({ sender: "you", text: message });
+      localMessages.push({ sender: "them", text: "Thanks for your message!" });
+
+      localStorage.setItem("demoMessages", JSON.stringify(localMessages));
+      document.getElementById('message').value = '';
+      renderMessages();
+    }
+
+    window.onload = renderMessages;
+  </script>
 </body>
 </html>
