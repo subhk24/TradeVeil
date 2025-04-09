@@ -1,6 +1,6 @@
 # 🌐 Tradeveil
 
-Tradeveil is a modern B2B (Business-to-Business) marketplace inspired by platforms like **IndiaMART**. It helps businesses discover suppliers, manufacturers, retailers , wholesalers and exporters across a wide range of industry. Tradeveil bridges the gap between buyers and sellers with a secure, easy-to-use digital platform tailored for large-scale trade.
+Tradeveil is a modern B2B (Business-to-Business) marketplace inspired by platforms like **IndiaMART**. It helps businesses discover suppliers, manufacturers, retailers , wholesalers and exporters across a wide range of industry. Tradeveil bridges the gap between retailers and whole-sellers with a secure, easy-to-use digital platform tailored for large-scale trade. This offers you privacy and also will work on local level not on international level.
 
 ---
 
@@ -20,6 +20,4 @@ Tradeveil is a modern B2B (Business-to-Business) marketplace inspired by platfor
 ### Prerequisites
 
 Ensure the following are installed on your system:
-- Node.js
-- MongoDB
 - Git
