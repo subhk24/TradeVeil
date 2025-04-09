@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TradeVeil - Demo</title>
+  <title>TradeVeil </title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -31,18 +31,71 @@
     </div>
   </header>
 
-  <main id="signupPage" class="pt-28 pb-20 px-4">
-    <section class="container mx-auto max-w-xl bg-white p-10 rounded-3xl shadow-glow animate-slideIn">
-      <h2 class="text-4xl font-bold text-center text-gray-800 mb-8 bg-clip-text text-transparent insta-gradient">Create Your Trade ID</h2>
+  <main id="rolePage" class="pt-28 pb-20 px-4">
+    <section class="container mx-auto max-w-xl bg-white p-10 rounded-3xl shadow-glow animate-slideIn text-center">
+      <h2 class="text-4xl font-bold text-center text-gray-800 mb-8 bg-clip-text text-transparent insta-gradient">Welcome to Tradeveil</h2>
+      <p class="mb-6 test-gray-600 text-lg">Choose how you want to use:</p>
+        <div class="space-y-6">
+          <button onclick="selectRole('seller')" class="w-full insta-gradient text-white p4 rounded-xl front-semibold shadow-md hover:opacity-90 trasition hover-lift text-xl">Register/Login as Seller</button>
+          <button onclick="selectRole('buyer')" class="w-full insta-gradient text-white p-4 rounded-xl front-semibold shadow-md hover:opacity-90 trasition hover-lift text-xl">Browse as a Buyer</button>
+        </div>
+    </section>
+  </main>
+
+  <main id="sellerAccessPage" class="hidden pt-28 pb-20 px-4">
+    <section class="container mx-auto max-auto max-w-xl bg-white p-10 rounded-3xl shadow-glow animate-slideIn text-center">
+      <h2 class="text-4xl font-bold text-gray-800 mb-6 bg-clip-text text-transparent insta-gradient">Seller Access</h2>
+      <div class="space-y-6">
+        <button onclick="showSignup()" class="w-full insta-gradient text-white p-4 rounded-xl font-semibold shadow-md hover:opacity-90 transition hover-lift">Sign Up</button>
+        <button onclick="showSignin()" class="w-full bg-indigo-500 text-white p-4 rounded-xl font-semibold shadow-md hover:opacity-90 transition hover-lift">Sign In</button>
+      </div>
+    </section>
+  </main>
+
+  <main id="signupPage" class="hidden pt-28 pb-20 px-4">
+    <section class ="container mx-auto mx-auto max-w-xl bg-white p-10 rounded-3xl shadow-glow animate-slideIn">
+      <h2 class="text-4xl font-bold text-center text-gray-800 mb-8 bg-clip-text text-trasparent insta-gradient">Create Your Trade</h2>
       <form id="signupForm" class="space-y-6">
-        <input type="text" id="businessName" placeholder="Business Name" value="DemoCorp Ltd." required class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm">
-        <input type="text" id="gstNumber" placeholder="GST Number" value="27AAAPL1234C1Z5" required class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm">
-        <input type="file" id="businessReport" required class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm">
-        <button type="submit" class="w-full insta-gradient text-white p-4 rounded-xl font-semibold shadow-md hover:opacity-90 transition hover-lift">Sign Up</button>
+        <input type="text" id="businessName" placeholder="Business Name" required class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm">
+
+        <label class="block text-left text-gray-700 font-medium">GST Number (optional):</label>
+        <input type="text" id="gstNumber" placeholder="Enter GST Number" class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm">
+
+        <label class="block text-left text-gray-700 font-medium">Or Upload Business Details File:</label>
+        <input type="file" id="businessReport" class="w-full p-4 border-gray-300 rounded-xl bg-gray-50 shadow-sm">
+
+        <select id="productCategory" required class="w-full p-4 border-gray-300 rounded-xl bg-gray-50 shadow-sm">
+          <option value="">Select Product Category</option>
+          <option value="Textiles">Textlines</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Spices">Spices</option>
+          <option value="Handicrafts">Handicrafts</option>
+        </select>
+        <button type="submit" class="w-full insta-gradient text-white p-4 rounded-xl font-semibold shadow-md hover:opacity-90 trasition hover-lift">Sign Up</button>
       </form>
       <div id="signupResult" class="mt-4 text-center font-semibold text-green-600"></div>
     </section>
   </main>
+
+
+<main id="signinPage" class="hidden pt-28 pd-20 px-4">
+  <section class="container mx-auto max-w-xl bg-white p-10 rounded-3xl shadow-glow animate-slideIn text-center">
+    <h2 class="text-4xl font-bold mb-6 bg-clip-text text-transparent insta-gradient">Seller Sign In</h2>
+    <input type="text" id="signinId" placeholder="Enter Your Trade ID" class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm mb-4">
+    <button onclick="signinSeller()" class="w-full insta-gradient text-white p-4 rounded-xl font-semibold shadow-md hover:opacity-90 trasition hover-lift">Sign In</button>
+    <p id="signinStatus" class="mt-4 text-red-600 font-semibold"></p>
+  </section>
+</main>
+
+  <main id="buyerPage" class="hidden pt-28 pb-20 px-4">
+    <section class="container mx-auto max-w-xl bg-white p-10 rounded-3xl shadow-glow animate-slideIn">
+      <h2 class="text-4xl font-bold text-center text-gray-800 mb-8 bg-clip-text text-transparent insta-gradient">Find a Product</h2>
+      <select id="buyerCategory" class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm mb-6">
+        <option value="">Select a Product</option>
+      </select>
+      <div id="matchedSellers" class="space-y-4"></div>
+    </section>
+  </main>    
 
   <main id="dashboardPage" class="hidden pt-28 pb-20 px-4">
     <section class="container mx-auto max-w-2xl bg-white p-10 rounded-3xl shadow-glow animate-slideIn">
