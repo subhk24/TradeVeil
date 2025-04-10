@@ -118,41 +118,96 @@
   </footer>
 
   <script>
-    const signupForm = document.getElementById('signupForm');
-    const signupPage = document.getElementById('signupPage');
-    const dashboardPage = document.getElementById('dashboardPage');
-    const chatBox = document.getElementById('chatBox');
+    const rolePage = document.getElementById("rolePage");
+    const sellerAccessPage = document.getElementById("sellerAccessPage");
+    const signupPage = document.getElementById("signupPage");
+    const signinPage = document.getElementById("signinPage");
+    const buyerPage = document.getElementById("buyerPage");
+    const dashboardPage = document.getElementById("dashboardPage");
+    const chatBox = document.getElementById("chatBox");
+    const signupForm = document.getELementById("signupForm");
 
-    let demoTradeId = "TV-DEMO-" + Math.floor(Math.random() * 900000 + 100000);
-    const localMessages = JSON.parse(localStorage.getItem("demoMessages") || "[]");
+    let localMessages = JSON.parse(localStorage.getItem("demoMessages") || "[]");
 
-    function renderMessages() {
-      chatBox.innerHTML = '';
-      localMessages.forEach(({ sender, text }) => {
-        const color = sender === "you" ? "bg-gray-50" : "bg-indigo-50";
-        const label = sender === "you" ? "You" : `${demoTradeId} replied`;
-        chatBox.innerHTML += `
-          <div class="p-4 ${color} rounded-xl shadow-sm hover-lift">
-            <p class="text-sm text-gray-500">${label}</p>
-            <p class="text-gray-800">${text}</p>
-          </div>`;
-      });
-      chatBox.scrollTop = chatBox.scrollHeight;
+    function selectRole(role){
+      rolePage.classList.add("hidden");
+      if(role === "seller"){
+        sellerAccessPage.classList.remove("hidden");}
+      else{
+        buyerPage.classList.remove("hidden");
+        populateBuyerCategories();}
     }
 
+    function showSignup(){
+      sellerAccessPage.classList.add("hidden");
+      signupPage.classList.remove("hidden");}
+
+    function showSignin(){
+      sellerAccessPage.classList.add("hidden");
+      signunPage.classList.remove("hidden");}
+    
     signupForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
       const businessName = document.getElementById('businessName').value;
       const gstNumber = document.getElementById('gstNumber').value;
-
-      document.getElementById('signupResult').innerText = "✔️ Trade ID created: " + demoTradeId;
+      const productCategory = document.getELementById('productCategory').value;
+      const tradeId = "TV-" + Math.floor(Math.random()*900000+100000);
+      
+      const sellers = JSON.parse(localStorage.getItem("sellers" || "[]");
+      seller.push({tradeId,businessName,gstnumber,productCategory});
+      localStorage.setItem("sellers",JSON.stringify(sellers));
+      
+      document.getElementById('signupResult').innerText = "✔️ Trade ID created: " + tradeId;
 
       signupPage.classList.add('hidden');
       dashboardPage.classList.remove('hidden');
+      setupDashboard(tradeId);
+    });
+
+    if(found){
+      status.textContent = "Logged in!";
+      signinPage.classList.add("hidden");
+      dashboardPage.classList.remove("hidden");
+      setupDashboard(inputId);}
+    else{
+      status.textContent = "Invalid Tade ID";}
+    }
+    function populateBuyerCategories(){
+      const sellers=JSON.parse(localStorage.getItem("sellers") || "[]");
+      const categories = [...new Set(sellers.map(s=>s.productCategory))];
+      const buyerDropdown = document.getELementById("buyerCategory");
+
+      buyerDropdown.innerHTML = '<option value+"">Select a Product</option>';
+      const opt = document createElement("option");
+      opt.value = cat;
+      opt.textContent = cat;
+      buyerDropdown.appendChild(opt);}};
+    }
+    document.getElementById("buyerCategory").addEventListener("Change",()=>{
+      ventListener("change,()=>{
+                   const selected = document.getElementById("buyerCategory").value;
+      const matched=seller.filter(s=>s.productCategory===selected);
+      const container = document.getElementById("matchedSellers");
+
+      container.innerHTML = matched.map(s=><div class="p-4 bg-indigo-50 rounded-xl shadow-md">
+                                        <p class="text-gray-700 font-semibold">SellerID:${s.tradeId}</p>
+      <button onclick="connectTo('${s.tradeId}')"
+      class="mt-2 insta-gradient text-white px-4 py-2 rounded-xl font-semibold shadow hover-lift">Message Seller</button>
+      </div>).join('');
+    });
+    
+    function connectTo(tradeId){
+      buyerPage.classList.add('hidden');
+      dashboardPage.classList.remove('hidden');
+      setupDashnoard(tradeId);}
+
+    funtion setupDashboard(tradeId){
+      document.getElementById('tradeId').value=tradeId;
+      document.getElementById('qrcode').innerHTML=";
 
       new QRCode(document.getElementById("qrcode"), {
-        text: `TradeVeil ID: ${demoTradeId}`,
+        text: `TradeVeil ID: ${tradeId}`,
         width: 150,
         height: 150,
         colorDark: "#1E3A8A",
@@ -162,11 +217,29 @@
       document.getElementById('tradeId').value = demoTradeId;
     });
 
+    localMessages = JSON.parse(localStorage.getItem("demoMessages") || "[]");
+      renderMessages();
+    }
+
+    function renderMessages() {
+      chatBox.innerHTML = '';
+      localMessages.forEach(({ sender, text }) => {
+        const color = sender === "you" ? "bg-gray-50" : "bg-indigo-50";
+        const label = sender === "you" ? "You" : "Trade Partner";
+        chatBox.innerHTML += `
+          <div class="p-4 ${color} rounded-xl shadow-sm hover-lift">
+            <p class="text-sm text-gray-500">${label}</p>
+            <p class="text-gray-800">${text}</p>
+          </div>`;
+      });
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
     function sendMessage() {
       const tradeId = document.getElementById('tradeId').value;
       const message = document.getElementById('message').value;
 
-      if (!message.trim()) return;
+      if (!message) return;
 
       localMessages.push({ sender: "you", text: message });
       localMessages.push({ sender: "them", text: "Thanks for your message!" });
@@ -176,7 +249,10 @@
       renderMessages();
     }
 
-    window.onload = renderMessages;
+    window.onload = ()=>{
+      renderMessages();
+      populateBuyerCategories();
+    };
   </script>
 </body>
 </html>
