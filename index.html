@@ -1,266 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TradeVeil </title>
-  <link rel="icon" href="C:\Users\hp\OneDrive\Desktop\tradeveil[1].jpg" type="image/jpg">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <style>
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); } 
-    }
-    .animate-slideIn { animation: slideIn 0.6s ease-out; }
-    .insta-gradient {
-      background: linear-gradient(45deg, #000000, #000000, #151213, #c3b8bc, #d9b3cd);
-    }
-    .shadow-glow { box-shadow: 0 0 15px rgba(79, 70, 229, 0.3); } 
-    .hover-lift:hover { transform: translateY(-5px); transition: transform 0.3s ease; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradeVeil - B2B Wholesale Platform</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .animate-slideIn {
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .insta-gradient {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 min-h-screen font-sans antialiased">
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-2xl font-bold text-blue-600">TradeVeil</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#features" class="text-gray-600 hover:text-blue-600">Features</a>
+                <a href="#security" class="text-gray-600 hover:text-blue-600">Security</a>
+                <button onclick="showAuth('seller')" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Wholesaler Login</button>
+                <button onclick="showAuth('buyer')" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">Retailer Login</button>
+            </div>
+        </div>
+    </nav>
 
-  <header class="fixed top-0 left-0 right-0 z-10 bg-white shadow-lg py-4">
-    <div class="container mx-auto px-4 flex justify-between items-center">
-      <h1 class="text-3xl font-extrabold text-gray-800 flex items-center">
-        <span class="insta-gradient text-transparent bg-clip-text animate-pulse">TradeVeil</span>
-        <i class="fas fa-exchange-alt ml-3 text-indigo-600 animate-spin-slow"></i>
-      </h1>
-    </div>
-  </header>
-
-  <main id="rolePage" class="pt-28 pb-20 px-4">
-  <section class="container mx-auto max-w-xl bg-white p-10 rounded-3xl shadow-glow animate-slideIn text-center">
-    <h2 class="text-4xl font-bold text-gray-800 mb-8 bg-clip-text text-transparent insta-gradient">
-      Welcome to TradeVeil
-    </h2>
-    <p class="mb-6 text-gray-600 text-lg">Choose how you want to use:</p>
-    <div class="space-y-6">
-      <button onclick="selectRole('seller')" class="w-full insta-gradient text-white p-4 rounded-xl font-semibold shadow-md hover:opacity-90 transition hover-lift text-xl">
-        Register/Login as Seller
-      </button>
-      <button onclick="selectRole('buyer')" class="w-full insta-gradient text-white p-4 rounded-xl font-semibold shadow-md hover:opacity-90 transition hover-lift text-xl">
-        Browse as Buyer
-      </button>
-    </div>
-  </section>
-</main>
-
-  <main id="sellerAccessPage" class="hidden pt-28 pb-20 px-4">
-    <section class="container mx-auto max-auto max-w-xl bg-white p-10 rounded-3xl shadow-glow animate-slideIn text-center">
-      <h2 class="text-4xl font-bold text-gray-800 mb-6 bg-clip-text text-transparent insta-gradient">Seller Access</h2>
-      <div class="space-y-6">
-        <button onclick="showSignup()" class="w-full insta-gradient text-white p-4 rounded-xl font-semibold shadow-md hover:opacity-90 transition hover-lift">Sign Up</button>
-        <button onclick="showSignin()" class="w-full bg-indigo-500 text-white p-4 rounded-xl font-semibold shadow-md hover:opacity-90 transition hover-lift">Sign In</button>
-      </div>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
+                Secure B2B Wholesale Marketplace
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Connect directly with verified wholesalers/retailers in your region while maintaining complete business privacy.
+            </p>
+        </div>
     </section>
-  </main>
 
-  <main id="signupPage" class="hidden pt-28 pb-20 px-4">
-    <section class ="container mx-auto mx-auto max-w-xl bg-white p-10 rounded-3xl shadow-glow animate-slideIn">
-      <h2 class="text-4xl font-bold text-center text-gray-800 mb-8 bg-clip-text text-trasparent insta-gradient">Create Your Trade</h2>
-      <form id="signupForm" class="space-y-6">
-        <input type="text" id="businessName" placeholder="Business Name" required class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm">
+<script>
+// Function to handle login button clicks
+function showAuth(type) {
+    alert(`Opening ${type === 'seller' ? 'Wholesaler' : 'Retailer'} Login`);
+}
+</script>
 
-        <label class="block text-left text-gray-700 font-medium">GST Number (optional):</label>
-        <input type="text" id="gstNumber" placeholder="Enter GST Number" class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm">
-
-        <label class="block text-left text-gray-700 font-medium">Or Upload Business Details File:</label>
-        <input type="file" id="businessReport" class="w-full p-4 border-gray-300 rounded-xl bg-gray-50 shadow-sm">
-
-        <select id="productCategory" required class="w-full p-4 border-gray-300 rounded-xl bg-gray-50 shadow-sm">
-          <option value="">Select Product Category</option>
-          <option value="Textiles">Textlines</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Spices">Spices</option>
-          <option value="Handicrafts">Handicrafts</option>
-        </select>
-        <button type="submit" class="w-full insta-gradient text-white p-4 rounded-xl font-semibold shadow-md hover:opacity-90 trasition hover-lift">Sign Up</button>
-      </form>
-      <div id="signupResult" class="mt-4 text-center font-semibold text-green-600"></div>
-    </section>
-  </main>
-
-
-<main id="signinPage" class="hidden pt-28 pd-20 px-4">
-  <section class="container mx-auto max-w-xl bg-white p-10 rounded-3xl shadow-glow animate-slideIn text-center">
-    <h2 class="text-4xl font-bold mb-6 bg-clip-text text-transparent insta-gradient">Seller Sign In</h2>
-    <input type="text" id="signinId" placeholder="Enter Your Trade ID" class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm mb-4">
-    <button onclick="signinSeller()" class="w-full insta-gradient text-white p-4 rounded-xl font-semibold shadow-md hover:opacity-90 trasition hover-lift">Sign In</button>
-    <p id="signinStatus" class="mt-4 text-red-600 font-semibold"></p>
-  </section>
-</main>
-
-  <main id="buyerPage" class="hidden pt-28 pb-20 px-4">
-    <section class="container mx-auto max-w-xl bg-white p-10 rounded-3xl shadow-glow animate-slideIn">
-      <h2 class="text-4xl font-bold text-center text-gray-800 mb-8 bg-clip-text text-transparent insta-gradient">Find a Product</h2>
-      <select id="buyerCategory" class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm mb-6">
-        <option value="">Select a Product</option>
-      </select>
-      <div id="matchedSellers" class="space-y-4"></div>
-    </section>
-  </main>    
-
-  <main id="dashboardPage" class="hidden pt-28 pb-20 px-4">
-    <section class="container mx-auto max-w-2xl bg-white p-10 rounded-3xl shadow-glow animate-slideIn">
-      <h2 class="text-4xl font-bold text-center text-gray-800 mb-8 bg-clip-text text-transparent insta-gradient">Welcome to Your Dashboard</h2>
-      <div class="text-center mb-10">
-        <div id="qrcode" class="mx-auto p-6 bg-gray-100 rounded-2xl shadow-inner w-fit"></div>
-        <p class="mt-4 text-gray-700 font-medium">Scan to share your Trade ID</p>
-      </div>
-      <div class="space-y-6">
-        <input type="text" id="tradeId" placeholder="Enter Trade ID" value="TV-DEMO-123456" required class="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 shadow-sm">
-        <textarea id="message" placeholder="Type your message..." class="w-full p-4 border border-gray-300 rounded-xl h-36 bg-gray-50 shadow-sm"></textarea>
-        <button onclick="sendMessage()" class="w-full insta-gradient text-white p-4 rounded-xl font-semibold shadow-md hover:opacity-90 transition hover-lift">Send Message</button>
-      </div>
-      <div id="chatBox" class="mt-8 space-y-4 max-h-64 overflow-y-auto"></div>
-    </section>
-  </main>
-
-  <footer class="bg-indigo-900 text-white py-6 text-center mt-20">
-    <p>&copy; 2025 TradeVeil Demo. All rights reserved.</p>
-  </footer>
-
-  <script>
-    const validGstNumbers = ['27AAAPL1234C1Z5','29ABCDE1234F1Z5','36BCDEF5678G1Z5','08XYZPT5678L1Z9','33MNOQR7890S1Z3'];
-    const rolePage = document.getElementById("rolePage");
-    const sellerAccessPage = document.getElementById("sellerAccessPage");
-    const signupPage = document.getElementById("signupPage");
-    const signinPage = document.getElementById("signinPage");
-    const buyerPage = document.getElementById("buyerPage");
-    const dashboardPage = document.getElementById("dashboardPage");
-    const chatBox = document.getElementById("chatBox");
-    const signupForm = document.getELementById("signupForm");
-
-    let localMessages = JSON.parse(localStorage.getItem("demoMessages") || "[]");
-
-    function selectRole(role){
-      rolePage.classList.add("hidden");
-      if(role === "seller"){
-        sellerAccessPage.classList.remove("hidden");}
-      else{
-        buyerPage.classList.remove("hidden");
-        populateBuyerCategories();}
-    }
-
-    function showSignup(){
-      sellerAccessPage.classList.add("hidden");
-      signupPage.classList.remove("hidden");}
-
-    function showSignin(){
-      sellerAccessPage.classList.add("hidden");
-      signunPage.classList.remove("hidden");}
-    
-    signupForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const businessName = document.getElementById('businessName').value;
-      const gstNumber = document.getElementById('gstNumber').value;
-      const productCategory = document.getELementById('productCategory').value;
-      const tradeId = "TV-" + Math.floor(Math.random()*900000+100000);
-      
-      const sellers = JSON.parse(localStorage.getItem("sellers" || "[]");
-      seller.push({tradeId,businessName,gstnumber,productCategory});
-      localStorage.setItem("sellers",JSON.stringify(sellers));
-      
-      document.getElementById('signupResult').innerText = "✔️ Trade ID created: " + tradeId;
-
-      signupPage.classList.add('hidden');
-      dashboardPage.classList.remove('hidden');
-      setupDashboard(tradeId);
-    });
-
-    if(found){
-      status.textContent = "Logged in!";
-      signinPage.classList.add("hidden");
-      dashboardPage.classList.remove("hidden");
-      setupDashboard(inputId);}
-    else{
-      status.textContent = "Invalid Tade ID";}
-    }
-    function populateBuyerCategories(){
-      const sellers=JSON.parse(localStorage.getItem("sellers") || "[]");
-      const categories = [...new Set(sellers.map(s=>s.productCategory))];
-      const buyerDropdown = document.getELementById("buyerCategory");
-
-      buyerDropdown.innerHTML = '<option value+"">Select a Product</option>';
-      const opt = document createElement("option");
-      opt.value = cat;
-      opt.textContent = cat;
-      buyerDropdown.appendChild(opt);}};
-    }
-    document.getElementById("buyerCategory").addEventListener("Change",()=>{
-      ventListener("change,()=>{
-                   const selected = document.getElementById("buyerCategory").value;
-      const matched=seller.filter(s=>s.productCategory===selected);
-      const container = document.getElementById("matchedSellers");
-
-      container.innerHTML = matched.map(s=><div class="p-4 bg-indigo-50 rounded-xl shadow-md">
-                                        <p class="text-gray-700 font-semibold">SellerID:${s.tradeId}</p>
-      <button onclick="connectTo('${s.tradeId}')"
-      class="mt-2 insta-gradient text-white px-4 py-2 rounded-xl font-semibold shadow hover-lift">Message Seller</button>
-      </div>).join('');
-    });
-    
-    function connectTo(tradeId){
-      buyerPage.classList.add('hidden');
-      dashboardPage.classList.remove('hidden');
-      setupDashnoard(tradeId);}
-
-    funtion setupDashboard(tradeId){
-      document.getElementById('tradeId').value=tradeId;
-      document.getElementById('qrcode').innerHTML=";
-
-      new QRCode(document.getElementById("qrcode"), {
-        text: `TradeVeil ID: ${tradeId}`,
-        width: 150,
-        height: 150,
-        colorDark: "#1E3A8A",
-        colorLight: "#F9FAFB"
-      });
-
-      document.getElementById('tradeId').value = demoTradeId;
-    });
-
-    localMessages = JSON.parse(localStorage.getItem("demoMessages") || "[]");
-      renderMessages();
-    }
-
-    function renderMessages() {
-      chatBox.innerHTML = '';
-      localMessages.forEach(({ sender, text }) => {
-        const color = sender === "you" ? "bg-gray-50" : "bg-indigo-50";
-        const label = sender === "you" ? "You" : "Trade Partner";
-        chatBox.innerHTML += `
-          <div class="p-4 ${color} rounded-xl shadow-sm hover-lift">
-            <p class="text-sm text-gray-500">${label}</p>
-            <p class="text-gray-800">${text}</p>
-          </div>`;
-      });
-      chatBox.scrollTop = chatBox.scrollHeight;
-    }
-
-    function sendMessage() {
-      const tradeId = document.getElementById('tradeId').value;
-      const message = document.getElementById('message').value;
-
-      if (!message) return;
-
-      localMessages.push({ sender: "you", text: message });
-      localMessages.push({ sender: "them", text: "Thanks for your message!" });
-
-      localStorage.setItem("demoMessages", JSON.stringify(localMessages));
-      document.getElementById('message').value = '';
-      renderMessages();
-    }
-
-    window.onload = ()=>{
-      renderMessages();
-      populateBuyerCategories();
-    };
-  </script>
 </body>
 </html>
+
+
+
