@@ -98,6 +98,28 @@
             </div>
         </div>
     </section>
+    <main id="sellerAuth" class="hidden pt-20 pb-20 px-4">
+        <section class="container mx-auto max-w-xl bg-white p-10 rounded-3xl shadow-lg animate-slideIn">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Wholesaler Registration</h2>
+            <form id="sellerForm" class="space-y-6">
+                <div>
+                    <label class="block text-left text-gray-700 font-medium mb-2">GST Number</label>
+                    <input type="text" id="sellerGst" class="w-full p-4 border-gray-300 rounded-xl bg-gray-50" required>
+                </div>
+                <div>
+                    <label class="block text-left text-gray-700 font-medium mb-2">Business Category</label>
+                    <select id="sellerCategory" class="w-full p-4 border-gray-300 rounded-xl bg-gray-50">
+                        <option value="electronics">Electronics</option>
+                        <option value="textiles">Textiles</option>
+                        <option value="stationery">Stationery</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white p-4 rounded-xl font-semibold hover:bg-blue-700">
+                    Register as Wholesaler
+                </button>
+            </form>
+        </section>
+    </main>
         
         <script>
 
