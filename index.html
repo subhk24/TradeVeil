@@ -120,13 +120,35 @@
             </form>
         </section>
     </main>
-        
-        <script>
 
-function showAuth(type) {
-    alert(`Opening ${type === 'seller' ? 'Wholesaler' : 'Retailer'} Login`);
+ <main id="buyerAuth" class="hidden pt-20 pb-20 px-4">
+        <section class="container mx-auto max-w-xl bg-white p-10 rounded-3xl shadow-lg animate-slideIn">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Retailer Registration</h2>
+            <form id="buyerForm" class="space-y-6">
+                <div>
+                    <label class="block text-left text-gray-700 font-medium mb-2">GST Number (Optional)</label>
+                    <input type="text" id="buyerGst" class="w-full p-4 border-gray-300 rounded-xl bg-gray-50">
+                </div>
+                <div>
+                    <label class="block text-left text-gray-700 font-medium mb-2">Business Proof Documents</label>
+                    <input type="file" multiple class="w-ull p-4 border-gray-300 rounded-xl bg-gray-50">
+                </div>
+                <div>
+                    <label class="block text-left text-gray-700 font-medium mb-2">Business Category</label>
+                    <select id="buyerCategory" class="w-full p-4 border-gray-300 rounded-xl bg-gray-50">
+                        <option value="electronics">Electronics</option>
+                        <option value="textiles">Textiles</option>
+                        <option value="stationery">Stationery</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 text-white p-4 rounded-xl font-semibold hover:bg-indigo-700">
+                    Register as Retailer
+                </button>
+            </form>
+        </section>
+    </main>
 }
-</script>
+
 
 </body>
 </html>
