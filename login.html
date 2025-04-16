@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In | Virus Detector</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: white;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .box {
+      position: relative;
+      border-radius: 20px;
+      transform-style: preserve-3d;
+    }
+
+    .box .card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.1);
+      width: 400px;
+      height: 600px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-top: 1px solid rgba(255, 255, 255, 0.75);
+      border-left: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 20px;
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
+    }
+
+    .elements.name {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%) translateZ(100px);
+      width: 150px;
+      padding: 15px;
+      text-align: center;
+      color: white;
+    }
+
+    .elements.name h2 {
+      font-size: 2.2rem;
+      margin: 0;
+    }
+
+    .elements.content {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%) translateZ(180px);
+      width: 70%;
+      height: 300px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      width: 100%;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    label {
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    input {
+      background: transparent;
+      padding: 6px 30px 6px 10px;
+      font-size: 0.9em;
+      outline: none;
+      border: none;
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-top: 1px solid rgba(255, 255, 255, 0.75);
+      border-left: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 10px;
+      color: white;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 32px;
+      cursor: pointer;
+      color: #ccc;
+    }
+
+    button {
+      width: 100%;
+      background-color: transparent;
+      color: white;
+      padding: 10px 0;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-top: 1px solid rgba(255, 255, 255, 0.75);
+      border-left: 1px solid rgba(255, 255, 255, 0.75);
+    }
+
+    button:hover {
+      background-color: #090979;
+    }
+
+    ::placeholder {
+      color: rgb(181, 177, 177);
+      font-size: 10px;
+      padding-left: 5px;
+    }
+
+    .forgot-password {
+      width: 100%;
+      text-align: right;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .forgot-password a {
+      color: #ccc;
+      text-decoration: underline;
+    }
+
+    .register-link {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    #loadingOverlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .spinner {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #3a7bd5;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <div class="elements name">
+      <h2>Login</h2>
+    </div>
+    <div class="elements content">
+      <form id="signInForm">
+        <div class="form-group">
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+          <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+        </div>
+        <div class="forgot-password">
+          <a href="forgot_page.html">Forgot Password?</a>
+        </div>
+        <div class="form-group">
+          <button type="submit">Sign In</button>
+        </div>
+        <p class="register-link">
+          New to our platform?
+          <a href="signup.html">Register here</a>
+        </p>
+      </form>
+    </div>
+    <div class="card"></div>
+  </div>
+
+  <div id="loadingOverlay">
+    <div class="spinner"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <script>
+    VanillaTilt.init(document.querySelector(".box"), {
+      max: 15,
+      speed: 1000,
+      glare: true,
+      "max-glare": 0.2,
+    });
+
+    document.getElementById("togglePassword").addEventListener("click", function () {
+      let passwordField = document.getElementById("password");
+      if (passwordField.type === "password") {
+        passwordField.type = "text";
+        this.classList.replace("fa-eye", "fa-eye-slash");
+      } else {
+        passwordField.type = "password";
+        this.classList.replace("fa-eye-slash", "fa-eye");
+      }
+    });
+
+    document.getElementById("signInForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const overlay = document.getElementById("loadingOverlay");
+      overlay.style.display = "flex";
+      overlay.style.opacity = 0;
+      setTimeout(() => {
+        overlay.style.transition = "opacity 0.3s ease";
+        overlay.style.opacity = 1;
+      }, 10);
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
