@@ -185,12 +185,112 @@
             </div>
         </div>
     </main>
+<div id="demoModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-8 rounded-2xl max-w-md w-full">
+            <h3 class="text-xl font-semibold mb-4">Request Product Sample</h3>
+            <p class="mb-4">We'll arrange secure sample delivery without revealing business details</p>
+            <button onclick="confirmDemo()" class="w-full bg-green-500 text-white p-3 rounded-lg">Confirm Demo Request</button>
+        </div>
+    </div>
 
+<script>
+    
+let users = JSON.parse(localStorage.getItem('tradeveilUsers')) || [];
+let currentUser = null;
+
+function showAuth(type) {
+    document.querySelectorAll('main').forEach(el => el.classList.add('hidden'));
+    if(type === 'seller') {
+        document.getElementById('sellerAuth').classList.remove('hidden');
+    } else {
+        document.getElementById('buyerAuth').classList.remove('hidden');
+    }
 }
 
+document.getElementById('sellerForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const user = {
+        type: 'seller',
+        gst: document.getElementById('sellerGst').value,
+        category: document.getElementById('sellerCategory').value,
+        id: 'TV-' + Math.random().toString(36).substr(2, 9).toUpperCase(),
+        joined: new Date().toISOString()
+    };
+    users.push(user);
+    localStorage.setItem('tradeveilUsers', JSON.stringify(users));
+    showDashboard(user);
+});
 
+document.getElementById('buyerForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const user = {
+        type: 'buyer',
+        gst: document.getElementById('buyerGst').value,
+        category: document.getElementById('buyerCategory').value,
+        id: 'TV-' + Math.random().toString(36).substr(2, 9).toUpperCase(),
+        joined: new Date().toISOString()
+    };
+    users.push(user);
+    localStorage.setItem('tradeveilUsers', JSON.stringify(users));
+    showDashboard(user);
+});
+
+function showDashboard(user) {
+    currentUser = user;
+    document.querySelectorAll('main').forEach(el => el.classList.add('hidden'));
+    if(user.type === 'seller') {
+        document.getElementById('sellerDashboard').classList.remove('hidden');
+        loadSellerDashboard();
+    } else {
+        document.getElementById('buyerDashboard').classList.remove('hidden');
+        loadBuyerDashboard();
+    }
+}
+
+function loadBuyerDashboard() {
+    const wholesalers = users.filter(u => u.type === 'seller' && u.category === currentUser.category);
+    const container = document.getElementById('wholesalerList');
+    
+    wholesalers.forEach(ws => {
+        const card = document.createElement('div');
+        card.className = 'bg-gray-50 p-6 rounded-xl';
+        card.innerHTML = `
+            <div class="flex justify-between items-start">
+                <div>
+                    <h4 class="font-semibold">${ws.category} Wholesaler</h4>
+                    <p class="text-sm text-gray-600">TradeVeil ID: ${ws.id}</p>
+                </div>
+                <div class="space-x-4">
+                    <button onclick="showDemoModal()" class="text-sm bg-blue-100 text-blue-600 px-3 py-1 rounded-lg">
+                        Request Sample
+                    </button>
+                    <button class="text-sm bg-green-100 text-green-600 px-3 py-1 rounded-lg">
+                        Contact
+                    </button>
+                </div>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+function showDemoModal() {
+    document.getElementById('demoModal').classList.remove('hidden');
+}
+
+function confirmDemo() {
+    alert('Demo request submitted! Our team will contact you shortly.');
+    document.getElementById('demoModal').classList.add('hidden');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    if(users.length > 0) {
+        showAuth('seller');
+    }
+});
+</script>
 </body>
-</html>
+</html> 
 
 
 
