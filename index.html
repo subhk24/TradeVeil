@@ -7,6 +7,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        .hover-zoom {
+        transition: transform 0.3s ease-in-out;
+    }
+    .hover-zoom:hover {
+        transform: scale(1.1);
+    }
         .animate-slideIn {
             animation: slideIn 0.5s ease-out;
         }
