@@ -2,94 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Register | TradeVeil</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background: #10b981; /* Tailwind emerald-500 */
-      font-family: "Poppins", sans-serif;
-      color: white;
-    }
-    .container {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 2rem;
-      border-radius: 1rem;
-      width: 350px;
-      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(10px);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-      font-size: 1.8rem;
-    }
-    label {
-      display: block;
-      margin-bottom: 0.25rem;
-      font-size: 0.9rem;
-    }
-    input, select {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border-radius: 0.5rem;
-      border: none;
-      outline: none;
-      font-size: 1rem;
-    }
-    button {
-      width: 100%;
-      padding: 0.75rem;
-      background-color: #047857; /* Tailwind emerald-700 */
-      border: none;
-      border-radius: 0.5rem;
-      font-weight: 700;
-      cursor: pointer;
-      color: white;
-      font-size: 1rem;
-    }
-    button:hover {
-      background-color: #065f46; /* Tailwind emerald-800 */
-    }
-    .login-link {
-      margin-top: 1rem;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-    .login-link a {
-      color: #d1fae5; /* Tailwind emerald-100 */
-      text-decoration: underline;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <meta name="description" content="Register for TradeVeil, the secure B2B wholesale platform connecting verified wholesalers and retailers." />
+  <meta name="keywords" content="TradeVeil, Register, B2B, Wholesale, Marketplace" />
+  <meta name="author" content="TradeVeil" />
 </head>
 <body>
-  <div class="container">
-    <h2>Register</h2>
-    <form id="registerForm">
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required />
-      
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" placeholder="Enter password" required />
-      
-      <label for="userType">User Type</label>
-      <select id="userType" name="userType" required>
-        <option value="">Select user type</option>
-        <option value="buyer">Buyer</option>
-        <option value="seller">Seller</option>
-      </select>
-      
-      <button type="submit">Register</button>
-    </form>
-    <p class="login-link">
-      Already have an account? <a href="login.html">Login here</a>
-    </p>
-  </div>
+  <nav>
+    <div class="container">
+      <div class="logo">TradeVeil</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+    <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 1rem; width: 350px; box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px);">
+      <h2 style="text-align: center; margin-bottom: 1.5rem; font-weight: 700; font-size: 1.8rem;">Register</h2>
+      <form id="registerForm" style="display: flex; flex-direction: column;">
+        <label for="email" style="margin-bottom: 0.25rem; font-size: 0.9rem;">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border-radius: 0.5rem; border: none; outline: none; font-size: 1rem;" />
+        
+        <label for="password" style="margin-bottom: 0.25rem; font-size: 0.9rem;">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border-radius: 0.5rem; border: none; outline: none; font-size: 1rem;" />
+        
+        <label for="userType" style="margin-bottom: 0.25rem; font-size: 0.9rem;">User Type</label>
+        <select id="userType" name="userType" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border-radius: 0.5rem; border: none; outline: none; font-size: 1rem;">
+          <option value="">Select user type</option>
+          <option value="buyer">Buyer</option>
+          <option value="seller">Seller</option>
+        </select>
+        
+        <button type="submit" style="width: 100%; padding: 0.75rem; background-color: #047857; border: none; border-radius: 0.5rem; font-weight: 700; cursor: pointer; color: white; font-size: 1rem;">Register</button>
+      </form>
+      <p style="margin-top: 1rem; text-align: center; font-size: 0.9rem;">
+        Already have an account? <a href="login.html" style="color: #047857; text-decoration: none;">Login here</a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2024 TradeVeil. All rights reserved.</p>
+  </footer>
 
   <script>
     document.getElementById('registerForm').addEventListener('submit', function(e) {

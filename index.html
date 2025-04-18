@@ -1,166 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TradeVeil - B2B Wholesale Platform</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .hover-zoom {
-        transition: transform 0.3s ease-in-out;
-    }
-    .hover-zoom:hover {
-        transform: scale(1.1);
-    }
-        .animate-slideIn {
-            animation: slideIn 0.5s ease-out;
-        }
-        @keyframes slideIn {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .insta-gradient {
-            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="description" content="Secure Business to Business Wholesale Marketplace connecting verified wholesalers and retailers with complete business privacy." />
+    <meta name="keywords" content="B2B, Wholesale, Marketplace, TradeVeil, Business Privacy, Verified Sellers" />
+    <meta name="author" content="TradeVeil" />
 </head>
-<body class="bg-emerald-500">
-    <nav class="bg-white shadow-sm fixed w-full z-10">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <span class="text-2xl font-bold text-blue-600">TradeVeil</span>
-            </div>
-            <div class="hidden md:flex space-x-6">
-                <a href="#features" class="text-gray-600 hover:text-blue-600">Features</a>
-                <a href="#security" class="text-gray-600 hover:text-blue-600">Security</a>
-                <a href="signup.html" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Register</a>
-                <a href="login.html" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Login</a>
-            </div>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">TradeVeil</div>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="signup.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
         </div>
     </nav>
-    <section class="pt-32 pb-20 px-4">
-        <div class="container mx-auto text-center">
-            <h1 class="text-4xl md:text-6xl font-bold text-amber-500 mb-6">
-                Secure Business to Business Wholesale Marketplace
-            </h1>
-            <p class="text-xl text-amber-300 mb-8 max-w-2xl mx-auto">
-                Connect directly with verified wholesalers/retailers in your region while maintaining complete business privacy.
-            </p>
-        </div>
+
+    <section class="container" style="padding-top: 5rem; padding-bottom: 3rem; text-align: center;">
+        <h1>Secure Business to Business Wholesale Marketplace</h1>
+        <p>Connect directly with verified wholesalers/retailers in your region while maintaining complete business privacy.</p>
     </section>
 
-    <section class = "container mx-auto px-4 pb-16">
-    <h2 class="text-2xl font-semibold mb-6">Explore Business Categories</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="bg-transparent p-6 rounded-xl shadow hover:shadow-md text-center">
-                <img src="https://i.pinimg.com/736x/3b/06/07/3b0607129c3dbd52f16d81b67336d77c.jpg" length="700" width ="500" class="mx-auto mb-2 rounded hover-zoom" alt="Sample">
+    <section class="container" style="padding-bottom: 4rem;">
+        <h2>Explore Business Categories</h2>
+        <div class="grid grid-cols-4">
+            <div class="shadow p-4 rounded text-center transition hover:shadow-lg">
+                <img src="https://i.pinimg.com/736x/3b/06/07/3b0607129c3dbd52f16d81b67336d77c.jpg" alt="Electronics" style="max-width: 100%; border-radius: 0.5rem;"/>
                 <p>Electronics</p>
             </div>
-            <div class="bg-transparent p-6 rounded-xl shadow hover:shadow-md text-center">
-                <img src="https://i.pinimg.com/736x/f1/8c/17/f18c17f9508bc933fe1ae362283e247d.jpg" length="700" width="500" class="mx-auto mb-2 rounded hover-zoom" alt="Sample">
+            <div class="shadow p-4 rounded text-center transition hover:shadow-lg">
+                <img src="https://i.pinimg.com/736x/f1/8c/17/f18c17f9508bc933fe1ae362283e247d.jpg" alt="Textiles" style="max-width: 100%; border-radius: 0.5rem;"/>
                 <p>Textiles</p>
             </div>
-            <div class="bg-transparent p-6 rounded-xl shadow hover:shadow-md text-center">
-                <img src="https://i.pinimg.com/736x/96/ef/d9/96efd91642dddf67586018e0eae05a27.jpg" length="700" width="700" class="mx-auto mb-2 rounded hover-zoom" alt="Sample">
+            <div class="shadow p-4 rounded text-center transition hover:shadow-lg">
+                <img src="https://i.pinimg.com/736x/96/ef/d9/96efd91642dddf67586018e0eae05a27.jpg" alt="Stationery" style="max-width: 100%; border-radius: 0.5rem;"/>
                 <p>Stationery</p>
             </div>
-            <div class="bg-transparent p-6 rounded-xl shadow hover:shadow-md text-center">
-                <img src="https://i.pinimg.com/736x/04/25/4f/04254f1eb2a4cb2097e54d582806743c.jpg" length="700" width="500" class="mx-auto mb-2 rounded hover-zoom" alt="Sample">
+            <div class="shadow p-4 rounded text-center transition hover:shadow-lg">
+                <img src="https://i.pinimg.com/736x/04/25/4f/04254f1eb2a4cb2097e54d582806743c.jpg" alt="Cosmetics" style="max-width: 100%; border-radius: 0.5rem;"/>
                 <p>Cosmetics</p>
             </div>
         </div>
-        <h2 class="text-2xl font-semibold mt-12 mb-6">Popular Product Samples</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="bg-white p-4 rounded-xl shadow text-center product-card" data-id="headphones" data-name="Headphones" data-price="1000">
-                <img src="https://i.pinimg.com/736x/a9/c8/ab/a9c8abe2fe655aa90cc4d05198718926.jpg" class="mx-auto mb-2 rounded hover-zoom" alt="Sample">
-                <p class="font-medium">Headphones</p>
-                <button class="add-to-cart-btn bg-green-500 text-white px-3 py-1 rounded mt-2 hover:bg-green-600">Add to Cart</button>
+
+        <h2 style="margin-top: 3rem;">Popular Product Samples</h2>
+        <div class="grid grid-cols-4">
+            <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="headphones" data-name="Headphones" data-price="1000">
+                <img src="https://i.pinimg.com/736x/a9/c8/ab/a9c8abe2fe655aa90cc4d05198718926.jpg" alt="Headphones" style="max-width: 100%; border-radius: 0.5rem;"/>
+                <p>Headphones</p>
+                <button>Add to Cart</button>
             </div>
-            <div class="bg-white p-4 rounded-xl shadow text-center product-card" data-id="cotton-tshirt" data-name="Cotton T-Shirt Pack" data-price="500">
-                <img src="https://i.pinimg.com/736x/4a/46/6f/4a466ffaf0b0ea6e902036a31649d7aa.jpg" class="mx-auto mb-2 rounded hover-zoom" alt="Sample">
-                <p class="font-medium">Cotton T-Shirt Pack</p>
-                <button class="add-to-cart-btn bg-green-500 text-white px-3 py-1 rounded mt-2 hover:bg-green-600">Add to Cart</button>
+            <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="cotton-tshirt" data-name="Cotton T-Shirt Pack" data-price="500">
+                <img src="https://i.pinimg.com/736x/4a/46/6f/4a466ffaf0b0ea6e902036a31649d7aa.jpg" alt="Cotton T-Shirt Pack" style="max-width: 100%; border-radius: 0.5rem;"/>
+                <p>Cotton T-Shirt Pack</p>
+                <button>Add to Cart</button>
             </div>
-            <div class="bg-white p-4 rounded-xl shadow text-center product-card" data-id="sun-glasses" data-name="Sun Glasses" data-price="700">
-                <img src="https://i.pinimg.com/474x/ba/bc/97/babc97e0d3a39781522c6990c03834ee.jpg" class="mx-auto mb-2 rounded hover-zoom" alt="Sample">
-                <p class="font-medium">Sun Glasses</p>
-                <button class="add-to-cart-btn bg-green-500 text-white px-3 py-1 rounded mt-2 hover:bg-green-600">Add to Cart</button>
+            <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="sun-glasses" data-name="Sun Glasses" data-price="700">
+                <img src="https://i.pinimg.com/474x/ba/bc/97/babc97e0d3a39781522c6990c03834ee.jpg" alt="Sun Glasses" style="max-width: 100%; border-radius: 0.5rem;"/>
+                <p>Sun Glasses</p>
+                <button>Add to Cart</button>
             </div>
-            <div class="bg-white p-4 rounded-xl shadow text-center product-card" data-id="lipsticks" data-name="Lipsticks" data-price="300">
-                <img src="https://i.pinimg.com/474x/2c/60/97/2c60974fc65af811c079e7b2e10c3a6c.jpg" class="mx-auto mb-2 rounded hover-zoom" alt="Sample">
-                <p class="font-medium">Lipsticks</p>
-                <button class="add-to-cart-btn bg-green-500 text-white px-3 py-1 rounded mt-2 hover:bg-green-600">Add to Cart</button>
+            <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="lipsticks" data-name="Lipsticks" data-price="300">
+                <img src="https://i.pinimg.com/474x/2c/60/97/2c60974fc65af811c079e7b2e10c3a6c.jpg" alt="Lipsticks" style="max-width: 100%; border-radius: 0.5rem;"/>
+                <p>Lipsticks</p>
+                <button>Add to Cart</button>
             </div>
         </div>
-<div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="flex items-center space-x-4 bg-trasparent p-6 rounded-xl shadow">
-                <span class="text-3xl text-green-500">🔒</span>
+
+        <div class="grid grid-cols-3 mt-4">
+            <div class="shadow p-4 rounded flex items-center gap-4">
+                <span style="font-size: 2rem; color: #047857;">🔒</span>
                 <p>End-to-end encrypted communication</p>
             </div>
-            <div class="flex items-center space-x-4 bg-trasparent p-6 rounded-xl shadow">
-                <span class="text-3xl text-blue-500">✅</span>
+            <div class="shadow p-4 rounded flex items-center gap-4">
+                <span style="font-size: 2rem; color: #2563eb;">✅</span>
                 <p>Verified seller network</p>
             </div>
-            <div class="flex items-center space-x-4 bg-trasparent p-6 rounded-xl shadow">
-                <span class="text-3xl text-yellow-500">📦</span>
+            <div class="shadow p-4 rounded flex items-center gap-4">
+                <span style="font-size: 2rem; color: #ca8a04;">📦</span>
                 <p>Sample-first product policy</p>
             </div>
         </div>
     </section>
 
-    <section id="cartSection" class="container mx-auto px-4 pb-16 hidden">
-      <h2 class="text-2xl font-semibold mb-6">Your Cart</h2>
-      <div id="cartItems" class="space-y-4"></div>
-      <button id="clearCartBtn" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 mt-4">Clear Cart</button>
+    <section id="cartSection" class="container hidden">
+      <h2>Your Cart</h2>
+      <div id="cartItems"></div>
+      <button id="clearCartBtn">Clear Cart</button>
     </section>
 
-      <main id="sellerDashboard" class="hidden pt-28 pb-20 px-4">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Product Listing -->
-                <div class="col-span-2 bg-white p-8 rounded-2xl shadow-sm">
-                    <h3 class="text-2xl font-semibold mb-6">Your Product Listings</h3>
-                    <div id="productList" class="space-y-4"></div>
-                </div>
-               
-                <div class="bg-white p-8 rounded-2xl shadow-sm">
-                    <h3 class="text-2xl font-semibold mb-6">Connection Requests</h3>
-                    <div id="connectionRequests" class="space-y-4"></div>
-                </div>
+    <main id="sellerDashboard" class="hidden container">
+        <div class="grid grid-cols-3 gap-8">
+            <div class="col-span-2 shadow p-8 rounded">
+                <h3>Your Product Listings</h3>
+                <div id="productList"></div>
+            </div>
+            <div class="shadow p-8 rounded">
+                <h3>Connection Requests</h3>
+                <div id="connectionRequests"></div>
             </div>
         </div>
     </main>
-    <main id="buyerDashboard" class="hidden pt-28 pb-20 px-4">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Search Filters -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm">
-                    <h3 class="text-2xl font-semibold mb-6">Find Wholesalers</h3>
-                    <div class="space-y-6">
-                        <input type="text" placeholder="Search products..." class="w-full p-3 border rounded-lg">
-                        <select class="w-full p-3 border rounded-lg">
-                            <option>Price Range</option>
-                            <option>Below ₹10,000</option>
-                            <option>₹10,000 - ₹50,000</option>
-                        </select>
-                    </div>
+
+    <main id="buyerDashboard" class="hidden container">
+        <div class="grid grid-cols-3 gap-8">
+            <div class="shadow p-8 rounded">
+                <h3>Find Wholesalers</h3>
+                <div>
+                    <input type="text" placeholder="Search products..." />
+                    <select>
+                        <option>Price Range</option>
+                        <option>Below ₹10,000</option>
+                        <option>₹10,000 - ₹50,000</option>
+                    </select>
                 </div>
-                <div class="col-span-2 bg-white p-8 rounded-2xl shadow-sm">
-                    <h3 class="text-2xl font-semibold mb-6">Available Wholesalers</h3>
-                    <div id="wholesalerList" class="grid gap-4"></div>
-                </div>
+            </div>
+            <div class="col-span-2 shadow p-8 rounded">
+                <h3>Available Wholesalers</h3>
+                <div id="wholesalerList" class="grid gap-4"></div>
             </div>
         </div>
     </main>
-<div id="demoModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div class="bg-white p-8 rounded-2xl max-w-md w-full">
-            <h3 class="text-xl font-semibold mb-4">Request Product Sample</h3>
-            <p class="mb-4">We'll arrange secure sample delivery without revealing business details</p>
-            <button onclick="confirmDemo()" class="w-full bg-green-500 text-white p-3 rounded-lg">Confirm Demo Request</button>
+
+    <div id="demoModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-8 rounded max-w-md w-full">
+            <h3>Request Product Sample</h3>
+            <p>We'll arrange secure sample delivery without revealing business details</p>
+            <button onclick="confirmDemo()">Confirm Demo Request</button>
         </div>
     </div>
 
+    <footer>
+        <p>© 2024 TradeVeil. All rights reserved.</p>
+    </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
     
 let users = JSON.parse(localStorage.getItem('tradeveilUsers')) || [];
