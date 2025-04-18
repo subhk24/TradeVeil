@@ -34,8 +34,7 @@
             <div class="hidden md:flex space-x-6">
                 <a href="#features" class="text-gray-600 hover:text-blue-600">Features</a>
                 <a href="#security" class="text-gray-600 hover:text-blue-600">Security</a>
-                <button onclick="showAuth('seller')" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Wholesaler Login</button>
-                <button onclick="showAuth('buyer')" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">Retailer Login</button>
+                <a href="login.html" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Login</a>
             </div>
         </div>
     </nav>
@@ -104,55 +103,6 @@
             </div>
         </div>
     </section>
-    <main id="sellerAuth" class="hidden pt-20 pb-20 px-4">
-        <section class="container mx-auto max-w-xl bg-white p-10 rounded-3xl shadow-lg animate-slideIn">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8">Wholesaler Registration</h2>
-            <form id="sellerForm" class="space-y-6">
-                <div>
-                    <label class="block text-left text-gray-700 font-medium mb-2">GST Number</label>
-                    <input type="text" id="sellerGst" class="w-full p-4 border-gray-400 rounded-xl bg-gray-200" required>
-                </div>
-                <div>
-                    <label class="block text-left text-gray-700 font-medium mb-2">Business Category</label>
-                    <select id="sellerCategory" class="w-full p-4 border-gray-400 rounded-xl bg-gray-200">
-                        <option value="electronics">Electronics</option>
-                        <option value="textiles">Textiles</option>
-                        <option value="stationery">Stationery</option>
-                    </select>
-                </div>
-                <button type="submit" class="w-full bg-blue-600 text-white p-4 rounded-xl font-semibold hover:bg-blue-700">
-                    Register as Wholesaler
-                </button>
-            </form>
-        </section>
-    </main>
-
- <main id="buyerAuth" class="hidden pt-20 pb-20 px-4">
-        <section class="container mx-auto max-w-xl bg-white p-10 rounded-3xl shadow-lg animate-slideIn">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8">Retailer Registration</h2>
-            <form id="buyerForm" class="space-y-6">
-                <div>
-                    <label class="block text-left text-gray-700 font-medium mb-2">GST Number (Optional)</label>
-                    <input type="text" id="buyerGst" class="w-full p-4 border-gray-400 rounded-xl bg-gray-200">
-                </div>
-                <div>
-                    <label class="block text-left text-gray-700 font-medium mb-2">Business Proof Documents</label>
-                    <input type="file" multiple class="w-ull p-4 border-gray-400 rounded-xl bg-gray-200">
-                </div>
-                <div>
-                    <label class="block text-left text-gray-700 font-medium mb-2">Business Category</label>
-                    <select id="buyerCategory" class="w-full p-4 border-gray-400 rounded-xl bg-gray-200">
-                        <option value="electronics">Electronics</option>
-                        <option value="textiles">Textiles</option>
-                        <option value="stationery">Stationery</option>
-                    </select>
-                </div>
-                <button type="submit" class="w-full bg-indigo-600 text-white p-4 rounded-xl font-semibold hover:bg-indigo-700">
-                    Register as Retailer
-                </button>
-            </form>
-        </section>
-    </main>
       <main id="sellerDashboard" class="hidden pt-28 pb-20 px-4">
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
