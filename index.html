@@ -34,6 +34,7 @@
             <div class="hidden md:flex space-x-6">
                 <a href="#features" class="text-gray-600 hover:text-blue-600">Features</a>
                 <a href="#security" class="text-gray-600 hover:text-blue-600">Security</a>
+                <a href="signup.html" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Register</a>
                 <a href="login.html" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Login</a>
             </div>
         </div>
@@ -71,21 +72,25 @@
         </div>
         <h2 class="text-2xl font-semibold mt-12 mb-6">Popular Product Samples</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="bg-white p-4 rounded-xl shadow text-center">
+            <div class="bg-white p-4 rounded-xl shadow text-center product-card" data-id="headphones" data-name="Headphones" data-price="1000">
                 <img src="https://i.pinimg.com/736x/a9/c8/ab/a9c8abe2fe655aa90cc4d05198718926.jpg" class="mx-auto mb-2 rounded hover-zoom" alt="Sample">
                 <p class="font-medium">Headphones</p>
+                <button class="add-to-cart-btn bg-green-500 text-white px-3 py-1 rounded mt-2 hover:bg-green-600">Add to Cart</button>
             </div>
-            <div class="bg-white p-4 rounded-xl shadow text-center">
+            <div class="bg-white p-4 rounded-xl shadow text-center product-card" data-id="cotton-tshirt" data-name="Cotton T-Shirt Pack" data-price="500">
                 <img src="https://i.pinimg.com/736x/4a/46/6f/4a466ffaf0b0ea6e902036a31649d7aa.jpg" class="mx-auto mb-2 rounded hover-zoom" alt="Sample">
                 <p class="font-medium">Cotton T-Shirt Pack</p>
+                <button class="add-to-cart-btn bg-green-500 text-white px-3 py-1 rounded mt-2 hover:bg-green-600">Add to Cart</button>
             </div>
-            <div class="bg-white p-4 rounded-xl shadow text-center">
+            <div class="bg-white p-4 rounded-xl shadow text-center product-card" data-id="sun-glasses" data-name="Sun Glasses" data-price="700">
                 <img src="https://i.pinimg.com/474x/ba/bc/97/babc97e0d3a39781522c6990c03834ee.jpg" class="mx-auto mb-2 rounded hover-zoom" alt="Sample">
                 <p class="font-medium">Sun Glasses</p>
+                <button class="add-to-cart-btn bg-green-500 text-white px-3 py-1 rounded mt-2 hover:bg-green-600">Add to Cart</button>
             </div>
-            <div class="bg-white p-4 rounded-xl shadow text-center">
+            <div class="bg-white p-4 rounded-xl shadow text-center product-card" data-id="lipsticks" data-name="Lipsticks" data-price="300">
                 <img src="https://i.pinimg.com/474x/2c/60/97/2c60974fc65af811c079e7b2e10c3a6c.jpg" class="mx-auto mb-2 rounded hover-zoom" alt="Sample">
                 <p class="font-medium">Lipsticks</p>
+                <button class="add-to-cart-btn bg-green-500 text-white px-3 py-1 rounded mt-2 hover:bg-green-600">Add to Cart</button>
             </div>
         </div>
 <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -103,6 +108,13 @@
             </div>
         </div>
     </section>
+
+    <section id="cartSection" class="container mx-auto px-4 pb-16 hidden">
+      <h2 class="text-2xl font-semibold mb-6">Your Cart</h2>
+      <div id="cartItems" class="space-y-4"></div>
+      <button id="clearCartBtn" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 mt-4">Clear Cart</button>
+    </section>
+
       <main id="sellerDashboard" class="hidden pt-28 pb-20 px-4">
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -239,14 +251,75 @@ function confirmDemo() {
     document.getElementById('demoModal').classList.add('hidden');
 }
 
+function loadCart() {
+    const cartItems = JSON.parse(localStorage.getItem('tradeveilCart')) || [];
+    const cartContainer = document.getElementById('cartItems');
+    cartContainer.innerHTML = '';
+    if(cartItems.length === 0) {
+        cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+        document.getElementById('cartSection').classList.add('hidden');
+        return;
+    }
+    document.getElementById('cartSection').classList.remove('hidden');
+    cartItems.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bg-white p-4 rounded-xl shadow flex justify-between items-center';
+        div.innerHTML = `
+            <div>
+                <p class="font-medium">${item.name}</p>
+                <p>Price: ₹${item.price}</p>
+                <p>Quantity: ${item.quantity}</p>
+            </div>
+            <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600" onclick="removeFromCart('${item.id}')">Remove</button>
+        `;
+        cartContainer.appendChild(div);
+    });
+}
+
+function addToCart(product) {
+    let cartItems = JSON.parse(localStorage.getItem('tradeveilCart')) || [];
+    const existingItem = cartItems.find(item => item.id === product.id);
+    if(existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cartItems.push({...product, quantity: 1});
+    }
+    localStorage.setItem('tradeveilCart', JSON.stringify(cartItems));
+    loadCart();
+}
+
+function removeFromCart(productId) {
+    let cartItems = JSON.parse(localStorage.getItem('tradeveilCart')) || [];
+    cartItems = cartItems.filter(item => item.id !== productId);
+    localStorage.setItem('tradeveilCart', JSON.stringify(cartItems));
+    loadCart();
+}
+
+document.getElementById('clearCartBtn').addEventListener('click', () => {
+    localStorage.removeItem('tradeveilCart');
+    loadCart();
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     if(users.length > 0) {
         showAuth('seller');
     }
+    loadCart();
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const card = e.target.closest('.product-card');
+            const product = {
+                id: card.getAttribute('data-id'),
+                name: card.getAttribute('data-name'),
+                price: parseFloat(card.getAttribute('data-price'))
+            };
+            addToCart(product);
+        });
+    });
 });
 </script>
 </body>
-</html> 
+</html>
 
 
 

@@ -21,7 +21,7 @@
       align-items: center;
       min-height: 100vh;
       color: white;
-      background: green;
+      background: #10b981; /* Tailwind emerald-500 to match register page */
     }
 
     .box {
@@ -243,7 +243,18 @@
 
     document.getElementById("signInForm").addEventListener("submit", function (e) {
       e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
       const overlay = document.getElementById("loadingOverlay");
+
+      let users = JSON.parse(localStorage.getItem('tradeveilUsers')) || [];
+      const user = users.find(u => u.email === email && u.password === password);
+
+      if (!user) {
+        alert("Invalid email or password.");
+        return;
+      }
+
       overlay.style.display = "flex";
       overlay.style.opacity = 0;
       setTimeout(() => {
