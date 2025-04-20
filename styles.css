@@ -169,3 +169,12 @@ img {
 img:hover {
     transform: scale(1.05);
 }
+
+/* Make all images equal size */
+img {
+    width: 250px !important;
+    height: 250px !important;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
