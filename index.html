@@ -12,7 +12,7 @@
         </div>
     </nav>
 <head>
-    TradeVeil - B2B Wholesale Platform
+    <title>TradeVeil - B2B Wholesale Platform</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles.css" />
@@ -20,9 +20,70 @@
     <meta name="description" content="Secure Business to Business Wholesale Marketplace connecting verified wholesalers and retailers with complete business privacy." />
     <meta name="keywords" content="B2B, Wholesale, Marketplace, TradeVeil, Business Privacy, Verified Sellers" />
     <meta name="author" content="TradeVeil" />
+</style>
+    .grid-cols-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .grid-cols-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+     @media (max-width: 900px) {
+            .grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .grid-cols-3 {
+                grid-template-columns: repeat(2, 1fr);}}
+    @media (max-width: 600px) {
+            .grid-cols-4,
+            .grid-cols-3 {
+                grid-template-columns: 1fr;}
+            .container {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;}
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;}
+            h1, h2, h3 {
+                font-size: 1.2em !important;}
+            .logo {
+                font-size: 1.3em !important;}
+            .shadow {
+                margin-bottom: 1rem;}}
+    nav .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+            padding: 0;
+            margin: 0;
+        }
+        @media (max-width: 600px) {
+            nav .container {
+                flex-direction: column;
+                align-items: flex-start;}}
+</style>
 </head>
 <body>
-
+<nav>
+        <div class="container">
+            <div class="logo">TradeVeil</div>
+            <ul>
+                <li><button id="cartToggleBtn" aria-label="Toggle Cart" class="cart-icon-btn" title="Your Cart"></button></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="signup.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
     <section class="pt-32 pb-20 px-4">
         <div class="container mx-auto text-center">
             <h1 class="text-4xl md:text-6xl font-bold text-amber-500 mb-6">
