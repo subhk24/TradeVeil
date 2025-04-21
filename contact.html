@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact & Team | TradeVeil</title>
+  <!-- Font Awesome for icons (optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #ffb300;
+      --secondary: #fff8e1;
+      --accent: #333;
+      --bg: #f4f4f4;
+      --card-bg: #fff;
+      --radius: 16px;
+      --shadow: 0 4px 16px rgba(0,0,0,0.07);
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--accent);
+      min-height: 100vh;
+    }
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 2rem 1rem 1rem 1rem;
+      text-align: center;
+      border-bottom-left-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+    }
+    header p {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #fffde7;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Team section */
+    .team-section {
+      margin-bottom: 3rem;
+    }
+    .team-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .team-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      padding: 2rem 1rem 1.5rem 1rem;
+      transition: transform 0.13s, box-shadow 0.13s;
+    }
+    .team-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    .team-card img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid var(--primary);
+    }
+    .team-card h3 {
+      margin: 0.2rem 0;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+    .team-card .role {
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .team-card p {
+      font-size: 0.97rem;
+      color: #444;
+      margin-bottom: 1rem;
+    }
+    .team-card button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: background 0.15s;
+    }
+    .team-card button:hover {
+      background: #ff9800;
+    }
+
+    /* Contact form section */
+    .contact-section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-width: 500px;
+      margin: 0 auto 2.5rem auto;
+      padding: 2.5rem 1.5rem 2rem 1.5rem;
+    }
+    .contact-section h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 500;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1.1rem;
+      border: 1.5px solid #eee;
+      border-radius: 8px;
+      background: #fafafa;
+      font-size: 1rem;
+      transition: border 0.15s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+    .contact-form small {
+      color: #888;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .contact-form button {
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 0;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.16s;
+    }
+    .contact-form button:hover {
+      background: #ff9800;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 700px) {
+      header h1 { font-size: 2rem; }
+      .team-title { font-size: 1.3rem; }
+      .contact-section { padding: 1.2rem 0.5rem; }
+    }
+    @media (max-width: 480px) {
+      .team-card { padding: 1.3rem 0.5rem; }
+      .contact-section { padding: 0.8rem 0.2rem; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.2rem 0 0.6rem 0;
+      background: var(--primary);
+      color: #fff;
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
+      margin-top: 2rem;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contact & Meet Our Team</h1>
+    <p>We'd love to hear from you. Reach out or meet the people behind TradeVeil!</p>
+  </header>
+
+  <main class="container">
+    <!-- TEAM SECTION -->
+    <section class="team-section">
+      <div class="team-title">Meet Our Team</div>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Amit Sharma">
+          <h3>Yash Jindal</h3>
+          <div class="role">CEO & Founder</div>
+          <p>Visionary leader driving business growth and innovation.</p>
+          <button><i class="fa fa-envelope"></i> Contact</button>
+        </div>
+        <div class="team-card">
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Priya Verma">
+          <h3>Jasleen Kaur</h3>
+          <div class="role">Operations Head</div>
+          <p>Ensures seamless daily operations and team coordination.</p>
+          <button><i class="fa fa-envelope"></i> Contact</button>
+        </div>
+        <div class="team-card">
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Rohit Singh">
+          <h3>Subhdeep Kaur</h3>
+          <div class="role">Lead Developer</div>
+          <p>Crafts robust solutions and leads the tech team.</p>
+          <button><i class="fa fa-envelope"></i> Contact</button>
+        </div>
+        <div class="team-card">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sneha Patel">
+          <h3>Saksham Jain</h3>
+          <div class="role">Marketing Lead</div>
+          <p>Drives creative campaigns and brand strategy.</p>
+          <button><i class="fa fa-envelope"></i> Contact</button>
+        </div>
+        <div class="team-card">
+          <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Vikram Rao">
+          <h3>Shabadmeet Singh Bhatia</h3>
+          <div class="role">Customer Success</div>
+          <p>Ensures client satisfaction and long-term success.</p>
+          <button><i class="fa fa-envelope"></i> Contact</button>
+        </div>
+       
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM SECTION -->
+    <section class="contact-section">
+      <h2>Contact Us</h2>
+      <form class="contact-form" autocomplete="off">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="rollNumber">Roll Number</label>
+        <input type="text" id="rollNumber" name="rollNumber" required placeholder="Enter your Roll Number" />
+        <small>We use your roll number to verify your identity.</small>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit"><i class="fa fa-paper-plane"></i> Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 TradeVeil. All rights reserved.
+  </footer>
+</body>
+</html>
