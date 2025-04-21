@@ -9,7 +9,7 @@
     <style>
         /* Embedded CSS to match existing style with theme support */
         :root {
-            --bg-color-light: #f5f5f5;
+            --bg-color-light: #10b981;
             --text-color-light: #333;
             --nav-bg-light: #121212;
             --nav-text-light: white;
@@ -32,6 +32,44 @@
             --card-bg-dark: #222;
             --input-bg-dark: #333;
             --input-border-dark: #555;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: var(--text-color-light);
+            line-height: 1.6;
+            font-size: 16px;
+            transition: background 0.5s ease, color 0.3s ease;
+        }
+
+        button {
+            background-color: #047857;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(4, 120, 87, 0.4);
+        }
+
+        button:hover {
+            background-color: #065f46;
+            box-shadow: 0 6px 12px rgba(4, 120, 87, 0.6);
+        }
+
+        .contact-card {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 0.5rem;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
         }
 
         body {
@@ -190,11 +228,11 @@
 
         main.contact-main {
             max-width: 1200px;
-            margin: 0 auto 4rem;
+            margin: 0 auto 6rem;
             padding: 0 1rem;
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 3rem;
             justify-content: center;
         }
 
@@ -202,13 +240,14 @@
             flex: 1;
             min-width: 300px;
             max-width: 600px;
+            margin-bottom: 2rem;
         }
 
         .contact-card {
             background: var(--card-bg-light);
             border-radius: 10px;
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            padding: 2rem;
+            padding: 3rem 3rem 3rem 3rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -310,13 +349,14 @@
             flex: 1;
             min-width: 300px;
             max-width: 500px;
+            margin-bottom: 2rem;
         }
 
         .info-card {
             background: var(--card-bg-light);
             border-radius: 10px;
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            padding: 2rem;
+            padding: 3rem 3rem 3rem 3rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
