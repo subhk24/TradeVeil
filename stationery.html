@@ -22,6 +22,7 @@
             font-weight: 700;
             font-size: 2rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
         }
         nav {
             background-color: #059669;
@@ -163,6 +164,24 @@
             color: #555;
             font-size: 0.95rem;
         }
+        #cart-icon {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+        }
+        #cart-count {
+            background: red;
+            border-radius: 50%;
+            color: white;
+            font-size: 0.8rem;
+            padding: 2px 6px;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+        }
         @media screen and (max-width: 768px) {
             nav ul {
                 flex-direction: column;
@@ -181,6 +200,9 @@
 <body>
     <header>
         Stationery Products
+        <div id="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
+            🛒<span id="cart-count">0</span>
+        </div>
     </header>
     <nav>
         <ul>
@@ -192,85 +214,85 @@
     </nav>
     <main class="container">
         <div class="products-grid">
-            <div class="product-card">
+            <div class="product-card" data-id="colored-pencils-set" data-name="Colored Pencils Set" data-price="499">
                 <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/pencils-1957748_1280.jpg" alt="Colored Pencils Set" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Colored Pencils Set</h2>
                     <p class="product-description">Set of 24 vibrant colored pencils for drawing and coloring.</p>
                     <p class="product-price">₹499</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Colored Pencils Set">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Colored Pencils Set">Buy Now</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="spiral-notebook" data-name="Spiral Notebook" data-price="199">
                 <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/notebook-1868615_1280.jpg" alt="Spiral Notebook" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Spiral Notebook</h2>
                     <p class="product-description">200-page ruled spiral notebook for school and office use.</p>
                     <p class="product-price">₹199</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Spiral Notebook">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Spiral Notebook">Buy Now</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="ballpoint-pen-set" data-name="Ballpoint Pen Set" data-price="299">
                 <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/pen-1957749_1280.jpg" alt="Ballpoint Pen Set" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Ballpoint Pen Set</h2>
                     <p class="product-description">Pack of 10 smooth-writing ballpoint pens in assorted colors.</p>
                     <p class="product-price">₹299</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Ballpoint Pen Set">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Ballpoint Pen Set">Buy Now</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="office-scissors" data-name="Office Scissors" data-price="399">
                 <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/scissors-1957750_1280.jpg" alt="Office Scissors" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Office Scissors</h2>
                     <p class="product-description">Durable stainless steel scissors with ergonomic handle.</p>
                     <p class="product-price">₹399</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Office Scissors">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Office Scissors">Buy Now</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="plastic-ruler" data-name="Plastic Ruler" data-price="99">
                 <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/ruler-1957751_1280.jpg" alt="Plastic Ruler" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Plastic Ruler</h2>
                     <p class="product-description">30cm transparent plastic ruler with clear markings.</p>
                     <p class="product-price">₹99</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Plastic Ruler">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Plastic Ruler">Buy Now</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="eraser-pack" data-name="Eraser Pack" data-price="149">
                 <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/eraser-1957752_1280.jpg" alt="Eraser Pack" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Eraser Pack</h2>
                     <p class="product-description">Pack of 5 soft erasers for clean and precise corrections.</p>
                     <p class="product-price">₹149</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Eraser Pack">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Eraser Pack">Buy Now</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="pencil-sharpener" data-name="Pencil Sharpener" data-price="129">
                 <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/sharpener-1957753_1280.jpg" alt="Pencil Sharpener" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Pencil Sharpener</h2>
                     <p class="product-description">Compact manual pencil sharpener with container for shavings.</p>
                     <p class="product-price">₹129</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Pencil Sharpener">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Pencil Sharpener">Buy Now</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="stapler" data-name="Stapler" data-price="349">
                 <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/stapler-1957754_1280.jpg" alt="Stapler" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Stapler</h2>
                     <p class="product-description">Standard office stapler with 1000 staples included.</p>
                     <p class="product-price">₹349</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Stapler">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Stapler">Buy Now</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="scotch-tape" data-name="Scotch Tape" data-price="99">
                 <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/scotch-tape-1957755_1280.jpg" alt="Scotch Tape" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Scotch Tape</h2>
                     <p class="product-description">Clear adhesive tape roll for everyday use.</p>
                     <p class="product-price">₹99</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Scotch Tape">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Scotch Tape">Buy Now</button>
                 </div>
             </div>
         </div>
@@ -299,5 +321,34 @@
     <footer>
         © 2025 TradeVeil. All rights reserved.
     </footer>
+    <script>
+        const cartCountElem = document.getElementById('cart-count');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCartCount() {
+            cartCountElem.textContent = cart.length;
+        }
+
+        function addToCart(product) {
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            alert(product.name + ' added to cart!');
+        }
+
+        document.querySelectorAll('.btn-buy').forEach(button => {
+            button.addEventListener('click', () => {
+                const productCard = button.closest('.product-card');
+                const product = {
+                    id: productCard.getAttribute('data-id'),
+                    name: productCard.getAttribute('data-name'),
+                    price: productCard.getAttribute('data-price')
+                };
+                addToCart(product);
+            });
+        });
+
+        updateCartCount();
+    </script>
 </body>
 </html>
