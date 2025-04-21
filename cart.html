@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shopping Cart - TradeVeil</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #10b981;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        main.container {
+            max-width: 900px;
+            margin: 2rem auto 4rem auto;
+            padding: 0 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #10b981;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+        th, td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #e6f4ea;
+            color: #059669;
+        }
+        .total-row td {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #047857;
+        }
+        button {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #059669;
+        }
+        #empty-message {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #555;
+            margin: 2rem 0;
+        }
+        a.back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: #10b981;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        a.back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Shopping Cart
+    </header>
+    <main class="container">
+        <a href="index.html" class="back-link">&larr; Continue Shopping</a>
+        <h2>Your Cart Items</h2>
+        <table id="cart-table" aria-label="Shopping Cart Items">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price (₹)</th>
+                    <th>Quantity</th>
+                    <th>Subtotal (₹)</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items-body">
+                <!-- Cart items will be dynamically inserted here -->
+            </tbody>
+            <tfoot>
+                <tr class="total-row">
+                    <td colspan="3">Total</td>
+                    <td id="cart-total">₹0</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+        <div id="empty-message" style="display:none;">Your cart is empty.</div>
+        <button id="clear-cart-btn" style="display:none;">Clear Cart</button>
+    </main>
+    <script>
+        const cartItemsBody = document.getElementById('cart-items-body');
+        const cartTotalElem = document.getElementById('cart-total');
+        const emptyMessage = document.getElementById('empty-message');
+        const clearCartBtn = document.getElementById('clear-cart-btn');
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function renderCart() {
+            cartItemsBody.innerHTML = '';
+            if (cart.length === 0) {
+                emptyMessage.style.display = 'block';
+                clearCartBtn.style.display = 'none';
+                document.getElementById('cart-table').style.display = 'none';
+                return;
+            }
+            emptyMessage.style.display = 'none';
+            clearCartBtn.style.display = 'inline-block';
+            document.getElementById('cart-table').style.display = 'table';
+
+            let total = 0;
+            cart.forEach((item, index) => {
+                const quantity = item.quantity || 1;
+                const price = parseFloat(item.price);
+                const subtotal = price * quantity;
+                total += subtotal;
+
+                const tr = document.createElement('tr');
+
+                const nameTd = document.createElement('td');
+                nameTd.textContent = item.name;
+                tr.appendChild(nameTd);
+
+                const priceTd = document.createElement('td');
+                priceTd.textContent = price.toFixed(2);
+                tr.appendChild(priceTd);
+
+                const quantityTd = document.createElement('td');
+                quantityTd.textContent = quantity;
+                tr.appendChild(quantityTd);
+
+                const subtotalTd = document.createElement('td');
+                subtotalTd.textContent = subtotal.toFixed(2);
+                tr.appendChild(subtotalTd);
+
+                const actionTd = document.createElement('td');
+                const removeBtn = document.createElement('button');
+                removeBtn.textContent = 'Remove';
+                removeBtn.addEventListener('click', () => {
+                    removeItem(index);
+                });
+                actionTd.appendChild(removeBtn);
+                tr.appendChild(actionTd);
+
+                cartItemsBody.appendChild(tr);
+            });
+            cartTotalElem.textContent = '₹' + total.toFixed(2);
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        clearCartBtn.addEventListener('click', () => {
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        });
+
+        renderCart();
+    </script>
+</body>
+</html>

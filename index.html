@@ -1,20 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <nav>
-        <div class="container">
-            <div class="logo">TradeVeil</div>
-            <ul>
-                <li><button id="cartToggleBtn" aria-label="Toggle Cart" class="cart-icon-btn" title="Your Cart"></button></li>
-                <li><a href="contactus.html">Contact Us</a></li>
-                <li><a href="signup.html">Register</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </div>
-    </nav>
 <head>
     <title>TradeVeil - B2B Wholesale Platform</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TradeVeil - B2B Wholesale Platform</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <meta name="description" content="Secure Business to Business Wholesale Marketplace connecting verified wholesalers and retailers with complete business privacy." />
@@ -22,6 +12,17 @@
     <meta name="author" content="TradeVeil" />
 </head>
 <body>
+    <nav>
+        <div class="container">
+            <div class="logo">TradeVeil</div>
+            <ul>
+                <li><a href="cart.html" aria-label="Shopping Cart" class="cart-icon-btn" title="Your Cart">🛒</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="signup.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <section class="pt-32 pb-20 px-4">
         <div class="container mx-auto text-center">
@@ -41,10 +42,10 @@
                 <img src="https://i.pinimg.com/736x/3b/06/07/3b0607129c3dbd52f16d81b67336d77c.jpg" alt="Electronics" style="max-width: 100%; border-radius: 0.5rem;"/>
                 <p>Electronics</p>
             </a>
-            <div class="shadow p-4 rounded text-center transition hover:shadow-lg">
+            <a href="stationery.html" class="shadow p-4 rounded text-center transition hover:shadow-lg block no-underline text-inherit">
                 <img src="https://i.pinimg.com/736x/96/ef/d9/96efd91642dddf67586018e0eae05a27.jpg" alt="Stationery" style="max-width: 100%; border-radius: 0.5rem;"/>
                 <p>Stationery</p>
-            </div>
+            </a>
             <div class="shadow p-4 rounded text-center transition hover:shadow-lg">
                 <img src="https://i.pinimg.com/736x/f1/8c/17/f18c17f9508bc933fe1ae362283e247d.jpg" alt="Textiles" style="max-width: 100%; border-radius: 0.5rem;"/>
                 <p>Textiles</p>
@@ -55,255 +56,39 @@
             </div>
         </div>
         
-         <section class="container" style="padding-bottom: 4rem;">
-        <h2>Popular Products</h2>
-        <div class="grid grid-cols-4">
-            <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="headphone1" data-name="Headphone" data-price="1500">
-                <img src="https://i.pinimg.com/736x/a9/c8/ab/a9c8abe2fe655aa90cc4d05198718926.jpg" alt="Headphones" style="max-width: 100%; border-radius: 0.5rem;"/>
-                <p>Headphone</p>
-                <button class="add-to-cart-btn mt-2">Add to Cart</button>
-            </div>
-            <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="sunglasses1" data-name="Sun Glasses" data-price="1200">
-                <img src="https://i.pinimg.com/474x/ba/bc/97/babc97e0d3a39781522c6990c03834ee.jpg" alt="Sun Glasses" style="max-width: 100%; border-radius: 0.5rem;"/>
-                <p>Sun Glasses</p>
-                <button class="add-to-cart-btn mt-2">Add to Cart</button>
-            </div>
-            <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="tshirtpack1" data-name="Cotton T-shirt Pack" data-price="800">
-                <img src="https://i.pinimg.com/736x/4a/46/6f/4a466ffaf0b0ea6e902036a31649d7aa.jpg" alt="T-shirt Pack" style="max-width: 100%; border-radius: 0.5rem;"/>
-                <p>Cotton T-shirt Pack</p>
-                <button class="add-to-cart-btn mt-2">Add to Cart</button>
-            </div>
-            <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="lipsticks1" data-name="Lipsticks" data-price="500">
-                <img src="https://i.pinimg.com/474x/2c/60/97/2c60974fc65af811c079e7b2e10c3a6c.jpg" alt="Lipsticks" style="max-width: 100%; border-radius: 0.5rem;"/>
-                <p>Lipsticks</p>
-                <button class="add-to-cart-btn mt-2">Add to Cart</button>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-3 mt-4">
-            <div class="shadow p-4 rounded flex items-center gap-4">
-                <span style="font-size: 2rem; color: #047857;">🔒</span>
-                <p>End-to-end encrypted communication</p>
-            </div>
-            <div class="shadow p-4 rounded flex items-center gap-4">
-                <span style="font-size: 2rem; color: #2563eb;">✅</span>
-                <p>Verified seller network</p>
-            </div>
-            <div class="shadow p-4 rounded flex items-center gap-4">
-                <span style="font-size: 2rem; color: #ca8a04;">📦</span>
-                <p>Sample-first product policy</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="cartSection" class="container hidden">
-      <h2>Your Cart</h2>
-      <div id="cartItems"></div>
-      <button id="clearCartBtn">Clear Cart</button>
-    </section>
-
-    <main id="sellerDashboard" class="hidden container">
-        <div class="grid grid-cols-3 gap-8">
-            <div class="col-span-2 shadow p-8 rounded">
-                <h3>Your Product Listings</h3>
-                <div id="productList"></div>
-            </div>
-            <div class="shadow p-8 rounded">
-                <h3>Connection Requests</h3>
-                <div id="connectionRequests"></div>
-            </div>
-        </div>
-    </main>
-
-    <main id="buyerDashboard" class="hidden container">
-        <div class="grid grid-cols-3 gap-8">
-            <div class="shadow p-8 rounded">
-                <h3>Find Wholesalers</h3>
-                <div>
-                    <input type="text" placeholder="Search products..." />
-                    <select>
-                        <option>Price Range</option>
-                        <option>Below ₹10,000</option>
-                        <option>₹10,000 - ₹50,000</option>
-                    </select>
+        <section class="container" style="padding-bottom: 4rem;">
+            <h2>Popular Products</h2>
+            <div class="grid grid-cols-4">
+                <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="headphone1" data-name="Headphone" data-price="1500">
+                    <img src="https://i.pinimg.com/736x/a9/c8/ab/a9c8abe2fe655aa90cc4d05198718926.jpg" alt="Headphones" style="max-width: 100%; border-radius: 0.5rem;"/>
+                    <p>Headphone</p>
+                    <button class="add-to-cart-btn mt-2">Add to Cart</button>
+                </div>
+                <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="sunglasses1" data-name="Sun Glasses" data-price="1200">
+                    <img src="https://i.pinimg.com/474x/ba/bc/97/babc97e0d3a39781522c6990c03834ee.jpg" alt="Sun Glasses" style="max-width: 100%; border-radius: 0.5rem;"/>
+                    <p>Sun Glasses</p>
+                    <button class="add-to-cart-btn mt-2">Add to Cart</button>
+                </div>
+                <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="tshirtpack1" data-name="Cotton T-shirt Pack" data-price="800">
+                    <img src="https://i.pinimg.com/736x/4a/46/6f/4a466ffaf0b0ea6e902036a31649d7aa.jpg" alt="T-shirt Pack" style="max-width: 100%; border-radius: 0.5rem;"/>
+                    <p>Cotton T-shirt Pack</p>
+                    <button class="add-to-cart-btn mt-2">Add to Cart</button>
+                </div>
+                <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="lipsticks1" data-name="Lipsticks" data-price="500">
+                    <img src="https://i.pinimg.com/474x/2c/60/97/2c60974fc65af811c079e7b2e10c3a6c.jpg" alt="Lipsticks" style="max-width: 100%; border-radius: 0.5rem;"/>
+                    <p>Lipsticks</p>
+                    <button class="add-to-cart-btn mt-2">Add to Cart</button>
                 </div>
             </div>
-            <div class="col-span-2 shadow p-8 rounded">
-                <h3>Available Wholesalers</h3>
-                <div id="wholesalerList" class="grid gap-4"></div>
-            </div>
-        </div>
-    </main>
+        </section>
 
-    <div id="demoModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div class="bg-white p-8 rounded max-w-md w-full">
-            <h3>Request Product Sample</h3>
-            <p>We'll arrange secure sample delivery without revealing business details</p>
-            <button onclick="confirmDemo()">Confirm Demo Request</button>
-        </div>
-    </div>
+    </section>
 
-        <footer>
-            <p>© 2025 TradeVeil. All rights reserved.</p>
-        </footer>
+    <footer>
+        <p>© 2025 TradeVeil. All rights reserved.</p>
+    </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
-    
-let users = JSON.parse(localStorage.getItem('tradeveilUsers')) || [];
-let currentUser = null;
-
-function showAuth(type) {
-    document.querySelectorAll('main').forEach(el => el.classList.add('hidden'));
-    if(type === 'seller') {
-        document.getElementById('sellerAuth').classList.remove('hidden');
-    } else {
-        document.getElementById('buyerAuth').classList.remove('hidden');
-    }
-}
-
-document.getElementById('sellerForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const user = {
-        type: 'seller',
-        gst: document.getElementById('sellerGst').value,
-        category: document.getElementById('sellerCategory').value,
-        id: 'TV-' + Math.random().toString(36).substr(2, 9).toUpperCase(),
-        joined: new Date().toISOString()
-    };
-    users.push(user);
-    localStorage.setItem('tradeveilUsers', JSON.stringify(users));
-    showDashboard(user);
-});
-
-document.getElementById('buyerForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const user = {
-        type: 'buyer',
-        gst: document.getElementById('buyerGst').value,
-        category: document.getElementById('buyerCategory').value,
-        id: 'TV-' + Math.random().toString(36).substr(2, 9).toUpperCase(),
-        joined: new Date().toISOString()
-    };
-    users.push(user);
-    localStorage.setItem('tradeveilUsers', JSON.stringify(users));
-    showDashboard(user);
-});
-
-function showDashboard(user) {
-    currentUser = user;
-    document.querySelectorAll('main').forEach(el => el.classList.add('hidden'));
-    if(user.type === 'seller') {
-        document.getElementById('sellerDashboard').classList.remove('hidden');
-        loadSellerDashboard();
-    } else {
-        document.getElementById('buyerDashboard').classList.remove('hidden');
-        loadBuyerDashboard();
-    }
-}
-
-function loadBuyerDashboard() {
-    const wholesalers = users.filter(u => u.type === 'seller' && u.category === currentUser.category);
-    const container = document.getElementById('wholesalerList');
-    
-    wholesalers.forEach(ws => {
-        const card = document.createElement('div');
-        card.className = 'bg-gray-50 p-6 rounded-xl';
-        card.innerHTML = `
-            <div class="flex justify-between items-start">
-                <div>
-                    <h4 class="font-semibold">${ws.category} Wholesaler</h4>
-                    <p class="text-sm text-gray-600">TradeVeil ID: ${ws.id}</p>
-                </div>
-                <div class="space-x-4">
-                    <button onclick="showDemoModal()" class="text-sm bg-blue-100 text-blue-600 px-3 py-1 rounded-lg">
-                        Request Sample
-                    </button>
-                    <button class="text-sm bg-green-100 text-green-600 px-3 py-1 rounded-lg">
-                        Contact
-                    </button>
-                </div>
-            </div>
-        `;
-        container.appendChild(card);
-    });
-}
-
-function showDemoModal() {
-    document.getElementById('demoModal').classList.remove('hidden');
-}
-
-function confirmDemo() {
-    alert('Demo request submitted! Our team will contact you shortly.');
-    document.getElementById('demoModal').classList.add('hidden');
-}
-
-function loadCart() {
-    const cartItems = JSON.parse(localStorage.getItem('tradeveilCart')) || [];
-    const cartContainer = document.getElementById('cartItems');
-    cartContainer.innerHTML = '';
-    if(cartItems.length === 0) {
-        cartContainer.innerHTML = '<p>Your cart is empty.</p>';
-        // Do not hide cartSection here, allow toggle to control visibility
-        return;
-    }
-    // Show cartSection if there are items
-    document.getElementById('cartSection').classList.remove('hidden');
-    cartItems.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'bg-white p-4 rounded-xl shadow flex justify-between items-center';
-        div.innerHTML = `
-            <div>
-                <p class="font-medium">${item.name}</p>
-                <p>Price: ₹${item.price}</p>
-                <p>Quantity: ${item.quantity}</p>
-            </div>
-            <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600" onclick="removeFromCart('${item.id}')">Remove</button>
-        `;
-        cartContainer.appendChild(div);
-    });
-}
-
-function addToCart(product) {
-    let cartItems = JSON.parse(localStorage.getItem('tradeveilCart')) || [];
-    const existingItem = cartItems.find(item => item.id === product.id);
-    if(existingItem) {
-        existingItem.quantity += 1;
-    } else {
-        cartItems.push({...product, quantity: 1});
-    }
-    localStorage.setItem('tradeveilCart', JSON.stringify(cartItems));
-    loadCart();
-}
-
-function removeFromCart(productId) {
-    let cartItems = JSON.parse(localStorage.getItem('tradeveilCart')) || [];
-    cartItems = cartItems.filter(item => item.id !== productId);
-    localStorage.setItem('tradeveilCart', JSON.stringify(cartItems));
-    loadCart();
-}
-
-document.getElementById('clearCartBtn').addEventListener('click', () => {
-    localStorage.removeItem('tradeveilCart');
-    loadCart();
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    if(users.length > 0) {
-        showAuth('seller');
-    }
-    loadCart();
-
-    // Cart toggle button event
-    document.getElementById('cartToggleBtn').addEventListener('click', () => {
-        const cartSection = document.getElementById('cartSection');
-        if(cartSection.classList.contains('hidden')) {
-            cartSection.classList.remove('hidden');
-        } else {
-            cartSection.classList.add('hidden');
-        }
-    });
-
     document.querySelectorAll('.add-to-cart-btn').forEach(button => {
         button.addEventListener('click', (e) => {
             const card = e.target.closest('.product-card');
@@ -312,10 +97,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: card.getAttribute('data-name'),
                 price: parseFloat(card.getAttribute('data-price'))
             };
-            addToCart(product);
+            let cartItems = JSON.parse(localStorage.getItem('tradeveilCart')) || [];
+            const existingItem = cartItems.find(item => item.id === product.id);
+            if(existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cartItems.push({...product, quantity: 1});
+            }
+            localStorage.setItem('tradeveilCart', JSON.stringify(cartItems));
+            alert(product.name + ' added to cart!');
         });
     });
-});
 </script>
 </body>
 </html>
