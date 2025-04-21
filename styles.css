@@ -178,3 +178,56 @@ img {
     border-radius: 0.5rem;
 }
 
+/* Cart icon button in nav */
+#cartToggleBtn {
+    width: 28px;
+    height: 28px;
+    background: url('data:image/svg+xml;utf8,<svg fill="%23047857" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 18c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm10 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm-12.83-2.25l1.25-6.25h11.58l-1.5 6.25h-11.33zm15.83-8.75h-15.5l-1-5h-3v2h2l3.6 7.59-1.35 2.44c-.16.28-.25.61-.25.97 0 1.1.9 2 2 2h12v-2h-11.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.72c.75 0 1.41-.41 1.75-1.03l3.58-6.49-1.75-1.01z"/></svg>') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+}
+
+#cartToggleBtn:hover {
+    filter: brightness(0.8);
+}
+
+/* Cart section styling */
+#cartSection {
+    position: fixed;
+    top: 60px; /* below nav */
+    right: 20px;
+    width: 320px;
+    max-height: 70vh;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 1rem;
+    z-index: 1100;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Cart item card */
+#cartItems > div {
+    margin-bottom: 1rem;
+}
+
+.add-to-cart-btn {
+    background-color: #047857;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #065f46;
+}
+
