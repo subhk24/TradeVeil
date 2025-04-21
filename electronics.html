@@ -22,6 +22,7 @@
             font-weight: 700;
             font-size: 2rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
         }
         nav {
             background-color: #059669;
@@ -163,6 +164,24 @@
             color: #555;
             font-size: 0.95rem;
         }
+        #cart-icon {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+        }
+        #cart-count {
+            background: red;
+            border-radius: 50%;
+            color: white;
+            font-size: 0.8rem;
+            padding: 2px 6px;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+        }
         @media screen and (max-width: 768px) {
             nav ul {
                 flex-direction: column;
@@ -181,6 +200,9 @@
 <body>
     <header>
         Electronics Products
+        <div id="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
+            🛒<span id="cart-count">0</span>
+        </div>
     </header>
     <nav>
         <ul>
@@ -192,76 +214,76 @@
     </nav>
     <main class="container">
         <div class="products-grid">
-            <div class="product-card">
+            <div class="product-card" data-id="smartphone-xyz" data-name="Smartphone XYZ" data-price="25999">
                 <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/smartphone-1957744_1280.jpg" alt="Smartphone XYZ" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Smartphone XYZ</h2>
                     <p class="product-description">Latest 5G smartphone with 128GB storage, 6GB RAM, and high-resolution camera.</p>
                     <p class="product-price">₹25,999</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Smartphone XYZ">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Smartphone XYZ">Buy Now</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="wireless-headphones" data-name="Wireless Headphones" data-price="7499">
                 <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/headphones-1868613_1280.jpg" alt="Wireless Headphones" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Wireless Headphones</h2>
                     <p class="product-description">Noise-cancelling over-ear headphones with 20 hours battery life and Bluetooth 5.0.</p>
                     <p class="product-price">₹7,499</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Wireless Headphones">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Wireless Headphones">Buy Now</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="smartwatch-pro" data-name="Smartwatch Pro" data-price="12999">
                 <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/smartwatch-1868614_1280.jpg" alt="Smartwatch Pro" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Smartwatch Pro</h2>
                     <p class="product-description">Water-resistant smartwatch with heart rate monitor, GPS, and customizable watch faces.</p>
                     <p class="product-price">₹12,999</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Smartwatch Pro">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Smartwatch Pro">Buy Now</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="bluetooth-speaker" data-name="Bluetooth Speaker" data-price="3299">
                 <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/speaker-1957745_1280.jpg" alt="Bluetooth Speaker" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Bluetooth Speaker</h2>
                     <p class="product-description">Portable speaker with deep bass, 10 hours playtime, and built-in microphone for calls.</p>
                     <p class="product-price">₹3,299</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Bluetooth Speaker">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Bluetooth Speaker">Buy Now</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="laptop-ultra" data-name="Laptop Ultra" data-price="75999">
                 <img src="https://cdn.pixabay.com/photo/2014/05/02/21/50/laptop-336704_1280.jpg" alt="Laptop Ultra" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Laptop Ultra</h2>
                     <p class="product-description">High-performance laptop with Intel i7, 16GB RAM, 512GB SSD, and dedicated graphics.</p>
                     <p class="product-price">₹75,999</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Laptop Ultra">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Laptop Ultra">Buy Now</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="digital-camera" data-name="Digital Camera" data-price="45499">
                 <img src="https://cdn.pixabay.com/photo/2015/05/15/14/47/camera-768694_1280.jpg" alt="Digital Camera" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Digital Camera</h2>
                     <p class="product-description">24MP DSLR camera with 4K video recording and interchangeable lenses.</p>
                     <p class="product-price">₹45,499</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Digital Camera">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Digital Camera">Buy Now</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="gaming-console" data-name="Gaming Console" data-price="39999">
                 <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/game-console-1957746_1280.jpg" alt="Gaming Console" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Gaming Console</h2>
                     <p class="product-description">Next-gen gaming console with 4K support, VR ready, and extensive game library.</p>
                     <p class="product-price">₹39,999</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Gaming Console">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Gaming Console">Buy Now</button>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="smart-home-hub" data-name="Smart Home Hub" data-price="8999">
                 <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/smart-home-1957747_1280.jpg" alt="Smart Home Hub" class="product-image" />
                 <div class="product-details">
                     <h2 class="product-title">Smart Home Hub</h2>
                     <p class="product-description">Control your smart devices with voice commands and automation features.</p>
                     <p class="product-price">₹8,999</p>
-                    <a href="#" class="btn-buy" aria-label="Buy Smart Home Hub">Buy Now</a>
+                    <button class="btn-buy" aria-label="Buy Smart Home Hub">Buy Now</button>
                 </div>
             </div>
         </div>
@@ -290,5 +312,34 @@
     <footer>
         © 2025 TradeVeil. All rights reserved.
     </footer>
+    <script>
+        const cartCountElem = document.getElementById('cart-count');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCartCount() {
+            cartCountElem.textContent = cart.length;
+        }
+
+        function addToCart(product) {
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            alert(product.name + ' added to cart!');
+        }
+
+        document.querySelectorAll('.btn-buy').forEach(button => {
+            button.addEventListener('click', () => {
+                const productCard = button.closest('.product-card');
+                const product = {
+                    id: productCard.getAttribute('data-id'),
+                    name: productCard.getAttribute('data-name'),
+                    price: productCard.getAttribute('data-price')
+                };
+                addToCart(product);
+            });
+        });
+
+        updateCartCount();
+    </script>
 </body>
 </html>
