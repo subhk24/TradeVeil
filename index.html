@@ -4,7 +4,7 @@
         <div class="container">
             <div class="logo">TradeVeil</div>
             <ul>
-                <li><a href="#features">Your Cart</a></li>
+                <li><button id="cartToggleBtn" aria-label="Toggle Cart" class="cart-icon-btn" title="Your Cart"></button></li>
                 <li><a href="#contact">Contact Us</a></li>
                 <li><a href="signup.html">Register</a></li>
                 <li><a href="login.html">Login</a></li>
@@ -58,21 +58,25 @@
          <section class="container" style="padding-bottom: 4rem;">
         <h2>Popular Products</h2>
         <div class="grid grid-cols-4">
-            <div class="shadow p-4 rounded text-center transition hover:shadow-lg">
+            <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="headphone1" data-name="Headphone" data-price="1500">
                 <img src="https://i.pinimg.com/736x/a9/c8/ab/a9c8abe2fe655aa90cc4d05198718926.jpg" alt="Headphones" style="max-width: 100%; border-radius: 0.5rem;"/>
                 <p>Headphone</p>
+                <button class="add-to-cart-btn mt-2">Add to Cart</button>
             </div>
-            <div class="shadow p-4 rounded text-center transition hover:shadow-lg">
+            <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="sunglasses1" data-name="Sun Glasses" data-price="1200">
                 <img src="https://i.pinimg.com/474x/ba/bc/97/babc97e0d3a39781522c6990c03834ee.jpg" alt="Sun Glasses" style="max-width: 100%; border-radius: 0.5rem;"/>
                 <p>Sun Glasses</p>
+                <button class="add-to-cart-btn mt-2">Add to Cart</button>
             </div>
-            <div class="shadow p-4 rounded text-center transition hover:shadow-lg">
+            <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="tshirtpack1" data-name="Cotton T-shirt Pack" data-price="800">
                 <img src="https://i.pinimg.com/736x/4a/46/6f/4a466ffaf0b0ea6e902036a31649d7aa.jpg" alt="T-shirt Pack" style="max-width: 100%; border-radius: 0.5rem;"/>
                 <p>Cotton T-shirt Pack</p>
+                <button class="add-to-cart-btn mt-2">Add to Cart</button>
             </div>
-            <div class="shadow p-4 rounded text-center transition hover:shadow-lg">
+            <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="lipsticks1" data-name="Lipsticks" data-price="500">
                 <img src="https://i.pinimg.com/474x/2c/60/97/2c60974fc65af811c079e7b2e10c3a6c.jpg" alt="Lipsticks" style="max-width: 100%; border-radius: 0.5rem;"/>
                 <p>Lipsticks</p>
+                <button class="add-to-cart-btn mt-2">Add to Cart</button>
             </div>
         </div>
 
@@ -240,9 +244,10 @@ function loadCart() {
     cartContainer.innerHTML = '';
     if(cartItems.length === 0) {
         cartContainer.innerHTML = '<p>Your cart is empty.</p>';
-        document.getElementById('cartSection').classList.add('hidden');
+        // Do not hide cartSection here, allow toggle to control visibility
         return;
     }
+    // Show cartSection if there are items
     document.getElementById('cartSection').classList.remove('hidden');
     cartItems.forEach(item => {
         const div = document.createElement('div');
@@ -288,6 +293,17 @@ document.addEventListener('DOMContentLoaded', () => {
         showAuth('seller');
     }
     loadCart();
+
+    // Cart toggle button event
+    document.getElementById('cartToggleBtn').addEventListener('click', () => {
+        const cartSection = document.getElementById('cartSection');
+        if(cartSection.classList.contains('hidden')) {
+            cartSection.classList.remove('hidden');
+        } else {
+            cartSection.classList.add('hidden');
+        }
+    });
+
     document.querySelectorAll('.add-to-cart-btn').forEach(button => {
         button.addEventListener('click', (e) => {
             const card = e.target.closest('.product-card');
