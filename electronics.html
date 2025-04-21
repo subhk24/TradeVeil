@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Electronics Products - TradeVeil</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #10b981;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav {
+            background-color: #059669;
+            padding: 0.5rem 0;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #047857;
+        }
+        main.container {
+            max-width: 1200px;
+            margin: 2rem auto 4rem auto;
+            padding: 0 1rem;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .product-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            background-color: #f0f0f0;
+        }
+        .product-details {
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-title {
+            font-size: 1.25rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+            color: #10b981;
+        }
+        .product-description {
+            flex-grow: 1;
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        .product-price {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #047857;
+            margin-bottom: 1rem;
+        }
+        .btn-buy {
+            align-self: flex-start;
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn-buy:hover {
+            background-color: #059669;
+        }
+        footer {
+            background-color: #10b981;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            font-weight: 500;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Electronics Products
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="electronics.html" class="active">Electronics</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/smartphone-1957744_1280.jpg" alt="Smartphone XYZ" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Smartphone XYZ</h2>
+                    <p class="product-description">Latest 5G smartphone with 128GB storage, 6GB RAM, and high-resolution camera.</p>
+                    <p class="product-price">₹25,999</p>
+                    <a href="#" class="btn-buy" aria-label="Buy Smartphone XYZ">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/headphones-1868613_1280.jpg" alt="Wireless Headphones" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Wireless Headphones</h2>
+                    <p class="product-description">Noise-cancelling over-ear headphones with 20 hours battery life and Bluetooth 5.0.</p>
+                    <p class="product-price">₹7,499</p>
+                    <a href="#" class="btn-buy" aria-label="Buy Wireless Headphones">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/smartwatch-1868614_1280.jpg" alt="Smartwatch Pro" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Smartwatch Pro</h2>
+                    <p class="product-description">Water-resistant smartwatch with heart rate monitor, GPS, and customizable watch faces.</p>
+                    <p class="product-price">₹12,999</p>
+                    <a href="#" class="btn-buy" aria-label="Buy Smartwatch Pro">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/speaker-1957745_1280.jpg" alt="Bluetooth Speaker" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Bluetooth Speaker</h2>
+                    <p class="product-description">Portable speaker with deep bass, 10 hours playtime, and built-in microphone for calls.</p>
+                    <p class="product-price">₹3,299</p>
+                    <a href="#" class="btn-buy" aria-label="Buy Bluetooth Speaker">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://cdn.pixabay.com/photo/2014/05/02/21/50/laptop-336704_1280.jpg" alt="Laptop Ultra" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Laptop Ultra</h2>
+                    <p class="product-description">High-performance laptop with Intel i7, 16GB RAM, 512GB SSD, and dedicated graphics.</p>
+                    <p class="product-price">₹75,999</p>
+                    <a href="#" class="btn-buy" aria-label="Buy Laptop Ultra">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://cdn.pixabay.com/photo/2015/05/15/14/47/camera-768694_1280.jpg" alt="Digital Camera" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Digital Camera</h2>
+                    <p class="product-description">24MP DSLR camera with 4K video recording and interchangeable lenses.</p>
+                    <p class="product-price">₹45,499</p>
+                    <a href="#" class="btn-buy" aria-label="Buy Digital Camera">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/game-console-1957746_1280.jpg" alt="Gaming Console" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Gaming Console</h2>
+                    <p class="product-description">Next-gen gaming console with 4K support, VR ready, and extensive game library.</p>
+                    <p class="product-price">₹39,999</p>
+                    <a href="#" class="btn-buy" aria-label="Buy Gaming Console">Buy Now</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/smart-home-1957747_1280.jpg" alt="Smart Home Hub" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Smart Home Hub</h2>
+                    <p class="product-description">Control your smart devices with voice commands and automation features.</p>
+                    <p class="product-price">₹8,999</p>
+                    <a href="#" class="btn-buy" aria-label="Buy Smart Home Hub">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        © 2025 TradeVeil. All rights reserved.
+    </footer>
+</body>
+</html>
