@@ -117,12 +117,14 @@
         </table>
         <div id="empty-message" style="display:none;">Your cart is empty.</div>
         <button id="clear-cart-btn" style="display:none;">Clear Cart</button>
+        <button id="place-order-btn" style="margin-top: 1rem; background-color: #10b981; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Place Order</button>
     </main>
     <script>
         const cartItemsBody = document.getElementById('cart-items-body');
         const cartTotalElem = document.getElementById('cart-total');
         const emptyMessage = document.getElementById('empty-message');
         const clearCartBtn = document.getElementById('clear-cart-btn');
+        const placeOrderBtn = document.getElementById('place-order-btn');
 
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -131,11 +133,13 @@
             if (cart.length === 0) {
                 emptyMessage.style.display = 'block';
                 clearCartBtn.style.display = 'none';
+                placeOrderBtn.style.display = 'none';
                 document.getElementById('cart-table').style.display = 'none';
                 return;
             }
             emptyMessage.style.display = 'none';
             clearCartBtn.style.display = 'inline-block';
+            placeOrderBtn.style.display = 'inline-block';
             document.getElementById('cart-table').style.display = 'table';
 
             let total = 0;
@@ -186,6 +190,29 @@
         clearCartBtn.addEventListener('click', () => {
             cart = [];
             localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        });
+
+        placeOrderBtn.addEventListener('click', () => {
+            if(cart.length === 0) {
+                alert('Your cart is empty. Add items before placing an order.');
+                return;
+            }
+            let orders = JSON.parse(localStorage.getItem('tradeveilOrders')) || [];
+            const orderDate = new Date().toISOString();
+            cart.forEach(item => {
+                orders.push({
+                    id: item.id,
+                    name: item.name,
+                    price: item.price,
+                    quantity: item.quantity || 1,
+                    date: orderDate
+                });
+            });
+            localStorage.setItem('tradeveilOrders', JSON.stringify(orders));
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Order placed successfully!');
             renderCart();
         });
 

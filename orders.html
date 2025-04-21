@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Orders - TradeVeil</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #10b981;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav {
+            background-color: #059669;
+            padding: 0.5rem 0;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #047857;
+        }
+        main.container {
+            max-width: 900px;
+            margin: 2rem auto 4rem auto;
+            padding: 0 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #10b981;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+        th, td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #e6f4ea;
+            color: #059669;
+        }
+        .empty-message {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #555;
+            margin: 2rem 0;
+        }
+        footer {
+            background-color: #10b981;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            font-weight: 500;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        My Orders
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="electronics.html">Electronics</a></li>
+            <li><a href="stationery.html">Stationery</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="orders.html" class="active">My Orders</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <h2>Your Past Orders</h2>
+        <table id="orders-table" aria-label="My Orders">
+            <thead>
+                <tr>
+                    <th>Order Date</th>
+                    <th>Product Name</th>
+                    <th>Price (₹)</th>
+                    <th>Quantity</th>
+                    <th>Subtotal (₹)</th>
+                </tr>
+            </thead>
+            <tbody id="orders-body">
+                <!-- Orders will be dynamically inserted here -->
+            </tbody>
+        </table>
+        <div id="empty-message" class="empty-message" style="display:none;">You have no orders yet.</div>
+    </main>
+    <footer>
+        © 2025 TradeVeil. All rights reserved.
+    </footer>
+    <script>
+        const ordersBody = document.getElementById('orders-body');
+        const emptyMessage = document.getElementById('empty-message');
+
+        function loadOrders() {
+            const orders = JSON.parse(localStorage.getItem('tradeveilOrders')) || [];
+            if (orders.length === 0) {
+                emptyMessage.style.display = 'block';
+                document.getElementById('orders-table').style.display = 'none';
+                return;
+            }
+            emptyMessage.style.display = 'none';
+            document.getElementById('orders-table').style.display = 'table';
+
+            ordersBody.innerHTML = '';
+            orders.forEach(order => {
+                const tr = document.createElement('tr');
+
+                const dateTd = document.createElement('td');
+                dateTd.textContent = new Date(order.date).toLocaleString();
+                tr.appendChild(dateTd);
+
+                const nameTd = document.createElement('td');
+                nameTd.textContent = order.name;
+                tr.appendChild(nameTd);
+
+                const priceTd = document.createElement('td');
+                priceTd.textContent = parseFloat(order.price).toFixed(2);
+                tr.appendChild(priceTd);
+
+                const quantityTd = document.createElement('td');
+                quantityTd.textContent = order.quantity;
+                tr.appendChild(quantityTd);
+
+                const subtotalTd = document.createElement('td');
+                subtotalTd.textContent = (order.price * order.quantity).toFixed(2);
+                tr.appendChild(subtotalTd);
+
+                ordersBody.appendChild(tr);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadOrders();
+        });
+    </script>
+</body>
+</html>
