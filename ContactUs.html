@@ -7,7 +7,6 @@
     <title>TradeVeil - Contact Us</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
     <style>
-        /* Embedded CSS to match existing style with theme support */
         :root {
             --bg-color-light: #10b981;
             --text-color-light: #333;
@@ -635,7 +634,6 @@
     <nav id="nav" role="navigation" aria-label="Primary Navigation">
         <div class="navTop">
             <div class="navItem">
-                <!-- Logo removed as per user request -->
             </div>
             <div class="navItem">
                 <div class="search" role="search">
@@ -643,7 +641,6 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/149/149852.png" width="20" height="20" alt="Search Icon" class="searchIcon" />
                 </div>
             </div>
-            <!-- Removed FREE SCAN! offer as per user request -->
             <div class="navItem">
                 <button id="themeToggle" aria-label="Toggle light and dark theme">Toggle Theme</button>
             </div>
@@ -718,23 +715,9 @@
                         </div>
                         <div class="contact-details">
                             <h3>Email Support</h3>
-                    <p>support@tradeveil.com<br>help@tradeveil.com</p>
+                    <p>team@tradeveilgmail.com</p>
                         </div>
                     </div>
-                </div>
-                <div class="social-links">
-                    <a href="#" class="social-link" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="social-link" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-link" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="social-link" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
                 </div>
             </div>
         </div>
@@ -797,42 +780,28 @@
     </footer>
 
     <script>
-        // Embedded JavaScript for theme toggle and form handling
         const themeToggleBtn = document.getElementById('themeToggle');
         const contactForm = document.getElementById('contactForm');
 
-        // Theme toggle functionality
         themeToggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('dark-theme');
-            // Save preference to localStorage
             if(document.body.classList.contains('dark-theme')) {
                 localStorage.setItem('theme', 'dark');
             } else {
                 localStorage.setItem('theme', 'light');
             }
         });
-
-        // Form submission handling
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            // Get form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
-            
-            // Here you would typically send the data to a server
             console.log('Form submitted:', { name, email, subject, message });
-            
-            // Show success message
             alert('Thank you for your message! We will get back to you soon.');
-            
-            // Reset form
             contactForm.reset();
         });
 
-        // Load theme preference on page load
         window.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme');
             if(savedTheme === 'dark') {

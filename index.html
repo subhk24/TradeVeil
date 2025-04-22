@@ -239,7 +239,20 @@
         }
     </style>
 </head>
-<body>
+<body class="bg-emerald-800">
+    <nav class="bg-white shadow-sm fixed w-full z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-2xl font-bold text-blue-600">TradeVeil</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#features" class="text-gray-600 hover:text-blu-600">Features</a>
+                <a href="#security" class="text-gray-600 hover:text-blue-600">Security</a>
+                <button onclick="showAuth('seller')" class="bg-blue-600 text-white-500 px-4 py-2 rounded-lg">Wholesaler Login</button>
+                <button onclick="showAuth('buyer')" class="bg-indigo-600 text-white-500 px-4 py-2 rounded-lg">Retailer Login</button>
+            </div>
+        </div>
+    </nav>
     <nav>
         <div class="container">
             <div class="logo">TradeVeil</div>
@@ -257,6 +270,15 @@
     <section class="hero">
         <h1>Secure B2B Wholesale Marketplace</h1>
         <p>Connect directly with verified wholesalers/retailers in your region while maintaining complete business privacy.</p>
+    <section class="pt-32 pb-20 px-4">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-amber-500 mb-6">
+                Secure B2B Wholesale Marketplace
+            </h1>
+            <p class="text-xl text-amber-300 mb-8 max-w-2xl mx-auto">
+                Connect directly with verified wholesalers/retailers in your region while maintaining complete business privacy.
+            </p>
+          </di>
     </section>
 
     <section class="categories">
@@ -279,6 +301,63 @@
                 <p>Cosmetics</p>
             </a>
         </div>
+        
+    <section class="container" style="padding-bottom: 4rem;">
+    <h2>Popular Products</h2>
+    <div class="grid grid-cols-4 gap-4">
+        <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="headphone1" data-name="Headphone" data-price="1500">
+            <a href="headphones.html" class="shadow p-4 rounded text-center transition hover:shadow-lg block no-underline text-inherit">
+                <img class="product-image" src="https://i.pinimg.com/736x/a9/c8/ab/a9c8abe2fe655aa90cc4d05198718926.jpg" alt="Headphones"/>
+                <p>Headphone</p>
+                <button class="add-to-cart-btn mt-2">Add to Cart</button>
+            </a>
+        </div>
+        <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="sunglasses1" data-name="Sun Glasses" data-price="1200">
+            <a href="Sunglasses.html" class="shadow p-4 rounded text-center transition hover:shadow-lg block no-underline text-inherit">
+                <img class="product-image" src="https://i.pinimg.com/474x/ba/bc/97/babc97e0d3a39781522c6990c03834ee.jpg" alt="Sun Glasses"/>
+                <p>Sun Glasses</p>
+                <button class="add-to-cart-btn mt-2">Add to Cart</button>
+            </a>
+        </div>
+        <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="tshirtpack1" data-name="Cotton T-shirt Pack" data-price="800">
+           
+                <img class="product-image" src="https://i.pinimg.com/736x/4a/46/6f/4a466ffaf0b0ea6e902036a31649d7aa.jpg" alt="T-shirt Pack"/>
+                <p>Cotton T-shirt Pack</p>
+                <button class="add-to-cart-btn mt-2">Add to Cart</button>
+            </a>
+        </div>
+        <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="lipsticks1" data-name="Lipsticks" data-price="500">
+            <a href="123.html" class="shadow p-4 rounded text-center transition hover:shadow-lg block no-underline text-inherit">
+                <img class="product-image" src="https://i.pinimg.com/474x/2c/60/97/2c60974fc65af811c079e7b2e10c3a6c.jpg" alt="Lipsticks"/>
+                <p>Lipsticks</p>
+                <button class="add-to-cart-btn mt-2">Add to Cart</button>
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .product-image {
+        max-width: 100%;
+        height: 250px; 
+        object-fit: cover; 
+        border-radius: 0.5rem;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+    }
+
+    .grid-cols-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gap-4 {
+        gap: 1rem;
+    }
+</style>
     </section>
 
     <section class="popular-products">
@@ -310,6 +389,51 @@
     <footer>
         <p>© 2025 TradeVeil. All rights reserved.</p>
     </footer>
+
+    <section class="footer-multicol" style="background-color: #f8f8f8; padding: 40px 20px; font-family: Arial, sans-serif; color: #333;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+            <div class="footer-col" style="flex: 1 1 180px; margin: 10px;">
+                <h4 style="font-weight: bold; margin-bottom: 15px;">About TradeVeil</h4>
+                <p style="font-size: 14px; line-height: 1.5;">
+                    TradeVeil is a secure B2B wholesale platform connecting verified wholesalers and retailers with complete business privacy.
+                </p>
+            </div>
+            <div class="footer-col" style="flex: 1 1 180px; margin: 10px;">
+                <h4 style="font-weight: bold; margin-bottom: 15px;">Help</h4>
+                <ul style="list-style: none; padding: 0; font-size: 14px;">
+                    <li><a href="contactus.html" style="color: #333; text-decoration: none;">Contact Us</a></li>
+                    <li><a href="signup.html" style="color: #333; text-decoration: none;">Register</a></li>
+                    <li><a href="login.html" style="color: #333; text-decoration: none;">Login</a></li>
+                    <li><a href="orders.html" style="color: #333; text-decoration: none;">My Orders</a></li>
+                </ul>
+            </div>
+            <div class="footer-col" style="flex: 1 1 180px; margin: 10px;">
+                <h4 style="font-weight: bold; margin-bottom: 15px;">TradeVeil</h4>
+                <ul style="list-style: none; padding: 0; font-size: 14px;">
+                    <li><a href="electronics.html" style="color: #333; text-decoration: none;">Electronics</a></li>
+                    <li><a href="stationery.html" style="color: #333; text-decoration: none;">Stationery</a></li>
+                    <li><a href="#" style="color: #333; text-decoration: none;">Textiles</a></li>
+<li><a href="cosmetics.html" style="color: #333; text-decoration: none;">Cosmetics</a></li>
+                </ul>
+            </div>
+            <div class="footer-col" style="flex: 1 1 180px; margin: 10px;">
+                <h4 style="font-weight: bold; margin-bottom: 15px;">Contact</h4>
+                <p style="font-size: 14px; line-height: 1.5;">
+                    Email: support@tradeveil.com<br/>
+                    Phone: +1 234 567 8900<br/>
+                    Address: 123 TradeVeil St, Business City
+                </p>
+                <div class="social-icons" style="margin-top: 15px;">
+                    <a href="#" style="margin-right: 10px; text-decoration: none; color: #333; font-size: 20px;">&#x1F426;</a>
+                    <a href="#" style="margin-right: 10px; text-decoration: none; color: #333; font-size: 20px;">&#x1F4F1;</a>
+                    <a href="#" style="margin-right: 10px; text-decoration: none; color: #333; font-size: 20px;">&#x1F4F7;</a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; font-size: 12px; color: #999; margin-top: 30px;">
+            <p>© 2025 TradeVeil. All rights reserved. | <a href="#" style="color: #999; text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: #999; text-decoration: none;">Terms of Service</a></p>
+        </div>
+    </section>
 
 <script>
     document.querySelectorAll('.add-to-cart-btn').forEach(button => {

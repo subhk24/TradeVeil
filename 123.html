@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lipsticks - TradeVeil</title>
+    <style>
+        font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            header {
+            background-color: #10b981;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        nav {
+            background-color: #059669;
+            padding: 0.5rem 0;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #047857;
+        }
+        main.container {
+            max-width: 1200px;
+            margin: 2rem auto 4rem auto;
+            padding: 0 1rem;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .product-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            background-color: #f0f0f0;
+        }
+        .product-details {
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-title {
+            font-size: 1.25rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+            color: #10b981;
+        }
+        .product-description {
+            flex-grow: 1;
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        .product-price {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #047857;
+            margin-bottom: 1rem;
+        }
+        .btn-buy {
+            align-self: flex-start;
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn-buy:hover {
+            background-color: #059669;
+        }
+        footer {
+            background-color: #10b981;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            font-weight: 500;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+        .features-section {
+            background-color: #e6f4ea;
+            border-radius: 8px;
+            padding: 2rem 1rem;
+            margin: 3rem 0;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .features-section h2 {
+            color: #10b981;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        </style>
+    </head>
+<body>
+    <header>
+        Lipsticks Collection
+        <a href="cart.html" id="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
+            🛒<span id="cart-count">0</span>
+        </a>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="electronics.html">Electronics</a></li>
+            <li><a href="stationery.html">Stationery</a></li>
+            <li><a href="textiles.html">Textiles</a></li>
+            <li><a href="sunglasses.html"></a></li>
+            <li><a href="sunglasses.html" class="active">Lipsticks</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="orders.html">My Orders</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <div class="products-grid">
+            <div class="product-card" data-id="aviator-classic" data-name="Aviator Classic" data-price="13,990">
+                <img src="https://i.pinimg.com/736x/04/c5/36/04c536a45c11350048bc8b50db41fb30.jpg" alt="Cocoa Shot Shade" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Cocoa Shot Shade Lipstick</h2>
+                    <p class="product-description">Brand: LAKME</p>
+                    <p class="product-price">₹2,599</p>
+                    <button class="btn-buy" aria-label="Buy Aviator Classic">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="fastrack-wayfarer" data-name="Fastrack Wayfarer" data-price="999">
+                <img src="https://i.pinimg.com/474x/8b/ea/c1/8beac126f351deb8677edf7fa459f368.jpg" alt="Nude Shade" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Nude Shade Lipstick</h2>
+                    <p class="product-description">Brand: MAC</p>
+                    <p class="product-price">₹999</p>
+                    <button class="btn-buy" aria-label="Buy Fastrack Wayfarer">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="oakley-sport" data-name="Oakley Sport" data-price="10,490">
+                <img src="https://i.pinimg.com/736x/c9/e2/43/c9e2432e70d57c55292b63c0ca4be589.jpg" alt="Deep Rose Pink Shade" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Deep Rose Pink Shade Lipstick</h2>
+                    <p class="product-description">Brand: MAX PRODUCT'S</p>
+                    <p class="product-price">₹3,499</p>
+                    <button class="btn-buy" aria-label="Buy Oakley Sport">Buy Now</button>
+                </div>
+            </div>
+            <section class="features-section">
+            <h2>Why Choose Our Lipsticks?</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h3>Every color of the world</h3>
+                    <p>We have a wide range of shades and brands.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Affordable Prices</h3>
+                    <p>Wide range starting from ₹999, with premium options available.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Fast Delivery</h3>
+                    <p>Quick and reliable delivery to your doorstep.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        © 2025 TradeVeil. All rights reserved.
+    </footer>
+    <script>
+        const cartCountElem = document.getElementById('cart-count');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCartCount() {
+            cartCountElem.textContent = cart.length;
+        }
+
+        function addToCart(product) {
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            alert(product.name + ' added to cart!');
+        }
+
+        document.querySelectorAll('.btn-buy').forEach(button => {
+            button.addEventListener('click', () => {
+                const productCard = button.closest('.product-card');
+                const product = {
+                    id: productCard.getAttribute('data-id'),
+                    name: productCard.getAttribute('data-name'),
+                    price: productCard.getAttribute('data-price')
+                };
+                addToCart(product);
+            });
+        });
+
+        updateCartCount();
+    </script>
+</body>
+</html>
