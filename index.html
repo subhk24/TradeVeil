@@ -11,7 +11,20 @@
     <meta name="keywords" content="B2B, Wholesale, Marketplace, TradeVeil, Business Privacy, Verified Sellers" />
     <meta name="author" content="TradeVeil" />
 </head>
-<body>
+<body class="bg-emerald-800">
+    <nav class="bg-white shadow-sm fixed w-full z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-2xl font-bold text-blue-600">TradeVeil</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#features" class="text-gray-600 hover:text-blu-600">Features</a>
+                <a href="#security" class="text-gray-600 hover:text-blue-600">Security</a>
+                <button onclick="showAuth('seller')" class="bg-blue-600 text-white-500 px-4 py-2 rounded-lg">Wholesaler Login</button>
+                <button onclick="showAuth('buyer')" class="bg-indigo-600 text-white-500 px-4 py-2 rounded-lg">Retailer Login</button>
+            </div>
+        </div>
+    </nav>
     <nav>
         <div class="container">
             <div class="logo">TradeVeil</div>
@@ -24,7 +37,6 @@
         </ul>
         </div>
     </nav>
-
     <section class="pt-32 pb-20 px-4">
         <div class="container mx-auto text-center">
             <h1 class="text-4xl md:text-6xl font-bold text-amber-500 mb-6">
