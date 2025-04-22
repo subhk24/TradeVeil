@@ -1,0 +1,351 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lipsticks - TradeVeil</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #10b981;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        nav {
+            background-color: #059669;
+            padding: 0.5rem 0;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #047857;
+        }
+        main.container {
+            max-width: 1200px;
+            margin: 2rem auto 4rem auto;
+            padding: 0 1rem;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .product-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            background-color: #f0f0f0;
+        }
+        .product-details {
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-title {
+            font-size: 1.25rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+            color: #10b981;
+        }
+        .product-description {
+            flex-grow: 1;
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        .product-price {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #047857;
+            margin-bottom: 1rem;
+        }
+        .btn-buy {
+            align-self: flex-start;
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn-buy:hover {
+            background-color: #059669;
+        }
+        footer {
+            background-color: #10b981;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            font-weight: 500;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+        .features-section {
+            background-color: #e6f4ea;
+            border-radius: 8px;
+            padding: 2rem 1rem;
+            margin: 3rem 0;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .features-section h2 {
+            color: #10b981;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .features-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .feature-item {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 1rem 1.5rem;
+            flex: 1 1 250px;
+            max-width: 300px;
+            text-align: center;
+        }
+        .feature-item h3 {
+            color: #059669;
+            margin-bottom: 0.5rem;
+        }
+        .feature-item p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        #cart-icon {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+        }
+        #cart-count {
+            background: red;
+            border-radius: 50%;
+            color: white;
+            font-size: 0.8rem;
+            padding: 2px 6px;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+        }
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-list {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Cosmetics Products
+        <a href="cart.html" id="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
+            🛒<span id="cart-count">0</span>
+        </a>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="electronics.html">Electronics</a></li>
+            <li><a href="stationery.html">Stationery</a></li>
+            <li><a href="textiles.html">Textiles</a></li>
+            <li><a href="cosmetics.html" class="active">Cosmetics</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="orders.html">My Orders</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+
+        </ul>
+    </nav>
+    <main class="container">
+        <div class="products-grid">
+            <div class="product-card" data-id="lipstick-classic" data-name="Classic Lipstick" data-price="599">
+                <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80" alt="Classic Lipstick" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Classic Lipstick</h2>
+                    <p class="product-description">Long-lasting classic red lipstick for all occasions.</p>
+                    <p class="product-price">₹599</p>
+                    <button class="btn-buy" aria-label="Buy Classic Lipstick">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="foundation-smooth" data-name="Smooth Foundation" data-price="799">
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" alt="Smooth Foundation" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Smooth Foundation</h2>
+                    <p class="product-description">Lightweight foundation for a flawless finish.</p>
+                    <p class="product-price">₹799</p>
+                    <button class="btn-buy" aria-label="Buy Smooth Foundation">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="mascara-volume" data-name="Volume Mascara" data-price="699">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Volume Mascara" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Volume Mascara</h2>
+                    <p class="product-description">Mascara that adds volume and length to your lashes.</p>
+                    <p class="product-price">₹699</p>
+                    <button class="btn-buy" aria-label="Buy Volume Mascara">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="nail-polish" data-name="Nail Polish" data-price="499">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Nail Polish" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Nail Polish</h2>
+                    <p class="product-description">Durable nail polish available in multiple vibrant colors.</p>
+                    <p class="product-price">₹499</p>
+                    <button class="btn-buy" aria-label="Buy Nail Polish">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="perfume" data-name="Floral Perfume" data-price="1299">
+                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=800&q=80" alt="Floral Perfume" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Floral Perfume</h2>
+                    <p class="product-description">Refreshing floral scent with long-lasting fragrance.</p>
+                    <p class="product-price">₹1299</p>
+                    <button class="btn-buy" aria-label="Buy Floral Perfume">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="blush-rose" data-name="Rose Blush" data-price="699">
+                <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80" alt="Rose Blush" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Rose Blush</h2>
+                    <p class="product-description">Soft rose blush for a natural glow.</p>
+                    <p class="product-price">₹699</p>
+                    <button class="btn-buy" aria-label="Buy Rose Blush">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="eyeliner-precision" data-name="Precision Eyeliner" data-price="599">
+                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80" alt="Precision Eyeliner" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Precision Eyeliner</h2>
+                    <p class="product-description">Waterproof eyeliner for sharp and precise lines.</p>
+                    <p class="product-price">₹599</p>
+                    <button class="btn-buy" aria-label="Buy Precision Eyeliner">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="lip-gloss" data-name="Shiny Lip Gloss" data-price="499">
+                <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80" alt="Shiny Lip Gloss" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Shiny Lip Gloss</h2>
+                    <p class="product-description">Glossy lip gloss for a shiny finish.</p>
+                    <p class="product-price">₹499</p>
+                    <button class="btn-buy" aria-label="Buy Shiny Lip Gloss">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <section class="features-section">
+            <h2>Why Choose Our Cosmetics Products?</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h3>Premium Ingredients</h3>
+                    <p>Our cosmetics are made with high-quality ingredients for safe and effective use.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Wide Range</h3>
+                    <p>Explore a variety of cosmetics products to suit different preferences and skin types.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Affordable Prices</h3>
+                    <p>We offer competitive pricing without compromising on quality.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Fast Delivery</h3>
+                    <p>Quick and reliable delivery to ensure you get your products on time.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        © 2025 TradeVeil. All rights reserved.
+    </footer>
+    <script>
+        const cartCountElem = document.getElementById('cart-count');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCartCount() {
+            cartCountElem.textContent = cart.length;
+        }
+
+        function addToCart(product) {
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            alert(product.name + ' added to cart!');
+        }
+
+        document.querySelectorAll('.btn-buy').forEach(button => {
+            button.addEventListener('click', () => {
+                const productCard = button.closest('.product-card');
+                const product = {
+                    id: productCard.getAttribute('data-id'),
+                    name: productCard.getAttribute('data-name'),
+                    price: productCard.getAttribute('data-price')
+                };
+                addToCart(product);
+            });
+        });
+
+        updateCartCount();
+    </script>
+</body>
+</html>
