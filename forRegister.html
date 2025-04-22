@@ -1,86 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>B2B Connection Platform</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register - TradeVeil B2B Platform</title>
   <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            cursor: pointer; /* Changes cursor to indicate clickable */
-        }
-
- .landing-container {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #0062cc, #0097e6);
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-    h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin-bottom: 2rem;
-        }
-        
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            animation: fadeIn 1s, fadeOut 1s 3s;
-            animation-fill-mode: forwards;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-    </style>
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif, Arial, sans-serif;
+      background-color: #f4f7f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #10b981;
+      padding: 1rem 2rem;
+      color: white;
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .register-container {
+      background: white;
+      padding: 2.5rem 3rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+      max-width: 450px;
+      width: 100%;
+    }
+    .register-container h2 {
+      margin-bottom: 1.5rem;
+      color: #10b981;
+      font-weight: 700;
+      text-align: center;
+      font-size: 2rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    label {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      display: block;
+      color: #065f46;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"] {
+      padding: 0.75rem 1rem;
+      border: 1.5px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      width: 100%;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    input[type="tel"]:focus {
+      border-color: #10b981;
+      outline: none;
+      box-shadow: 0 0 5px rgba(16, 185, 129, 0.5);
+    }
+    button[type="submit"] {
+      background-color: #10b981;
+      color: white;
+      font-weight: 700;
+      padding: 0.85rem 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 1rem;
+    }
+    button[type="submit"]:hover {
+      background-color: #059669;
+    }
+    .footer {
+      background-color: #10b981;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      font-weight: 500;
+      font-size: 0.9rem;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+      margin-top: auto;
+    }
+    @media (max-width: 480px) {
+      .register-container {
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="landing-container">
-        <h1>Connect Your Business</h1>
-        <p>The ultimate B2B platform to find partners, suppliers, and clients. Tap anywhere on the screen to register and start connecting with businesses worldwide.</p>
-        <div class="notification">Tap anywhere to register</div>
+  <header>
+    TradeVeil Registration
+  </header>
+  <main>
+    <div class="register-container">
+      <h2>Create Your Account</h2>
+      <form action="register_submit.html" method="POST" novalidate>
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="John Doe" required />
+
+        <label for="company">Company Name</label>
+        <input type="text" id="company" name="company" placeholder="Your Company Pvt Ltd" required />
+
+        <label for="gstnumber">GST Number</label>
+        <input type="text" id="gstnumber" name="gstnumber" placeholder="22AAAAA0000A1Z5" pattern="[0-9A-Z]{15}" title="Enter valid 15 character GST number" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="email@example.com" required />
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required pattern="[+0-9\s\-]{7,15}" />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required minlength="8" />
+
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required minlength="8" />
+
+        <button type="submit">Register Now</button>
+      </form>
     </div>
-
-    <script>
-        // Add click event listener to the entire document
-        document.addEventListener('click', function() {
-            // Redirect to registration page
-            window.location.href = 'register.html';
-        });
-        
-        // For demonstration purposes, you might want to exclude certain elements
-        // For example, if you later add navigation elements you don't want to trigger the redirect
-        // document.querySelector('.no-redirect-element').addEventListener('click', function(e) {
-        //     e.stopPropagation();
-        // });
-    </script>
-
-  
+  </main>
+  <footer class="footer">
+    &copy; 2025 TradeVeil. All rights reserved.
+  </footer>
 </body>
 </html>
