@@ -108,11 +108,12 @@
             padding: 0 1rem;
         }
         section.categories h2 {
-            font-size: 2rem;
+            font-size: 2.75rem;
             font-weight: 700;
-            color: #10b981;
+            color: #047857;
             margin-bottom: 1.5rem;
             text-align: center;
+            letter-spacing: 1.5px;
         }
         .grid-categories {
             display: grid;
@@ -241,16 +242,11 @@
 </head>
 <body class="bg-emerald-800">
     <nav class="bg-white shadow-sm fixed w-full z-10">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <span class="text-2xl font-bold text-blue-600">TradeVeil</span>
-            </div>
-            <div class="hidden md:flex space-x-6">
-                <a href="#features" class="text-gray-600 hover:text-blu-600">Features</a>
-                <a href="#security" class="text-gray-600 hover:text-blue-600">Security</a>
-                <button onclick="showAuth('seller')" class="bg-blue-600 text-white-500 px-4 py-2 rounded-lg">Wholesaler Login</button>
-                <button onclick="showAuth('buyer')" class="bg-indigo-600 text-white-500 px-4 py-2 rounded-lg">Retailer Login</button>
-            </div>
+        <div class="hidden md:flex space-x-6 px-4 py-3 justify-end">
+            <a href="#features" class="text-gray-600 hover:text-blu-600">Features</a>
+            <a href="#security" class="text-gray-600 hover:text-blue-600">Security</a>
+            <button onclick="showAuth('seller')" class="bg-blue-600 text-white-500 px-4 py-2 rounded-lg">Wholesaler Login</button>
+            <button onclick="showAuth('buyer')" class="bg-indigo-600 text-white-500 px-4 py-2 rounded-lg">Retailer Login</button>
         </div>
     </nav>
     <nav>
@@ -270,15 +266,6 @@
     <section class="hero">
         <h1>Secure B2B Wholesale Marketplace</h1>
         <p>Connect directly with verified wholesalers/retailers in your region while maintaining complete business privacy.</p>
-    <section class="pt-32 pb-20 px-4">
-        <div class="container mx-auto text-center">
-            <h1 class="text-4xl md:text-6xl font-bold text-amber-500 mb-6">
-                Secure B2B Wholesale Marketplace
-            </h1>
-            <p class="text-xl text-amber-300 mb-8 max-w-2xl mx-auto">
-                Connect directly with verified wholesalers/retailers in your region while maintaining complete business privacy.
-            </p>
-          </di>
     </section>
 
     <section class="categories">
