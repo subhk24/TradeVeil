@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Dashboard - TradeVeil</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #10b981;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.8rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        main.container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .welcome {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #10b981;
+        }
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .nav-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 1.5rem 2rem;
+            flex: 1 1 200px;
+            max-width: 220px;
+            text-align: center;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            color: #10b981;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            user-select: none;
+        }
+        .nav-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            background-color: #e6f4ea;
+        }
+        #logout-btn {
+            margin-top: 2rem;
+            display: block;
+            background-color: #ef4444;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            max-width: 220px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #logout-btn:hover {
+            background-color: #b91c1c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        TradeVeil User Dashboard
+    </header>
+    <main class="container">
+        <div class="welcome" id="welcome-msg">Welcome, User</div>
+        <div class="nav-links">
+            <a href="bulk-orders.html" class="nav-card">Bulk Order Management</a>
+            <a href="quotation.html" class="nav-card">Request Quotation</a>
+            <a href="order-tracking.html" class="nav-card">Order Tracking</a>
+            <a href="account-settings.html" class="nav-card">Account Settings</a>
+            <a href="support.html" class="nav-card">Customer Support</a>
+        </div>
+        <button id="logout-btn">Logout</button>
+    </main>
+
+    <script>
+        const welcomeMsg = document.getElementById('welcome-msg');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        function loadUser() {
+            // const user = JSON.parse(localStorage.getItem('currentUser'));
+            // if (!user) {
+            //     alert('You are not logged in. Redirecting to login page.');
+            //     window.location.href = 'authentication.html';
+            //     return;
+            // }
+            welcomeMsg.textContent = `Welcome, User (Guest)`;
+        }
+
+        // logoutBtn.addEventListener('click', () => {
+        //     localStorage.removeItem('currentUser');
+        //     alert('You have been logged out.');
+        //     window.location.href = 'authentication.html';
+        // });
+
+        // loadUser();
+        loadUser();
+    </script>
+</body>
+</html>

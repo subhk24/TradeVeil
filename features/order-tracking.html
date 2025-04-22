@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Order Tracking - TradeVeil</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #10b981;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.8rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        main.container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        h2 {
+            color: #10b981;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        form {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        button {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #059669;
+        }
+        .status-message {
+            margin-top: 1rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .error-message {
+            color: red;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: none;
+        }
+        .success-message {
+            color: green;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Order Tracking
+    </header>
+    <main class="container">
+        <h2>Track Your Order</h2>
+        <form id="tracking-form">
+            <label for="order-id">Enter Your Order ID</label>
+            <input type="text" id="order-id" placeholder="e.g. ORD123456" required />
+            <button type="submit">Track Order</button>
+        </form>
+        <div class="error-message" id="error-message"></div>
+        <div class="success-message" id="success-message"></div>
+    </main>
+
+    <script>
+        const trackingForm = document.getElementById('tracking-form');
+        const orderIdInput = document.getElementById('order-id');
+        const errorMessage = document.getElementById('error-message');
+        const successMessage = document.getElementById('success-message');
+
+        // Simulated order data
+        const orders = {
+            'ORD123456': { status: 'Shipped', estimatedDelivery: '2025-07-10' },
+            'ORD654321': { status: 'Processing', estimatedDelivery: '2025-07-15' },
+            'ORD111222': { status: 'Delivered', estimatedDelivery: '2025-07-01' }
+        };
+
+        trackingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+
+            const orderId = orderIdInput.value.trim().toUpperCase();
+
+            if (!orderId) {
+                errorMessage.textContent = 'Please enter a valid order ID.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            if (orders[orderId]) {
+                const order = orders[orderId];
+                successMessage.textContent = `Order Status: ${order.status}. Estimated Delivery: ${order.estimatedDelivery}.`;
+                successMessage.style.display = 'block';
+            } else {
+                errorMessage.textContent = 'Order ID not found. Please check and try again.';
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
