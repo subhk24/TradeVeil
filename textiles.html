@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Textiles Products - TradeVeil</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #10b981;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        nav {
+            background-color: #059669;
+            padding: 0.5rem 0;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #047857;
+        }
+        main.container {
+            max-width: 1200px;
+            margin: 2rem auto 4rem auto;
+            padding: 0 1rem;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .product-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            background-color: #f0f0f0;
+        }
+        .product-details {
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-title {
+            font-size: 1.25rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+            color: #10b981;
+        }
+        .product-description {
+            flex-grow: 1;
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        .product-price {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #047857;
+            margin-bottom: 1rem;
+        }
+        .btn-buy {
+            align-self: flex-start;
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn-buy:hover {
+            background-color: #059669;
+        }
+        footer {
+            background-color: #10b981;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            font-weight: 500;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+        .features-section {
+            background-color: #e6f4ea;
+            border-radius: 8px;
+            padding: 2rem 1rem;
+            margin: 3rem 0;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .features-section h2 {
+            color: #10b981;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .features-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .feature-item {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 1rem 1.5rem;
+            flex: 1 1 250px;
+            max-width: 300px;
+            text-align: center;
+        }
+        .feature-item h3 {
+            color: #059669;
+            margin-bottom: 0.5rem;
+        }
+        .feature-item p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        #cart-icon {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+        }
+        #cart-count {
+            background: red;
+            border-radius: 50%;
+            color: white;
+            font-size: 0.8rem;
+            padding: 2px 6px;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+        }
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-list {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Textiles Products
+        <a href="cart.html" id="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
+            🛒<span id="cart-count">0</span>
+        </a>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="electronics.html">Electronics</a></li>
+            <li><a href="stationery.html">Stationery</a></li>
+            <li><a href="textiles.html" class="active">Textiles</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="orders.html">My Orders</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <div class="products-grid">
+            <div class="product-card" data-id="cotton-fabric" data-name="Cotton Fabric" data-price="799">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/fabric-1868615_1280.jpg" alt="Cotton Fabric" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Cotton Fabric</h2>
+                    <p class="product-description">Soft and breathable cotton fabric, perfect for clothing and home textiles.</p>
+                    <p class="product-price">₹799</p>
+                    <button class="btn-buy" aria-label="Buy Cotton Fabric">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="silk-scarf" data-name="Silk Scarf" data-price="1299">
+                <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/scarf-1957748_1280.jpg" alt="Silk Scarf" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Silk Scarf</h2>
+                    <p class="product-description">Elegant silk scarf with vibrant colors and smooth texture.</p>
+                    <p class="product-price">₹1299</p>
+                    <button class="btn-buy" aria-label="Buy Silk Scarf">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="woolen-sweater" data-name="Woolen Sweater" data-price="2499">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/sweater-1868615_1280.jpg" alt="Woolen Sweater" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Woolen Sweater</h2>
+                    <p class="product-description">Warm and cozy woolen sweater for cold weather.</p>
+                    <p class="product-price">₹2499</p>
+                    <button class="btn-buy" aria-label="Buy Woolen Sweater">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="denim-jeans" data-name="Denim Jeans" data-price="1999">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/jeans-1868615_1280.jpg" alt="Denim Jeans" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Denim Jeans</h2>
+                    <p class="product-description">Classic blue denim jeans with a comfortable fit.</p>
+                    <p class="product-price">₹1999</p>
+                    <button class="btn-buy" aria-label="Buy Denim Jeans">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="linen-fabric" data-name="Linen Fabric" data-price="899">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/linen-1868615_1280.jpg" alt="Linen Fabric" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Linen Fabric</h2>
+                    <p class="product-description">Lightweight and breathable linen fabric for summer wear.</p>
+                    <p class="product-price">₹899</p>
+                    <button class="btn-buy" aria-label="Buy Linen Fabric">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="polyester-shirt" data-name="Polyester Shirt" data-price="1499">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/shirt-1868615_1280.jpg" alt="Polyester Shirt" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Polyester Shirt</h2>
+                    <p class="product-description">Durable polyester shirt with wrinkle-resistant fabric.</p>
+                    <p class="product-price">₹1499</p>
+                    <button class="btn-buy" aria-label="Buy Polyester Shirt">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="cashmere-scarf" data-name="Cashmere Scarf" data-price="2999">
+                <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/scarf-1957748_1280.jpg" alt="Cashmere Scarf" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Cashmere Scarf</h2>
+                    <p class="product-description">Luxurious cashmere scarf for warmth and style.</p>
+                    <p class="product-price">₹2999</p>
+                    <button class="btn-buy" aria-label="Buy Cashmere Scarf">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="denim-jacket" data-name="Denim Jacket" data-price="3499">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/jacket-1868615_1280.jpg" alt="Denim Jacket" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Denim Jacket</h2>
+                    <p class="product-description">Stylish denim jacket for casual wear.</p>
+                    <p class="product-price">₹3499</p>
+                    <button class="btn-buy" aria-label="Buy Denim Jacket">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="silk-dress" data-name="Silk Dress" data-price="3999">
+                <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/dress-1957748_1280.jpg" alt="Silk Dress" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Silk Dress</h2>
+                    <p class="product-description">Elegant silk dress perfect for special occasions.</p>
+                    <p class="product-price">₹3999</p>
+                    <button class="btn-buy" aria-label="Buy Silk Dress">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="woolen-gloves" data-name="Woolen Gloves" data-price="799">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/gloves-1868615_1280.jpg" alt="Woolen Gloves" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Woolen Gloves</h2>
+                    <p class="product-description">Warm woolen gloves to keep your hands cozy in winter.</p>
+                    <p class="product-price">₹799</p>
+                    <button class="btn-buy" aria-label="Buy Woolen Gloves">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="cotton-tshirt" data-name="Cotton T-Shirt" data-price="999">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/tshirt-1868615_1280.jpg" alt="Cotton T-Shirt" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Cotton T-Shirt</h2>
+                    <p class="product-description">Comfortable cotton t-shirt available in multiple colors.</p>
+                    <p class="product-price">₹999</p>
+                    <button class="btn-buy" aria-label="Buy Cotton T-Shirt">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="linen-pants" data-name="Linen Pants" data-price="1499">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/pants-1868615_1280.jpg" alt="Linen Pants" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Linen Pants</h2>
+                    <p class="product-description">Lightweight linen pants perfect for summer days.</p>
+                    <p class="product-price">₹1499</p>
+                    <button class="btn-buy" aria-label="Buy Linen Pants">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="polyester-jacket" data-name="Polyester Jacket" data-price="1999">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/jacket-1868615_1280.jpg" alt="Polyester Jacket" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Polyester Jacket</h2>
+                    <p class="product-description">Durable polyester jacket with water-resistant fabric.</p>
+                    <p class="product-price">₹1999</p>
+                    <button class="btn-buy" aria-label="Buy Polyester Jacket">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="cashmere-sweater" data-name="Cashmere Sweater" data-price="3499">
+                <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/sweater-1957748_1280.jpg" alt="Cashmere Sweater" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Cashmere Sweater</h2>
+                    <p class="product-description">Soft and luxurious cashmere sweater for cold seasons.</p>
+                    <p class="product-price">₹3499</p>
+                    <button class="btn-buy" aria-label="Buy Cashmere Sweater">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="denim-skirt" data-name="Denim Skirt" data-price="1799">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/skirt-1868615_1280.jpg" alt="Denim Skirt" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Denim Skirt</h2>
+                    <p class="product-description">Trendy denim skirt for casual outings.</p>
+                    <p class="product-price">₹1799</p>
+                    <button class="btn-buy" aria-label="Buy Denim Skirt">Buy Now</button>
+                </div>
+            </div>
+            <div class="product-card" data-id="silk-blouse" data-name="Silk Blouse" data-price="2499">
+                <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/blouse-1957748_1280.jpg" alt="Silk Blouse" class="product-image" />
+                <div class="product-details">
+                    <h2 class="product-title">Silk Blouse</h2>
+                    <p class="product-description">Elegant silk blouse with a smooth finish.</p>
+                    <p class="product-price">₹2499</p>
+                    <button class="btn-buy" aria-label="Buy Silk Blouse">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <section class="features-section">
+            <h2>Why Choose Our Textiles Products?</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h3>Premium Quality</h3>
+                    <p>Our textiles are crafted from the finest materials ensuring comfort and durability.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Extensive Range</h3>
+                    <p>Explore a wide variety of textiles suitable for fashion, home, and industrial use.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Competitive Pricing</h3>
+                    <p>We offer the best prices in the market without compromising on quality.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Reliable Delivery</h3>
+                    <p>Fast and secure delivery to your doorstep, ensuring your satisfaction.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Eco-Friendly Options</h3>
+                    <p>Choose from our range of sustainable and eco-friendly textile products.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Custom Orders</h3>
+                    <p>We accept custom orders tailored to your specific needs and preferences.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        © 2025 TradeVeil. All rights reserved.
+    </footer>
+    <script>
+        const cartCountElem = document.getElementById('cart-count');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCartCount() {
+            cartCountElem.textContent = cart.length;
+        }
+
+        function addToCart(product) {
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            alert(product.name + ' added to cart!');
+        }
+
+        document.querySelectorAll('.btn-buy').forEach(button => {
+            button.addEventListener('click', () => {
+                const productCard = button.closest('.product-card');
+                const product = {
+                    id: productCard.getAttribute('data-id'),
+                    name: productCard.getAttribute('data-name'),
+                    price: productCard.getAttribute('data-price')
+                };
+                addToCart(product);
+            });
+        });
+
+        updateCartCount();
+    </script>
+</body>
+</html>
