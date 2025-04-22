@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Authentication - TradeVeil</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .auth-container {
+            background: white;
+            padding: 2rem 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 360px;
+        }
+        h2 {
+            color: #10b981;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        button {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #059669;
+        }
+        .toggle-link {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .toggle-link a {
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .toggle-link a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container" id="auth-container">
+        <h2 id="form-title">Login</h2>
+        <div class="error-message" id="error-message"></div>
+        <form id="auth-form">
+            <label for="email">Email</label>
+            <input type="email" id="email" required />
+            <label for="password">Password</label>
+            <input type="password" id="password" required />
+            <button type="submit" id="submit-btn">Login</button>
+        </form>
+        <div class="toggle-link" id="toggle-link">
+            Don't have an account? <a id="toggle-form">Register here</a>
+        </div>
+    </div>
+
+    <script>
+        const authContainer = document.getElementById('auth-container');
+        const formTitle = document.getElementById('form-title');
+        const authForm = document.getElementById('auth-form');
+        const toggleLink = document.getElementById('toggle-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const errorMessage = document.getElementById('error-message');
+
+        let isLogin = true;
+
+        function clearForm() {
+            authForm.reset();
+            errorMessage.style.display = 'none';
+            errorMessage.textContent = '';
+        }
+
+        function switchForm() {
+            clearForm();
+            if (isLogin) {
+                // Switch to Register
+                formTitle.textContent = 'Register';
+                submitBtn.textContent = 'Register';
+                toggleLink.textContent = 'Login here';
+                addRegisterFields();
+            } else {
+                // Switch to Login
+                formTitle.textContent = 'Login';
+                submitBtn.textContent = 'Login';
+                toggleLink.textContent = 'Register here';
+                removeRegisterFields();
+            }
+            isLogin = !isLogin;
+        }
+
+        function addRegisterFields() {
+            // Add name and role fields
+            const nameLabel = document.createElement('label');
+            nameLabel.setAttribute('for', 'name');
+            nameLabel.textContent = 'Full Name';
+            nameLabel.id = 'name-label';
+
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            nameInput.id = 'name';
+            nameInput.required = true;
+
+            const roleLabel = document.createElement('label');
+            roleLabel.setAttribute('for', 'role');
+            roleLabel.textContent = 'Role';
+            roleLabel.id = 'role-label';
+
+            const roleSelect = document.createElement('select');
+            roleSelect.id = 'role';
+            roleSelect.required = true;
+
+            const optionBuyer = document.createElement('option');
+            optionBuyer.value = 'buyer';
+            optionBuyer.textContent = 'Buyer';
+
+            const optionWholesaler = document.createElement('option');
+            optionWholesaler.value = 'wholesaler';
+            optionWholesaler.textContent = 'Wholesaler';
+
+            roleSelect.appendChild(optionBuyer);
+            roleSelect.appendChild(optionWholesaler);
+
+            authForm.insertBefore(nameLabel, authForm.firstChild);
+            authForm.insertBefore(nameInput, authForm.children[1]);
+            authForm.insertBefore(roleLabel, authForm.children[2]);
+            authForm.insertBefore(roleSelect, authForm.children[3]);
+        }
+
+        function removeRegisterFields() {
+            const nameLabel = document.getElementById('name-label');
+            const nameInput = document.getElementById('name');
+            const roleLabel = document.getElementById('role-label');
+            const roleSelect = document.getElementById('role');
+
+            if (nameLabel) authForm.removeChild(nameLabel);
+            if (nameInput) authForm.removeChild(nameInput);
+            if (roleLabel) authForm.removeChild(roleLabel);
+            if (roleSelect) authForm.removeChild(roleSelect);
+        }
+
+        toggleLink.addEventListener('click', switchForm);
+
+        authForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            errorMessage.style.display = 'none';
+            errorMessage.textContent = '';
+
+            if (isLogin) {
+                // Perform login
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value.trim();
+
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const user = users.find(u => u.email === email && u.password === password);
+                if (user) {
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    alert('Login successful! Welcome, ' + user.name);
+                    window.location.href = '../dashboard.html';
+                } else {
+                    errorMessage.textContent = 'Invalid email or password.';
+                    errorMessage.style.display = 'block';
+                }
+            } else {
+                // Perform registration
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value.trim();
+                const role = document.getElementById('role').value;
+
+                if (!name || !email || !password || !role) {
+                    errorMessage.textContent = 'Please fill in all fields.';
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+                if (users.find(u => u.email === email)) {
+                    errorMessage.textContent = 'Email already registered.';
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+
+                const newUser = { name, email, password, role };
+                users.push(newUser);
+                localStorage.setItem('users', JSON.stringify(users));
+                alert('Registration successful! You can now login.');
+                switchForm();
+            }
+        });
+    </script>
+    <script>
+        // Automatically set a default guest user to allow access without login
+        window.addEventListener('load', () => {
+            if (!localStorage.getItem('currentUser')) {
+                const guestUser = {
+                    name: 'Guest User',
+                    email: 'guest@tradeveil.com',
+                    role: 'guest'
+                };
+                localStorage.setItem('currentUser', JSON.stringify(guestUser));
+            }
+        });
+    </script>
+</body>
+</html>

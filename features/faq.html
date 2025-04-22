@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FAQ - TradeVeil</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #10b981;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.8rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        main.container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        h2 {
+            color: #10b981;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+            padding: 1rem 1.5rem;
+        }
+        .faq-question {
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            padding-right: 20px;
+        }
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 1.5rem;
+            line-height: 1;
+            transition: transform 0.3s ease;
+        }
+        .faq-item.open .faq-question::after {
+            content: '-';
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            margin-top: 0.5rem;
+            display: none;
+            color: #555;
+        }
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Frequently Asked Questions
+    </header>
+    <main class="container">
+        <h2>FAQ</h2>
+        <div class="faq-item">
+            <div class="faq-question">What is the minimum order quantity for products?</div>
+            <div class="faq-answer">Minimum order quantities vary by product and are specified on the bulk order management page.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">How can I request a custom quotation?</div>
+            <div class="faq-answer">You can request a quotation using the "Request Quotation" feature in your dashboard or the quotation page.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">What payment methods do you accept?</div>
+            <div class="faq-answer">We accept bank transfers, credit cards, and other payment methods as agreed upon with our customers.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">How do I track my order?</div>
+            <div class="faq-answer">Use the "Order Tracking" feature in your dashboard or the order tracking page to check your order status.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Can I cancel or modify my order?</div>
+            <div class="faq-answer">Order modifications or cancellations are subject to approval and must be requested promptly via customer support.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Do you offer discounts for bulk purchases?</div>
+            <div class="faq-answer">Yes, we offer pricing tiers and discounts based on order volume. Contact us for details.</div>
+        </div>
+    </main>
+
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

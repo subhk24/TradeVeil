@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Account Settings - TradeVeil</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #10b981;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.8rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        main.container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        h2 {
+            color: #10b981;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        form {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        button {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+        button:hover {
+            background-color: #059669;
+        }
+        .success-message {
+            color: green;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
+        .error-message {
+            color: red;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Account Settings
+    </header>
+    <main class="container">
+        <h2>Update Your Profile</h2>
+        <div class="error-message" id="error-message"></div>
+        <div class="success-message" id="success-message"></div>
+        <form id="account-settings-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required />
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required />
+
+            <label for="role">Role</label>
+            <input type="text" id="role" disabled />
+
+            <label for="current-password">Current Password</label>
+            <input type="password" id="current-password" required />
+
+            <label for="new-password">New Password</label>
+            <input type="password" id="new-password" />
+
+            <label for="confirm-password">Confirm New Password</label>
+            <input type="password" id="confirm-password" />
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </main>
+
+    <script>
+        const form = document.getElementById('account-settings-form');
+        const errorMessage = document.getElementById('error-message');
+        const successMessage = document.getElementById('success-message');
+
+        function loadUser() {
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            if (!user) {
+                alert('You are not logged in. Redirecting to login page.');
+                window.location.href = 'authentication.html';
+                return null;
+            }
+            document.getElementById('name').value = user.name;
+            document.getElementById('email').value = user.email;
+            document.getElementById('role').value = user.role;
+            return user;
+        }
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+
+            const user = loadUser();
+            if (!user) return;
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const currentPassword = document.getElementById('current-password').value.trim();
+            const newPassword = document.getElementById('new-password').value.trim();
+            const confirmPassword = document.getElementById('confirm-password').value.trim();
+
+            if (!name || !email || !currentPassword) {
+                errorMessage.textContent = 'Please fill in all required fields.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            if (currentPassword !== user.password) {
+                errorMessage.textContent = 'Current password is incorrect.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            if (newPassword && newPassword !== confirmPassword) {
+                errorMessage.textContent = 'New password and confirmation do not match.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            // Update user info
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            const userIndex = users.findIndex(u => u.email === user.email);
+            if (userIndex === -1) {
+                errorMessage.textContent = 'User not found.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            users[userIndex].name = name;
+            users[userIndex].email = email;
+            if (newPassword) {
+                users[userIndex].password = newPassword;
+            }
+            localStorage.setItem('users', JSON.stringify(users));
+            localStorage.setItem('currentUser', JSON.stringify(users[userIndex]));
+
+            successMessage.textContent = 'Profile updated successfully.';
+            successMessage.style.display = 'block';
+
+            // Clear password fields
+            document.getElementById('current-password').value = '';
+            document.getElementById('new-password').value = '';
+            document.getElementById('confirm-password').value = '';
+        });
+
+        window.onload = loadUser;
+    </script>
+</body>
+</html>
