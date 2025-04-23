@@ -300,27 +300,36 @@
             <a href="headphones.html" class="shadow p-4 rounded text-center transition hover:shadow-lg block no-underline text-inherit">
                 <img class="product-image" src="https://i.pinimg.com/736x/a9/c8/ab/a9c8abe2fe655aa90cc4d05198718926.jpg" alt="Headphones"/>
                 <p>Headphone</p>
-            
+                <button class="view-number-btn" data-contact="+91-9876543210">View Number</button>
+                <button class="get-best-price-btn" data-product-id="headphone1" data-product-name="Headphone">Get Best Price</button>
+                <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
             </a>
         </div>
         <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="sunglasses1" data-name="Sun Glasses" data-price="1200">
             <a href="Sunglasses.html" class="shadow p-4 rounded text-center transition hover:shadow-lg block no-underline text-inherit">
                 <img class="product-image" src="https://i.pinimg.com/474x/ba/bc/97/babc97e0d3a39781522c6990c03834ee.jpg" alt="Sun Glasses"/>
                 <p>Sun Glasses</p>
-
+                <button class="view-number-btn" data-contact="+91-9876543210">View Number</button>
+                <button class="get-best-price-btn" data-product-id="sunglasses1" data-product-name="Sun Glasses">Get Best Price</button>
+                <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
             </a>
         </div>
         <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="tshirtpack1" data-name="Cotton T-shirt Pack" data-price="800">
             <a href="tshirtpack.html" class="shadow p-4 rounded text-center transition hover:shadow-lg block no-underline text-inherit">
                 <img class="product-image" src="https://i.pinimg.com/736x/4a/46/6f/4a466ffaf0b0ea6e902036a31649d7aa.jpg" alt="T-shirt Pack"/>
                 <p>Cotton T-shirt Pack</p>
+                <button class="view-number-btn" data-contact="+91-9876543210">View Number</button>
+                <button class="get-best-price-btn" data-product-id="tshirtpack1" data-product-name="Cotton T-shirt Pack">Get Best Price</button>
+                <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
             </a>
         </div>
         <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="lipsticks1" data-name="Lipsticks" data-price="500">
             <a href="Lipsticks.html" class="shadow p-4 rounded text-center transition hover:shadow-lg block no-underline text-inherit">
                 <img class="product-image" src="https://i.pinimg.com/474x/2c/60/97/2c60974fc65af811c079e7b2e10c3a6c.jpg" alt="Lipsticks"/>
                 <p>Lipsticks</p>
-                
+                <button class="view-number-btn" data-contact="+91-9876543210">View Number</button>
+                <button class="get-best-price-btn" data-product-id="lipsticks1" data-product-name="Lipsticks">Get Best Price</button>
+                <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
             </a>
         </div>
     </div>
@@ -333,6 +342,29 @@
         object-fit: cover; 
         border-radius: 0.5rem;
         display: block;
+    }
+
+    .view-number {
+        font-size: 0.9rem;
+        color: #555;
+        margin: 0.25rem 0 0 0;
+    }
+
+    .get-best-price-btn {
+        background-color: #10b981;
+        color: white;
+        border: none;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .get-best-price-btn:hover {
+        background-color: #059669;
     }
 
     .grid {
@@ -355,61 +387,72 @@
         <p>© 2025 TradeVeil. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Collect product data from the page
-        const products = Array.from(document.querySelectorAll('.product-card')).map(card => ({
-            id: card.getAttribute('data-id'),
-            name: card.getAttribute('data-name').toLowerCase(),
-            price: card.getAttribute('data-price'),
-            element: card,
-            link: card.querySelector('a') ? card.querySelector('a').getAttribute('href') : null
-        }));
+<script>
+    // Collect product data from the page
+    const products = Array.from(document.querySelectorAll('.product-card')).map(card => ({
+        id: card.getAttribute('data-id'),
+        name: card.getAttribute('data-name').toLowerCase(),
+        price: card.getAttribute('data-price'),
+        element: card,
+        link: card.querySelector('a') ? card.querySelector('a').getAttribute('href') : null
+    }));
 
-        const searchInput = document.getElementById('productSearch');
-        const resultsContainer = document.getElementById('searchResults');
+    const searchInput = document.getElementById('productSearch');
+    const resultsContainer = document.getElementById('searchResults');
 
-        searchInput.addEventListener('input', () => {
-            const query = searchInput.value.trim().toLowerCase();
-            resultsContainer.innerHTML = '';
-            if (query.length === 0) {
-                resultsContainer.style.display = 'none';
-                products.forEach(p => p.element.style.display = '');
-                return;
-            }
-            const matched = products.filter(p => p.name.includes(query));
-            if (matched.length === 0) {
-                resultsContainer.style.display = 'none';
-                products.forEach(p => p.element.style.display = '');
-                return;
-            }
-            matched.forEach(p => {
-                const li = document.createElement('li');
-                li.style.padding = '0.5rem 1rem';
-                li.style.cursor = 'pointer';
-                li.style.borderBottom = '1px solid #eee';
-                li.textContent = p.name.charAt(0).toUpperCase() + p.name.slice(1);
-                li.addEventListener('click', () => {
-                    if (p.link) {
-                        window.location.href = p.link;
-                    }
-                });
-                resultsContainer.appendChild(li);
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.trim().toLowerCase();
+        resultsContainer.innerHTML = '';
+        if (query.length === 0) {
+            resultsContainer.style.display = 'none';
+            products.forEach(p => p.element.style.display = '');
+            return;
+        }
+        const matched = products.filter(p => p.name.includes(query));
+        if (matched.length === 0) {
+            resultsContainer.style.display = 'none';
+            products.forEach(p => p.element.style.display = '');
+            return;
+        }
+        matched.forEach(p => {
+            const li = document.createElement('li');
+            li.style.padding = '0.5rem 1rem';
+            li.style.cursor = 'pointer';
+            li.style.borderBottom = '1px solid #eee';
+            li.textContent = p.name.charAt(0).toUpperCase() + p.name.slice(1);
+            li.addEventListener('click', () => {
+                if (p.link) {
+                    window.location.href = p.link;
+                }
             });
-            resultsContainer.style.display = 'block';
-            // Hide non-matching products on page
-            products.forEach(p => {
-                p.element.style.display = p.name.includes(query) ? '' : 'none';
-            });
+            resultsContainer.appendChild(li);
         });
+        resultsContainer.style.display = 'block';
+        // Hide non-matching products on page
+        products.forEach(p => {
+            p.element.style.display = p.name.includes(query) ? '' : 'none';
+        });
+    });
 
-        // Hide search results when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!searchInput.contains(e.target) && !resultsContainer.contains(e.target)) {
-                resultsContainer.style.display = 'none';
-                products.forEach(p => p.element.style.display = '');
-            }
-        });
-    </script>
+    // Hide search results when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!searchInput.contains(e.target) && !resultsContainer.contains(e.target)) {
+            resultsContainer.style.display = 'none';
+            products.forEach(p => p.element.style.display = '');
+        }
+    });
+
+    // Handle Get Best Price button clicks
+    document.addEventListener('click', (e) => {
+        if (e.target && e.target.classList.contains('get-best-price-btn')) {
+            const productId = e.target.getAttribute('data-product-id');
+            const productName = e.target.getAttribute('data-product-name');
+            // Redirect to quotation page with product info as query params
+            const url = `features/quotation.html?productId=${encodeURIComponent(productId)}&productName=${encodeURIComponent(productName)}`;
+            window.location.href = url;
+        }
+    });
+</script>
 
     <section class="footer-multicol" style="background-color: #f8f8f8; padding: 40px 20px; font-family: Arial, sans-serif; color: #333;">
         <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
@@ -476,6 +519,25 @@
             alert(product.name + ' added to cart!');
         });
     });
-</script>
+    </script>
+
+    <script>
+        // Handle View Number button clicks
+        document.addEventListener('click', (e) => {
+            if (e.target && e.target.classList.contains('view-number-btn')) {
+                // Simulate user registration check
+                const isRegistered = confirm("Are you a registered user? Click OK for Yes, Cancel for No.");
+                if (isRegistered) {
+                    const contact = e.target.getAttribute('data-contact');
+                    const contactElem = e.target.nextElementSibling;
+                    contactElem.textContent = contact;
+                    contactElem.style.display = 'block';
+                    e.target.style.display = 'none';
+                } else {
+                    alert("Please login or register to view the contact number.");
+                }
+            }
+        });
+    </script>
 </body>
 </html>
