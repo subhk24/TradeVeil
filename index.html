@@ -238,6 +238,86 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Customer Reviews Section */
+        section.customer-reviews {
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+            padding: 2rem 1rem;
+            background-color: #f9fafb;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        section.customer-reviews h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #10b981;
+            text-align: center;
+            margin-bottom: 2rem;
+            letter-spacing: 1.5px;
+        }
+        .reviews-container {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 1.5rem;
+            scroll-behavior: smooth;
+            padding-bottom: 1rem;
+        }
+        .review-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            flex: 0 0 320px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+            cursor: grab;
+        }
+        .review-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+        }
+        .review-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        .review-author {
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 0.5rem;
+        }
+        .review-rating {
+            color: #f59e0b; /* amber-400 */
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        /* Scrollbar styling for reviews container */
+        .reviews-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .reviews-container::-webkit-scrollbar-track {
+            background: #e5e7eb; /* gray-200 */
+            border-radius: 4px;
+        }
+        .reviews-container::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 4px;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .reviews-container {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+            }
+            .review-card {
+                flex: 0 0 280px;
+            }
+        }
     </style>
 </head>
 <body class="bg-emerald-800">
@@ -292,95 +372,90 @@
                 <p>Cosmetics</p>
             </a>
         </div>
-        
-    <section class="container" style="padding-bottom: 4rem;">
-    <h2>Popular Products</h2>
-    <div class="grid grid-cols-4 gap-4">
-        <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="headphone1" data-name="Headphone" data-price="1500">
-            <a href="headphones.html" class="shadow p-4 rounded text-center transition hover:shadow-lg block no-underline text-inherit">
-                <img class="product-image" src="https://i.pinimg.com/736x/a9/c8/ab/a9c8abe2fe655aa90cc4d05198718926.jpg" alt="Headphones"/>
-                <p>Headphone</p>
-                <button class="view-number-btn" data-contact="+91-9876543210">View Number</button>
-                <button class="get-best-price-btn" data-product-id="headphone1" data-product-name="Headphone">Get Best Price</button>
-                <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
-            </a>
+    </section>
+
+    <section class="popular-products">
+        <h2>Popular Products</h2>
+        <div class="grid-products">
+            <div class="product-card" data-id="headphone1" data-name="Headphone" data-price="1500">
+                <a href="headphones.html" class="block no-underline text-inherit">
+                    <img class="product-image" src="https://i.pinimg.com/736x/a9/c8/ab/a9c8abe2fe655aa90cc4d05198718926.jpg" alt="Headphones"/>
+                    <p>Headphone</p>
+                    <button class="view-number-btn" data-contact="+91-9876543210">View Number</button>
+                    <button class="get-best-price-btn" data-product-id="headphone1" data-product-name="Headphone">Get Best Price</button>
+                    <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
+                </a>
+            </div>
+            <div class="product-card" data-id="sunglasses1" data-name="Sun Glasses" data-price="1200">
+                <a href="Sunglasses.html" class="block no-underline text-inherit">
+                    <img class="product-image" src="https://i.pinimg.com/474x/ba/bc/97/babc97e0d3a39781522c6990c03834ee.jpg" alt="Sun Glasses"/>
+                    <p>Sun Glasses</p>
+                    <button class="view-number-btn" data-contact="+91-9876543210">View Number</button>
+                    <button class="get-best-price-btn" data-product-id="sunglasses1" data-product-name="Sun Glasses">Get Best Price</button>
+                    <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
+                </a>
+            </div>
+            <div class="product-card" data-id="tshirtpack1" data-name="Cotton T-shirt Pack" data-price="800">
+                <a href="tshirtpack.html" class="block no-underline text-inherit">
+                    <img class="product-image" src="https://i.pinimg.com/736x/4a/46/6f/4a466ffaf0b0ea6e902036a31649d7aa.jpg" alt="T-shirt Pack"/>
+                    <p>Cotton T-shirt Pack</p>
+                    <button class="view-number-btn" data-contact="+91-9876543210">View Number</button>
+                    <button class="get-best-price-btn" data-product-id="tshirtpack1" data-product-name="Cotton T-shirt Pack">Get Best Price</button>
+                    <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
+                </a>
+            </div>
+            <div class="product-card" data-id="lipsticks1" data-name="Lipsticks" data-price="500">
+                <a href="Lipsticks.html" class="block no-underline text-inherit">
+                    <img class="product-image" src="https://i.pinimg.com/474x/2c/60/97/2c60974fc65af811c079e7b2e10c3a6c.jpg" alt="Lipsticks"/>
+                    <p>Lipsticks</p>
+                    <button class="view-number-btn" data-contact="+91-9876543210">View Number</button>
+                    <button class="get-best-price-btn" data-product-id="lipsticks1" data-product-name="Lipsticks">Get Best Price</button>
+                    <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
+                </a>
+            </div>
         </div>
-        <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="sunglasses1" data-name="Sun Glasses" data-price="1200">
-            <a href="Sunglasses.html" class="shadow p-4 rounded text-center transition hover:shadow-lg block no-underline text-inherit">
-                <img class="product-image" src="https://i.pinimg.com/474x/ba/bc/97/babc97e0d3a39781522c6990c03834ee.jpg" alt="Sun Glasses"/>
-                <p>Sun Glasses</p>
-                <button class="view-number-btn" data-contact="+91-9876543210">View Number</button>
-                <button class="get-best-price-btn" data-product-id="sunglasses1" data-product-name="Sun Glasses">Get Best Price</button>
-                <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
-            </a>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="customer-reviews" aria-label="Customer Reviews">
+        <h2>Customer Reviews</h2>
+        <div class="reviews-container" tabindex="0" aria-live="polite" aria-atomic="true">
+            <article class="review-card" role="group" aria-label="Review by Anjali Sharma">
+                <div class="review-rating" aria-label="5 out of 5 stars">
+                    ★★★★★
+                </div>
+                <p class="review-text">"TradeVeil has transformed the way I source products. Reliable and efficient service!"</p>
+                <p class="review-author">- Anjali Sharma</p>
+            </article>
+            <article class="review-card" role="group" aria-label="Review by Rajesh Kumar">
+                <div class="review-rating" aria-label="4 out of 5 stars">
+                    ★★★★☆
+                </div>
+                <p class="review-text">"Great platform with excellent customer support. Highly recommended for wholesalers."</p>
+                <p class="review-author">- Rajesh Kumar</p>
+            </article>
+            <article class="review-card" role="group" aria-label="Review by Priya Singh">
+                <div class="review-rating" aria-label="5 out of 5 stars">
+                    ★★★★★
+                </div>
+                <p class="review-text">"A seamless experience connecting retailers and wholesalers across India."</p>
+                <p class="review-author">- Priya Singh</p>
+            </article>
+            <article class="review-card" role="group" aria-label="Review by Amit Patel">
+                <div class="review-rating" aria-label="4 out of 5 stars">
+                    ★★★★☆
+                </div>
+                <p class="review-text">"User-friendly interface and prompt responses. Makes B2B trading hassle-free."</p>
+                <p class="review-author">- Amit Patel</p>
+            </article>
+            <article class="review-card" role="group" aria-label="Review by Kavita Desai">
+                <div class="review-rating" aria-label="5 out of 5 stars">
+                    ★★★★★
+                </div>
+                <p class="review-text">"Highly satisfied with the quality of products and the professionalism of sellers."</p>
+                <p class="review-author">- Kavita Desai</p>
+            </article>
         </div>
-        <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="tshirtpack1" data-name="Cotton T-shirt Pack" data-price="800">
-            <a href="tshirtpack.html" class="shadow p-4 rounded text-center transition hover:shadow-lg block no-underline text-inherit">
-                <img class="product-image" src="https://i.pinimg.com/736x/4a/46/6f/4a466ffaf0b0ea6e902036a31649d7aa.jpg" alt="T-shirt Pack"/>
-                <p>Cotton T-shirt Pack</p>
-                <button class="view-number-btn" data-contact="+91-9876543210">View Number</button>
-                <button class="get-best-price-btn" data-product-id="tshirtpack1" data-product-name="Cotton T-shirt Pack">Get Best Price</button>
-                <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
-            </a>
-        </div>
-        <div class="shadow p-4 rounded text-center transition hover:shadow-lg product-card" data-id="lipsticks1" data-name="Lipsticks" data-price="500">
-            <a href="Lipsticks.html" class="shadow p-4 rounded text-center transition hover:shadow-lg block no-underline text-inherit">
-                <img class="product-image" src="https://i.pinimg.com/474x/2c/60/97/2c60974fc65af811c079e7b2e10c3a6c.jpg" alt="Lipsticks"/>
-                <p>Lipsticks</p>
-                <button class="view-number-btn" data-contact="+91-9876543210">View Number</button>
-                <button class="get-best-price-btn" data-product-id="lipsticks1" data-product-name="Lipsticks">Get Best Price</button>
-                <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<style>
-    .product-image {
-        width: 100%;
-        height: 250px; 
-        object-fit: cover; 
-        border-radius: 0.5rem;
-        display: block;
-    }
-
-    .view-number {
-        font-size: 0.9rem;
-        color: #555;
-        margin: 0.25rem 0 0 0;
-    }
-
-    .get-best-price-btn {
-        background-color: #10b981;
-        color: white;
-        border: none;
-        padding: 0.4rem 0.8rem;
-        border-radius: 6px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        margin-top: 0.5rem;
-        font-size: 0.9rem;
-    }
-
-    .get-best-price-btn:hover {
-        background-color: #059669;
-    }
-
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-    }
-
-    .grid-cols-4 {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .gap-4 {
-        gap: 1rem;
-    }
-</style>
     </section>
 
     <footer>
@@ -453,91 +528,5 @@
         }
     });
 </script>
-
-    <section class="footer-multicol" style="background-color: #f8f8f8; padding: 40px 20px; font-family: Arial, sans-serif; color: #333;">
-        <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
-            <div class="footer-col" style="flex: 1 1 180px; margin: 10px;">
-                <h4 style="font-weight: bold; margin-bottom: 15px;">About TradeVeil</h4>
-                <p style="font-size: 14px; line-height: 1.5;">
-                    TradeVeil is a secure B2B wholesale platform connecting verified wholesalers and retailers with complete business privacy.
-                </p>
-            </div>
-            <div class="footer-col" style="flex: 1 1 180px; margin: 10px;">
-                <h4 style="font-weight: bold; margin-bottom: 15px;">Help</h4>
-                <ul style="list-style: none; padding: 0; font-size: 14px;">
-                    <li><a href="contactus.html" style="color: #333; text-decoration: none;">Contact Us</a></li>
-                    <li><a href="signup.html" style="color: #333; text-decoration: none;">Register</a></li>
-                    <li><a href="login.html" style="color: #333; text-decoration: none;">Login</a></li>
-                    <li><a href="orders.html" style="color: #333; text-decoration: none;">My Orders</a></li>
-                </ul>
-            </div>
-            <div class="footer-col" style="flex: 1 1 180px; margin: 10px;">
-                <h4 style="font-weight: bold; margin-bottom: 15px;">TradeVeil</h4>
-                <ul style="list-style: none; padding: 0; font-size: 14px;">
-                    <li><a href="electronics.html" style="color: #333; text-decoration: none;">Electronics</a></li>
-                    <li><a href="stationery.html" style="color: #333; text-decoration: none;">Stationery</a></li>
-                    <li><a href="#" style="color: #333; text-decoration: none;">Textiles</a></li>
-<li><a href="cosmetics.html" style="color: #333; text-decoration: none;">Cosmetics</a></li>
-                </ul>
-            </div>
-            <div class="footer-col" style="flex: 1 1 180px; margin: 10px;">
-                <h4 style="font-weight: bold; margin-bottom: 15px;">Contact</h4>
-                <p style="font-size: 14px; line-height: 1.5;">
-                    Email: support@tradeveil.com<br/>
-                    Phone: +1 234 567 8900<br/>
-                    Address: 123 TradeVeil St, Business City
-                </p>
-                <div class="social-icons" style="margin-top: 15px;">
-                    <a href="#" style="margin-right: 10px; text-decoration: none; color: #333; font-size: 20px;">&#x1F426;</a>
-                    <a href="#" style="margin-right: 10px; text-decoration: none; color: #333; font-size: 20px;">&#x1F4F1;</a>
-                    <a href="#" style="margin-right: 10px; text-decoration: none; color: #333; font-size: 20px;">&#x1F4F7;</a>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: center; font-size: 12px; color: #999; margin-top: 30px;">
-            <p>© 2025 TradeVeil. All rights reserved. | <a href="#" style="color: #999; text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: #999; text-decoration: none;">Terms of Service</a></p>
-        </div>
-    </section>
-
-<script>
-    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const card = e.target.closest('.product-card');
-            const product = {
-                id: card.getAttribute('data-id'),
-                name: card.getAttribute('data-name'),
-                price: parseFloat(card.getAttribute('data-price'))
-            };
-            let cartItems = JSON.parse(localStorage.getItem('tradeveilCart')) || [];
-            const existingItem = cartItems.find(item => item.id === product.id);
-            if(existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cartItems.push({...product, quantity: 1});
-            }
-            localStorage.setItem('tradeveilCart', JSON.stringify(cartItems));
-            alert(product.name + ' added to cart!');
-        });
-    });
-    </script>
-
-    <script>
-        // Handle View Number button clicks
-        document.addEventListener('click', (e) => {
-            if (e.target && e.target.classList.contains('view-number-btn')) {
-                // Simulate user registration check
-                const isRegistered = confirm("Are you a registered user? Click OK for Yes, Cancel for No.");
-                if (isRegistered) {
-                    const contact = e.target.getAttribute('data-contact');
-                    const contactElem = e.target.nextElementSibling;
-                    contactElem.textContent = contact;
-                    contactElem.style.display = 'block';
-                    e.target.style.display = 'none';
-                } else {
-                    alert("Please login or register to view the contact number.");
-                }
-            }
-        });
-    </script>
 </body>
 </html>
