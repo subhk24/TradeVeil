@@ -142,6 +142,7 @@ header {
   gap: 8px;
   position: relative;
   overflow: hidden;
+  margin-top: 12px; /* Added margin to create gap from quantity input */
 }
 
 .buy-btn:hover,
