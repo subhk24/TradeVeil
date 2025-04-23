@@ -250,8 +250,12 @@
         </div>
     </nav>
     <nav>
-        <div class="container">
-            <div class="logo">TradeVeil</div>
+        <div class="container" style="display: flex; align-items: center; gap: 1rem;">
+            <div class="logo" style="flex-shrink: 0;">TradeVeil</div>
+            <div class="search-container" style="position: relative; flex-grow: 1; max-width: 400px;">
+                <input type="text" id="productSearch" placeholder="Search products..." aria-label="Search products" autocomplete="off" style="width: 100%; padding: 0.5rem 1rem; border-radius: 20px; border: 1px solid #10b981; font-size: 1rem; outline: none;"/>
+                <ul id="searchResults" style="position: absolute; top: 110%; left: 0; right: 0; background: white; border: 1px solid #10b981; border-radius: 0 0 10px 10px; max-height: 300px; overflow-y: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index: 1001; display: none; list-style: none; margin: 0; padding: 0;"></ul>
+            </div>
             <ul>
                 <li><a href="cart.html" aria-label="Shopping Cart" class="cart-icon-btn" title="Your Cart">🛒</a></li>
                 <li><a href="contactus.html">Contact Us</a></li>
@@ -350,6 +354,62 @@
     <footer>
         <p>© 2025 TradeVeil. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Collect product data from the page
+        const products = Array.from(document.querySelectorAll('.product-card')).map(card => ({
+            id: card.getAttribute('data-id'),
+            name: card.getAttribute('data-name').toLowerCase(),
+            price: card.getAttribute('data-price'),
+            element: card,
+            link: card.querySelector('a') ? card.querySelector('a').getAttribute('href') : null
+        }));
+
+        const searchInput = document.getElementById('productSearch');
+        const resultsContainer = document.getElementById('searchResults');
+
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.trim().toLowerCase();
+            resultsContainer.innerHTML = '';
+            if (query.length === 0) {
+                resultsContainer.style.display = 'none';
+                products.forEach(p => p.element.style.display = '');
+                return;
+            }
+            const matched = products.filter(p => p.name.includes(query));
+            if (matched.length === 0) {
+                resultsContainer.style.display = 'none';
+                products.forEach(p => p.element.style.display = '');
+                return;
+            }
+            matched.forEach(p => {
+                const li = document.createElement('li');
+                li.style.padding = '0.5rem 1rem';
+                li.style.cursor = 'pointer';
+                li.style.borderBottom = '1px solid #eee';
+                li.textContent = p.name.charAt(0).toUpperCase() + p.name.slice(1);
+                li.addEventListener('click', () => {
+                    if (p.link) {
+                        window.location.href = p.link;
+                    }
+                });
+                resultsContainer.appendChild(li);
+            });
+            resultsContainer.style.display = 'block';
+            // Hide non-matching products on page
+            products.forEach(p => {
+                p.element.style.display = p.name.includes(query) ? '' : 'none';
+            });
+        });
+
+        // Hide search results when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !resultsContainer.contains(e.target)) {
+                resultsContainer.style.display = 'none';
+                products.forEach(p => p.element.style.display = '');
+            }
+        });
+    </script>
 
     <section class="footer-multicol" style="background-color: #f8f8f8; padding: 40px 20px; font-family: Arial, sans-serif; color: #333;">
         <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
