@@ -3,46 +3,159 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Headphones | Electronics Products</title>
-  <link rel="stylesheet" href="hstyles.css">
+  <title>Premium Headphones Collection | TradeVeil</title>
+  <link rel="stylesheet" href="hstyles.css" />
+  <script>
+    // Simple script to handle quantity input validation and add to cart feedback
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.buy-btn');
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const card = button.closest('.product-card');
+          const qtyInput = card.querySelector('.quantity-input');
+          let qty = parseInt(qtyInput.value);
+          if (isNaN(qty) || qty < 1) {
+            alert('Please enter a valid quantity (minimum 1).');
+            qtyInput.focus();
+            return;
+          }
+          button.disabled = true;
+          button.textContent = 'Adding...';
+          setTimeout(() => {
+            button.textContent = 'Add to Cart';
+            button.disabled = false;
+            alert(`Added ${qty} item(s) of "${card.querySelector('.product-title').textContent}" to cart.`);
+          }, 1000);
+        });
+      });
+    });
+  </script>
 </head>
 <body>
 
   <header>Premium Headphones Collection</header>
 
-  <div class="product-grid">
-    <div class="product-card">
-      <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRZrRN3Y3j0-DyLzOPdRZs8NKLMX3Dk13UzzCAuiTBqKDhpdTPCzFhnLZJPRijgl1vHu_9S1liI0H58nxDIBwK6Z0Z_g78bNQU7cpZCm3tUCELUJhqVb5zJTQ" alt="Wireless Bluetooth">
-      <div class="product-title">Wireless Bluetooth</div>
-      <div class="product-description">Comfort-fit Bluetooth headphones with 30H playtime and touch controls.</div>
+  <section class="product-grid" role="list" aria-label="Headphones product list">
+
+    <!-- Product Card 1 -->
+    <article class="product-card" role="listitem" aria-label="Wireless Bluetooth Headphones">
+      <span class="product-badge" aria-label="New Product">New</span>
+      <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRZrRN3Y3j0-DyLzOPdRZs8NKLMX3Dk13UzzCAuiTBqKDhpdTPCzFhnLZJPRijgl1vHu_9S1liI0H58nxDIBwK6Z0Z_g78bNQU7cpZCm3tUCELUJhqVb5zJTQ" alt="Wireless Bluetooth Headphones" />
+      <h2 class="product-title">Wireless Bluetooth</h2>
+      <div class="product-rating" aria-label="Rating: 4 out of 5 stars" role="img" tabindex="0">★★★★☆</div>
+      <p class="product-description">Comfort-fit Bluetooth headphones with 30H playtime and touch controls. Lightweight design for all-day use.</p>
+      <ul class="product-specs">
+        <li>Bluetooth 5.0 connectivity</li>
+        <li>30 hours battery life</li>
+        <li>Touch control panel</li>
+        <li>Built-in microphone</li>
+      </ul>
       <div class="product-price">₹7,999</div>
-      <button class="buy-btn">Buy Now</button>
-    </div>
+      <label for="qty1" class="sr-only">Quantity</label>
+      <input type="number" id="qty1" name="qty1" class="quantity-input" min="1" max="10" value="1" aria-live="polite" aria-label="Quantity selector for Wireless Bluetooth headphones" />
+      <button class="buy-btn" aria-label="Add Wireless Bluetooth headphones to cart">Add to Cart</button>
+      <section class="product-reviews" aria-label="Customer reviews for Wireless Bluetooth headphones" style="margin-top: 20px;">
+        <h3>Customer Reviews</h3>
+        <article class="review">
+          <p><strong>John D.</strong> ★★★★☆</p>
+          <p>Great sound quality and comfortable fit. Battery lasts long.</p>
+        </article>
+        <article class="review">
+          <p><strong>Sarah K.</strong> ★★★☆☆</p>
+          <p>Good headphones but touch controls are a bit sensitive.</p>
+        </article>
+      </section>
+    </article>
 
-    <div class="product-card">
-      <img src="https://yamaha.ndcdn.in/media/catalog/product/cache/9dc1522ad3a7607391f539810e42a604/h/p/hph-100b_a_0001_from_hph-100b_2560.jpg"alt="Noise Cancelling Pro">
-      <div class="product-title">Noise Cancelling Pro</div>
-      <div class="product-description">Active noise cancelling headphones for studio-level immersion.</div>
+    <!-- Product Card 2 -->
+    <article class="product-card" role="listitem" aria-label="Noise Cancelling Pro Headphones">
+      <span class="product-badge" aria-label="Best Seller">Best Seller</span>
+      <img src="https://yamaha.ndcdn.in/media/catalog/product/cache/9dc1522ad3a7607391f539810e42a604/h/p/hph-100b_a_0001_from_hph-100b_2560.jpg" alt="Noise Cancelling Pro Headphones" />
+      <h2 class="product-title">Noise Cancelling Pro</h2>
+      <div class="product-rating" aria-label="Rating: 5 out of 5 stars" role="img" tabindex="0">★★★★★</div>
+      <p class="product-description">Active noise cancelling headphones for studio-level immersion. Premium sound clarity and comfort.</p>
+      <ul class="product-specs">
+        <li>Active Noise Cancellation (ANC)</li>
+        <li>Studio-grade audio drivers</li>
+        <li>Soft memory foam ear cushions</li>
+        <li>Up to 25 hours battery life</li>
+      </ul>
       <div class="product-price">₹11,499</div>
-      <button class="buy-btn">Buy Now</button>
-    </div>
+      <label for="qty2" class="sr-only">Quantity</label>
+      <input type="number" id="qty2" name="qty2" class="quantity-input" min="1" max="10" value="1" aria-live="polite" aria-label="Quantity selector for Noise Cancelling Pro headphones" />
+      <button class="buy-btn" aria-label="Add Noise Cancelling Pro headphones to cart">Add to Cart</button>
+      <section class="product-reviews" aria-label="Customer reviews for Noise Cancelling Pro headphones" style="margin-top: 20px;">
+        <h3>Customer Reviews</h3>
+        <article class="review">
+          <p><strong>Emily R.</strong> ★★★★★</p>
+          <p>Exceptional noise cancellation and very comfortable for long sessions.</p>
+        </article>
+        <article class="review">
+          <p><strong>Michael B.</strong> ★★★★☆</p>
+          <p>Sound quality is top-notch, but a bit pricey.</p>
+        </article>
+      </section>
+    </article>
 
-    <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/61LhfQRdEgL.jpg" alt="Gaming Headset X">
-      <div class="product-title">Gaming Headset X</div>
-      <div class="product-description">High-quality audio with mic, RGB lights, and surround sound support.</div>
+    <!-- Product Card 3 -->
+    <article class="product-card" role="listitem" aria-label="Gaming Headset X">
+      <img src="https://m.media-amazon.com/images/I/61LhfQRdEgL.jpg" alt="Gaming Headset X" />
+      <h2 class="product-title">Gaming Headset X</h2>
+      <div class="product-rating" aria-label="Rating: 4.5 out of 5 stars" role="img" tabindex="0">★★★★☆</div>
+      <p class="product-description">High-quality audio with mic, RGB lights, and surround sound support. Perfect for gamers.</p>
+      <ul class="product-specs">
+        <li>Surround sound 7.1</li>
+        <li>RGB customizable lighting</li>
+        <li>Noise-isolating microphone</li>
+        <li>Comfort-fit ear pads</li>
+      </ul>
       <div class="product-price">₹4,999</div>
-      <button class="buy-btn">Buy Now</button>
-    </div>
+      <label for="qty3" class="sr-only">Quantity</label>
+      <input type="number" id="qty3" name="qty3" class="quantity-input" min="1" max="10" value="1" aria-live="polite" aria-label="Quantity selector for Gaming Headset X" />
+      <button class="buy-btn" aria-label="Add Gaming Headset X to cart">Add to Cart</button>
+      <section class="product-reviews" aria-label="Customer reviews for Gaming Headset X" style="margin-top: 20px;">
+        <h3>Customer Reviews</h3>
+        <article class="review">
+          <p><strong>Alex P.</strong> ★★★★☆</p>
+          <p>Great sound and mic quality. RGB lights add a nice touch.</p>
+        </article>
+        <article class="review">
+          <p><strong>Jessica L.</strong> ★★★☆☆</p>
+          <p>Comfortable but the ear pads get warm after long use.</p>
+        </article>
+      </section>
+    </article>
 
-    <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/61AOWofRvnL.jpg" alt="Studio Monitor HD">
-      <div class="product-title">Studio Monitor HD</div>
-      <div class="product-description">Precision-tuned over-ear headphones for mixing, mastering & production.</div>
+    <!-- Product Card 4 -->
+    <article class="product-card" role="listitem" aria-label="Studio Monitor HD Headphones">
+      <img src="https://m.media-amazon.com/images/I/61AOWofRvnL.jpg" alt="Studio Monitor HD Headphones" />
+      <h2 class="product-title">Studio Monitor HD</h2>
+      <div class="product-rating" aria-label="Rating: 5 out of 5 stars" role="img" tabindex="0">★★★★★</div>
+      <p class="product-description">Precision-tuned over-ear headphones for mixing, mastering & production. Professional grade sound.</p>
+      <ul class="product-specs">
+        <li>High-fidelity audio drivers</li>
+        <li>Over-ear design with noise isolation</li>
+        <li>Durable build quality</li>
+        <li>Comfortable padded headband</li>
+      </ul>
       <div class="product-price">₹13,299</div>
-      <button class="buy-btn">Buy Now</button>
-    </div>
-  </div>
+      <label for="qty4" class="sr-only">Quantity</label>
+      <input type="number" id="qty4" name="qty4" class="quantity-input" min="1" max="10" value="1" aria-live="polite" aria-label="Quantity selector for Studio Monitor HD headphones" />
+      <button class="buy-btn" aria-label="Add Studio Monitor HD headphones to cart">Add to Cart</button>
+      <section class="product-reviews" aria-label="Customer reviews for Studio Monitor HD headphones" style="margin-top: 20px;">
+        <h3>Customer Reviews</h3>
+        <article class="review">
+          <p><strong>David M.</strong> ★★★★★</p>
+          <p>Excellent sound clarity and build quality. Perfect for studio work.</p>
+        </article>
+        <article class="review">
+          <p><strong>Linda S.</strong> ★★★★☆</p>
+          <p>Very comfortable and durable, but a bit heavy for casual use.</p>
+        </article>
+      </section>
+    </article>
+
+  </section>
 
 </body>
 </html>
