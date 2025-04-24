@@ -11,7 +11,6 @@
     <meta name="keywords" content="B2B, Wholesale, Marketplace, TradeVeil, Business Privacy, Verified Sellers" />
     <meta name="author" content="TradeVeil" />
     <style>
-        /* Sticky navigation */
         nav {
             position: sticky;
             top: 0;
@@ -66,8 +65,6 @@
             font-size: 1.5rem;
             padding: 0.25rem 0.5rem;
         }
-
-        /* Hero section */
         section.hero {
             position: relative;
             background: linear-gradient(135deg, #10b981, #059669);
@@ -100,8 +97,6 @@
                 transform: translateY(0);
             }
         }
-
-        /* Categories grid */
         section.categories {
             max-width: 1200px;
             margin: 0 auto 4rem auto;
@@ -150,8 +145,6 @@
             color: #059669;
             margin: 0;
         }
-
-        /* Popular products */
         section.popular-products {
             max-width: 1200px;
             margin: 0 auto 4rem auto;
@@ -227,8 +220,6 @@
             box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
             user-select: none;
         }
-
-        /* Responsive */
         @media (max-width: 768px) {
             nav .container {
                 flex-direction: column;
@@ -238,8 +229,6 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        /* Customer Reviews Section */
         section.customer-reviews {
             max-width: 1200px;
             margin: 0 auto 4rem auto;
@@ -292,23 +281,21 @@
             margin-bottom: 0.5rem;
         }
         .review-rating {
-            color: #f59e0b; /* amber-400 */
+            color: #f59e0b;
             margin-bottom: 1rem;
             font-size: 1.2rem;
         }
-        /* Scrollbar styling for reviews container */
         .reviews-container::-webkit-scrollbar {
             height: 8px;
         }
         .reviews-container::-webkit-scrollbar-track {
-            background: #e5e7eb; /* gray-200 */
+            background: #e5e7eb; 
             border-radius: 4px;
         }
         .reviews-container::-webkit-scrollbar-thumb {
             background: #10b981;
             border-radius: 4px;
         }
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .reviews-container {
                 flex-wrap: nowrap;
@@ -381,30 +368,36 @@
                 <a href="headphones.html" class="block no-underline text-inherit">
                     <img class="product-image" src="https://i.pinimg.com/736x/a9/c8/ab/a9c8abe2fe655aa90cc4d05198718926.jpg" alt="Headphones"/>
                     <p>Headphone</p>
+
                     <button class="get-best-price-btn" data-product-id="headphone1" data-product-name="Headphone" style="margin-left: 0.5rem;">Get Best Price</button>
                     <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
+
                 </a>
-            </div>
             <div class="product-card" data-id="sunglasses1" data-name="Sun Glasses" data-price="1200">
                 <a href="Sunglasses.html" class="block no-underline text-inherit">
                     <img class="product-image" src="https://i.pinimg.com/474x/ba/bc/97/babc97e0d3a39781522c6990c03834ee.jpg" alt="Sun Glasses"/>
                     <p>Sun Glasses</p>
+
                     <button class="get-best-price-btn" data-product-id="sunglasses1" data-product-name="Sun Glasses" style="margin-left: 0.5rem;">Get Best Price</button>
                     <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
+
                 </a>
             </div>
             <div class="product-card" data-id="tshirtpack1" data-name="Cotton T-shirt Pack" data-price="800">
                 <a href="Cotton tshirt.html" class="block no-underline text-inherit">
                     <img class="product-image" src="https://i.pinimg.com/736x/4a/46/6f/4a466ffaf0b0ea6e902036a31649d7aa.jpg" alt="T-shirt Pack"/>
                     <p>Cotton T-shirt Pack</p>
+
                     <button class="get-best-price-btn" data-product-id="tshirtpack1" data-product-name="Cotton T-shirt Pack" style="margin-left: 0.5rem;">Get Best Price</button>
                     <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
+
                 </a>
             </div>
             <div class="product-card" data-id="lipsticks1" data-name="Lipsticks" data-price="500">
                 <a href="Lipsticks.html" class="block no-underline text-inherit">
                     <img class="product-image" src="https://i.pinimg.com/474x/2c/60/97/2c60974fc65af811c079e7b2e10c3a6c.jpg" alt="Lipsticks"/>
                     <p>Lipsticks</p>
+
                     <button class="get-best-price-btn" data-product-id="lipsticks1" data-product-name="Lipsticks" style="margin-left: 0.5rem;">Get Best Price</button>
                     <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
                 </a>
@@ -412,44 +405,43 @@
         </div>
     </section>
 
-    <!-- Customer Reviews Section -->
     <section class="customer-reviews" aria-label="Customer Reviews">
         <h2>Customer Reviews</h2>
         <div class="reviews-container" tabindex="0" aria-live="polite" aria-atomic="true">
-            <article class="review-card" role="group" aria-label="Review by Anjali Sharma">
+            <article class="review-card" role="group" aria-label="Review by Anjali Rana">
                 <div class="review-rating" aria-label="5 out of 5 stars">
                     ★★★★★
                 </div>
                 <p class="review-text">"TradeVeil has transformed the way I source products. Reliable and efficient service!"</p>
-                <p class="review-author">- Anjali Sharma</p>
+                <p class="review-author">- Anjali Rana</p>
             </article>
-            <article class="review-card" role="group" aria-label="Review by Rajesh Kumar">
+            <article class="review-card" role="group" aria-label="Review by Ankush Verma">
                 <div class="review-rating" aria-label="4 out of 5 stars">
                     ★★★★☆
                 </div>
                 <p class="review-text">"Great platform with excellent customer support. Highly recommended for wholesalers."</p>
-                <p class="review-author">- Rajesh Kumar</p>
+                <p class="review-author">- Ankush Verma</p>
             </article>
-            <article class="review-card" role="group" aria-label="Review by Priya Singh">
+            <article class="review-card" role="group" aria-label="Review by Shubham Vishvakarma">
                 <div class="review-rating" aria-label="5 out of 5 stars">
                     ★★★★★
                 </div>
                 <p class="review-text">"A seamless experience connecting retailers and wholesalers across India."</p>
-                <p class="review-author">- Priya Singh</p>
+                <p class="review-author">- Shubham Vishvakarma</p>
             </article>
-            <article class="review-card" role="group" aria-label="Review by Amit Patel">
+            <article class="review-card" role="group" aria-label="Review by Gunjan Rani">
                 <div class="review-rating" aria-label="4 out of 5 stars">
                     ★★★★☆
                 </div>
                 <p class="review-text">"User-friendly interface and prompt responses. Makes B2B trading hassle-free."</p>
-                <p class="review-author">- Amit Patel</p>
+                <p class="review-author">- Gunjan Rani</p>
             </article>
-            <article class="review-card" role="group" aria-label="Review by Kavita Desai">
+            <article class="review-card" role="group" aria-label="Review by Arjun">
                 <div class="review-rating" aria-label="5 out of 5 stars">
                     ★★★★★
                 </div>
                 <p class="review-text">"Highly satisfied with the quality of products and the professionalism of sellers."</p>
-                <p class="review-author">- Kavita Desai</p>
+                <p class="review-author">- Arjun</p>
             </article>
         </div>
     </section>
@@ -459,7 +451,6 @@
     </footer>
 
     <script>
-        // Collect product data from the page
         const products = Array.from(document.querySelectorAll('.product-card')).map(card => ({
             id: card.getAttribute('data-id'),
             name: card.getAttribute('data-name').toLowerCase(),
@@ -499,7 +490,6 @@
                 resultsContainer.appendChild(li);
             });
             resultsContainer.style.display = 'block';
-            // Hide non-matching products on page
             products.forEach(p => {
                 p.element.style.display = p.name.includes(query) ? '' : 'none';
             });
@@ -521,15 +511,26 @@
             } else {
                 alert("Please login or register to access this feature.");
             }
-        }
-
+        
         // Handle Get Best Price button clicks
+        // Handle View Number button clicks
+        document.addEventListener('click', (e) => {
+            if (e.target && e.target.classList.contains('view-number-btn')) {
+                executeIfRegistered(() => {
+                    const contact = e.target.getAttribute('data-contact');
+                    const contactElem = e.target.nextElementSibling;
+                    contactElem.textContent = contact;
+                    contactElem.style.display = 'block';
+                    e.target.style.display = 'none';
+                });
+            }
+        });
+
         document.addEventListener('click', (e) => {
             if (e.target && e.target.classList.contains('get-best-price-btn')) {
                 executeIfRegistered(() => {
                     const productId = e.target.getAttribute('data-product-id');
                     const productName = e.target.getAttribute('data-product-name');
-                    // Redirect to quotation page with product info as query params
                     const url = `features/quotation.html?productId=${encodeURIComponent(productId)}&productName=${encodeURIComponent(productName)}`;
                     window.location.href = url;
                 });
