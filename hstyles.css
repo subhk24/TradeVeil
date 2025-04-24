@@ -1,4 +1,4 @@
-/* Reset and base styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +15,7 @@ body {
   font-size: 16px;
 }
 
-/* Header styles */
+
 header {
   background-color: #047857;
   color: #ffffff;
@@ -32,7 +32,7 @@ header {
   z-index: 1000;
 }
 
-/* Product grid container */
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -50,7 +50,6 @@ header {
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
 }
 
-/* Individual product card */
 .product-card {
   background: #ffffff;
   border-radius: 0.5rem;
@@ -73,7 +72,7 @@ header {
   outline: none;
 }
 
-/* Product image */
+
 .product-card img {
   width: 100%;
   height: 180px;
@@ -88,7 +87,7 @@ header {
   transform: scale(1.03);
 }
 
-/* Product title */
+
 .product-title {
   font-size: 20px;
   font-weight: 700;
@@ -99,10 +98,10 @@ header {
   user-select: text;
 }
 
-/* Product description */
+
 .product-description {
   font-size: 14px;
-  color: #4b5563; /* Tailwind gray-600 */
+  color: #4b5563;
   margin-bottom: 18px;
   text-align: center;
   line-height: 1.5;
@@ -110,7 +109,7 @@ header {
   user-select: text;
 }
 
-/* Product price */
+
 .product-price {
   font-weight: 700;
   font-size: 18px;
@@ -119,7 +118,7 @@ header {
   user-select: text;
 }
 
-/* Buy button */
+
 .buy-btn {
   background-color: #047857;
   color: white;
@@ -142,7 +141,7 @@ header {
   gap: 8px;
   position: relative;
   overflow: hidden;
-  margin-top: 12px; /* Added margin to create gap from quantity input */
+  margin-top: 12px; 
 }
 
 .buy-btn:hover,
@@ -156,19 +155,17 @@ header {
   transform: scale(0.97);
   box-shadow: 0 3px 10px rgba(4, 120, 87, 0.5);
 }
-
-/* Accessibility focus outline */
 .product-card:focus-within .buy-btn {
   outline: 3px solid #10b981;
   outline-offset: 3px;
 }
 
-/* Badge for new or sale products */
+
 .product-badge {
   position: absolute;
   top: 16px;
   left: 16px;
-  background-color: #ef4444; /* Tailwind red-500 */
+  background-color: #ef4444; 
   color: white;
   font-size: 11px;
   font-weight: 700;
@@ -182,7 +179,7 @@ header {
   z-index: 10;
 }
 
-/* Rating stars container */
+
 .product-rating {
   display: flex;
   justify-content: center;
@@ -190,11 +187,11 @@ header {
   margin-bottom: 20px;
 }
 
-/* Individual star */
+
 .product-rating svg {
   width: 18px;
   height: 18px;
-  fill: #fbbf24; /* Tailwind yellow-400 */
+  fill: #fbbf24; 
   filter: drop-shadow(0 0 1px rgba(0,0,0,0.15));
   transition: transform 0.3s ease;
 }
@@ -204,7 +201,7 @@ header {
   cursor: pointer;
 }
 
-/* Utility classes for spacing */
+
 .mt-10 { margin-top: 10px !important; }
 .mt-15 { margin-top: 15px !important; }
 .mt-20 { margin-top: 20px !important; }
@@ -215,7 +212,7 @@ header {
 .p-15 { padding: 15px !important; }
 .p-20 { padding: 20px !important; }
 
-/* Responsive design */
+
 @media (max-width: 1024px) {
   .product-grid {
     max-width: 90%;
@@ -265,7 +262,7 @@ header {
   }
 }
 
-/* Scrollbar styling for product grid if overflow */
+
 .product-grid::-webkit-scrollbar {
   height: 8px;
 }
@@ -280,7 +277,7 @@ header {
   border-radius: 10px;
 }
 
-/* Tooltip for buy button */
+
 .buy-btn-tooltip {
   position: relative;
   display: inline-block;
@@ -310,14 +307,14 @@ header {
   opacity: 1;
 }
 
-/* Disabled buy button */
+
 .buy-btn:disabled {
   background: #d1d5db;
   cursor: not-allowed;
   box-shadow: none;
 }
 
-/* Loading spinner inside buy button */
+
 .buy-btn .spinner {
   border: 3px solid rgba(255, 255, 255, 0.3);
   border-top: 3px solid white;
@@ -333,7 +330,7 @@ header {
   100% { transform: rotate(360deg); }
 }
 
-/* Additional utility classes */
+
 .text-center { text-align: center !important; }
 .text-uppercase { text-transform: uppercase !important; }
 .font-bold { font-weight: 700 !important; }
