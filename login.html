@@ -84,15 +84,15 @@
 
     document.getElementById("signInForm").addEventListener("submit", function (e) {
       e.preventDefault();
-      const email = document.getElementById("email").value.trim();
+      const business name = document.getElementById("business name").value.trim();
       const password = document.getElementById("password").value.trim();
       const overlay = document.getElementById("loadingOverlay");
 
       let users = JSON.parse(localStorage.getItem('tradeveilUsers')) || [];
-      const user = users.find(u => u.email === email && u.password === password);
+      const user = users.find(u => u.business name === business name && u.password === password);
 
       if (!user) {
-        alert("Invalid email or password.");
+        alert("Invalid business name or password.");
         return;
       }
 
