@@ -381,10 +381,6 @@
                 <a href="headphones.html" class="block no-underline text-inherit">
                     <img class="product-image" src="https://i.pinimg.com/736x/a9/c8/ab/a9c8abe2fe655aa90cc4d05198718926.jpg" alt="Headphones"/>
                     <p>Headphone</p>
-<button class="view-number-btn" data-contact="+91-9876543210" style="margin-right: 0.5rem; display: flex; align-items: center; gap: 0.3rem; font-size: 1rem;">
-    <span style="font-size: 1.2rem; line-height: 1;">📞</span>
-    View Number
-</button>
                     <button class="get-best-price-btn" data-product-id="headphone1" data-product-name="Headphone" style="margin-left: 0.5rem;">Get Best Price</button>
                     <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
                 </a>
@@ -393,10 +389,6 @@
                 <a href="Sunglasses.html" class="block no-underline text-inherit">
                     <img class="product-image" src="https://i.pinimg.com/474x/ba/bc/97/babc97e0d3a39781522c6990c03834ee.jpg" alt="Sun Glasses"/>
                     <p>Sun Glasses</p>
-<button class="view-number-btn" data-contact="+91-9876543210" style="margin-right: 0.5rem; display: flex; align-items: center; gap: 0.3rem; font-size: 1rem;">
-    <span style="font-size: 1.2rem; line-height: 1;">📞</span>
-    View Number
-</button>
                     <button class="get-best-price-btn" data-product-id="sunglasses1" data-product-name="Sun Glasses" style="margin-left: 0.5rem;">Get Best Price</button>
                     <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
                 </a>
@@ -405,10 +397,6 @@
                 <a href="Cotton tshirt.html" class="block no-underline text-inherit">
                     <img class="product-image" src="https://i.pinimg.com/736x/4a/46/6f/4a466ffaf0b0ea6e902036a31649d7aa.jpg" alt="T-shirt Pack"/>
                     <p>Cotton T-shirt Pack</p>
-<button class="view-number-btn" data-contact="+91-9876543210" style="margin-right: 0.5rem; display: flex; align-items: center; gap: 0.3rem; font-size: 1rem;">
-    <span style="font-size: 1.2rem; line-height: 1;">📞</span>
-    View Number
-</button>
                     <button class="get-best-price-btn" data-product-id="tshirtpack1" data-product-name="Cotton T-shirt Pack" style="margin-left: 0.5rem;">Get Best Price</button>
                     <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
                 </a>
@@ -417,10 +405,6 @@
                 <a href="Lipsticks.html" class="block no-underline text-inherit">
                     <img class="product-image" src="https://i.pinimg.com/474x/2c/60/97/2c60974fc65af811c079e7b2e10c3a6c.jpg" alt="Lipsticks"/>
                     <p>Lipsticks</p>
-<button class="view-number-btn" data-contact="+91-9876543210" style="margin-right: 0.5rem; display: flex; align-items: center; gap: 0.3rem; font-size: 1rem;">
-    <span style="font-size: 1.2rem; line-height: 1;">📞</span>
-    View Number
-</button>
                     <button class="get-best-price-btn" data-product-id="lipsticks1" data-product-name="Lipsticks" style="margin-left: 0.5rem;">Get Best Price</button>
                     <p class="contact-number" style="display:none; margin-top:0.25rem; font-weight:bold; color:#059669;"></p>
                 </a>
@@ -538,19 +522,6 @@
                 alert("Please login or register to access this feature.");
             }
         }
-
-        // Handle View Number button clicks
-        document.addEventListener('click', (e) => {
-            if (e.target && e.target.classList.contains('view-number-btn')) {
-                executeIfRegistered(() => {
-                    const contact = e.target.getAttribute('data-contact');
-                    const contactElem = e.target.nextElementSibling;
-                    contactElem.textContent = contact;
-                    contactElem.style.display = 'block';
-                    e.target.style.display = 'none';
-                });
-            }
-        });
 
         // Handle Get Best Price button clicks
         document.addEventListener('click', (e) => {
