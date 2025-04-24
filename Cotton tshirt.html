@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Cotton T-Shirts - TradeVeil</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Premium Cotton T-Shirts Collection | TradeVeil</title>
+  <link rel="stylesheet" href="hstyles.css" />
+  <script>
+    // Simple script to handle quantity input validation and add to cart feedback
     document.addEventListener('DOMContentLoaded', () => {
       const buttons = document.querySelectorAll('.buy-btn');
       buttons.forEach(button => {
@@ -30,179 +30,179 @@
       });
     });
   </script>
-    <style>
-        font-family : 'Poppins', sans-serif;
-        background-color: #f9fafb;
-        margin: 0;
-        padding: 0;
-        color: #333;
-        header {
-            background-color: #10b981;
-            color: white;
-            padding: 1.5rem 0;
-            text-align: center;
-            font-weight: 700;
-            font-size: 2rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: relative;
-        }
-        nav {
-            background-color: #059669;
-            padding: 0.5rem 0;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-            gap: 2rem;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-        }
-        nav ul li a:hover,
-        nav ul li a.active {
-            background-color: #047857;
-        }
-        main.container {
-            max-width: 1200px;
-            margin: 2rem auto 4rem auto;
-            padding: 0 1rem;
-        }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-            gap: 2rem;
-        }
-        .product-card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-        }
-        .product-card:hover {
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-            transform: translateY(-5px);
-        }
-        .product-image {
-            width: 100%;
-            height: 180px;
-            object-fit: contain;
-            background-color: #f0f0f0;
-        }
-        .product-details {
-            padding: 1rem 1.5rem 1.5rem 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .product-title {
-            font-size: 1.25rem;
-            margin: 0 0 0.5rem 0;
-            font-weight: 700;
-            color: #10b981;
-        }
-        .product-description {
-            flex-grow: 1;
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 1rem;
-        }
-    </style>
-    </head>
+  <style>
+    nav {
+      background-color: #059669;
+      padding: 0.5rem 0;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      gap: 2rem;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #047857;
+    }
+    main.container {
+      max-width: 1200px;
+      margin: 2rem auto 4rem auto;
+      padding: 0 1rem;
+    }
+  </style>
+</head>
 <body>
-    <header>
-        Cotton T-Shirts Collection
-        <a href="cart.html" id="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
-            🛒<span id="cart-count">0</span>
-        </a>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="electronics.html">Electronics</a></li>
-            <li><a href="stationery.html">Stationery</a></li>
-            <li><a href="Cotton tshirt.html" class="active">Cotton T-shirts</a></li>
-            <li><a href="textiles.html">Textiles</a></li>
-            <li><a href="tshirts.html">T-Shirts</a></li>
-            <li><a href="cart.html">Cart</a></li>
-            <li><a href="orders.html">My Orders</a></li>
-            <li><a href="ContactUs.html">Contact Us</a></li>
-        </ul>
-    </nav>
-    <main class="container">
-        <div class="products-grid">
-            <div class="product-card" data-id="classic-cotton" data-name="Classic Cotton Tee" data-price="499">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYuysij1DJ3fOCuoeCs909NtD9o5fdBHdHyg&s" alt="Classic Cotton T-Shirt" class="product-image" />
-                <div class="product-details">
-                    <h2 class="product-title">Classic Cotton Tee</h2>
-                    <p class="product-description">100% pure cotton t-shirt for all-day comfort. Available in multiple colors and sizes.</p>
-                    <p class="product-price">₹499</p>
-                    <button class="btn-buy" aria-label="Buy Classic Cotton Tee">Buy Now</button>
-                </div>
-            </div>
-            <div class="product-card" data-id="graphic-cotton" data-name="Graphic Cotton Tee" data-price="699">
-                <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcS3C4slZBxpuRyVwOTKyyXOHrStHHBYdr2CXR6gIzhlp4B7XRy5BlrG_juFOQcpq4EitLvFoz6-b_3Q3r-ubBX0vue1Ucrnea4H1zktosRg1anI9IeJi-eFFg" alt="Graphic Cotton T-Shirt" class="product-image" />
-                <div class="product-details">
-                    <h2 class="product-title">Graphic Cotton Tee</h2>
-                    <p class="product-description">Soft cotton t-shirt with trendy graphic print. Breathable and gentle on skin.</p>
-                    <p class="product-price">₹699</p>
-                    <button class="btn-buy" aria-label="Buy Graphic Cotton Tee">Buy Now</button>
-                </div>
-            </div>
-            <div class="product-card" data-id="polo-cotton" data-name="Cotton Polo" data-price="899">
-                <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSClTapBCd3zhSoPAirAtypkmv8wfvfOuMLWOlOXqKx2Pg7fOYwwEIpK-CblJrye8WRoojTpiK2b0JxiK6cix0dD-kHGQvCNmJdpKWC_iWdXAuCyXl3T0rb" alt="Cotton Polo T-Shirt" class="product-image" />
-                <div class="product-details">
-                    <h2 class="product-title">Cotton Polo</h2>
-                    <p class="product-description">Premium cotton polo t-shirt. Perfect for casual and semi-formal occasions.</p>
-                    <p class="product-price">₹999</p>
-                    <button class="btn-buy" aria-label="Buy Cotton Polo">Buy Now</button>
-                </div>
-            </div>
-            <div class="product-card" data-id="vneck-cotton" data-name="V-Neck Cotton Tee" data-price="599">
-                <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS4doKlio_ePPpe4zDxPSHFn8Lj64_XfigmzsNYavLXw8HvAPw6nWcB_TC1EKT-7bk1B0TWdORXtcmi8iBodeYTYmbUQu0KIyrPjymhqncqpClGYxjaTW0WEQ" alt="V-Neck Cotton T-Shirt" class="product-image" />
-                <div class="product-details">
-                    <h2 class="product-title">V-Neck Cotton Tee</h2>
-                    <p class="product-description">Lightweight v-neck t-shirt made from soft cotton fabric. Ideal for summer wear.</p>
-                    <p class="product-price">₹599</p>
-                    <button class="btn-buy" aria-label="Buy V-Neck Cotton Tee">Buy Now</button>
-                </div>
-            </div>
-            </div>
-        <section class="features-section">
-            <h2>Why Choose Our Cotton T-Shirts?</h2>
-            <div class="features-list">
-                <div class="feature-item">
-                    <h3>100% Pure Cotton</h3>
-                    <p>Enjoy breathable comfort and softness with our high-quality cotton fabric.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Vibrant Colors</h3>
-                    <p>Available in a wide range of colors that stay bright after multiple washes.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Affordable Prices</h3>
-                    <p>Great value starting from just ₹499, with options for every budget.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Easy Care</h3>
-                    <p>Machine washable and durable for everyday use.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        © 2025 TradeVeil. All rights reserved.
-    </footer>
+
+  <header>Premium Cotton T-Shirts Collection</header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="electronics.html">Electronics</a></li>
+      <li><a href="stationery.html">Stationery</a></li>
+      <li><a href="textiles.html">Textiles</a></li>
+      <li><a href="cosmetics.html">Cosmetics</a></li>
+      <li><a href="Cotton tshirt.html" class="active">Cotton T-shirts</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><a href="orders.html">My Orders</a></li>
+      <li><a href="ContactUs.html">Contact Us</a></li>
+      <li><a href="features/authentication.html">Login</a></li>
+      <li><a href="features/dashboard.html">Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <section class="product-grid" role="list" aria-label="Cotton T-Shirts product list">
+
+    <!-- Product Card 1 -->
+    <article class="product-card" role="listitem" aria-label="Classic Cotton Tee">
+      <span class="product-badge" aria-label="New Product">New</span>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYuysij1DJ3fOCuoeCs909NtD9o5fdBHdHyg&s" alt="Classic Cotton T-Shirt" />
+      <h2 class="product-title">Classic Cotton Tee</h2>
+      <div class="product-rating" aria-label="Rating: 4.5 out of 5 stars" role="img" tabindex="0">★★★★☆</div>
+      <p class="product-description">100% pure cotton t-shirt for all-day comfort. Available in multiple colors and sizes.</p>
+      <ul class="product-specs">
+        <li>100% pure cotton</li>
+        <li>Multiple colors</li>
+        <li>Available in various sizes</li>
+        <li>Soft and breathable fabric</li>
+      </ul>
+      <div class="product-price">₹499</div>
+      <label for="qty1" class="sr-only">Quantity</label>
+      <input type="number" id="qty1" name="qty1" class="quantity-input" min="1" max="10" value="1" aria-live="polite" aria-label="Quantity selector for Classic Cotton Tee" />
+      <button class="buy-btn" aria-label="Add Classic Cotton Tee to cart">Add to Cart</button>
+      <section class="product-reviews" aria-label="Customer reviews for Classic Cotton Tee" style="margin-top: 20px;">
+        <h3>Customer Reviews</h3>
+        <article class="review">
+          <p><strong>Anna W.</strong> ★★★★★</p>
+          <p>Very comfortable and soft. Perfect for everyday wear.</p>
+        </article>
+        <article class="review">
+          <p><strong>Mark T.</strong> ★★★★☆</p>
+          <p>Good quality cotton and fits well.</p>
+        </article>
+      </section>
+    </article>
+
+    <!-- Product Card 2 -->
+    <article class="product-card" role="listitem" aria-label="Graphic Cotton Tee">
+      <span class="product-badge" aria-label="Best Seller">Best Seller</span>
+      <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcS3C4slZBxpuRyVwOTKyyXOHrStHHBYdr2CXR6gIzhlp4B7XRy5BlrG_juFOQcpq4EitLvFoz6-b_3Q3r-ubBX0vue1Ucrnea4H1zktosRg1anI9IeJi-eFFg" alt="Graphic Cotton T-Shirt" />
+      <h2 class="product-title">Graphic Cotton Tee</h2>
+      <div class="product-rating" aria-label="Rating: 4 out of 5 stars" role="img" tabindex="0">★★★★☆</div>
+      <p class="product-description">Soft cotton t-shirt with trendy graphic print. Breathable and gentle on skin.</p>
+      <ul class="product-specs">
+        <li>Soft cotton fabric</li>
+        <li>Trendy graphic print</li>
+        <li>Breathable material</li>
+        <li>Gentle on skin</li>
+      </ul>
+      <div class="product-price">₹699</div>
+      <label for="qty2" class="sr-only">Quantity</label>
+      <input type="number" id="qty2" name="qty2" class="quantity-input" min="1" max="10" value="1" aria-live="polite" aria-label="Quantity selector for Graphic Cotton Tee" />
+      <button class="buy-btn" aria-label="Add Graphic Cotton Tee to cart">Add to Cart</button>
+      <section class="product-reviews" aria-label="Customer reviews for Graphic Cotton Tee" style="margin-top: 20px;">
+        <h3>Customer Reviews</h3>
+        <article class="review">
+          <p><strong>Lisa M.</strong> ★★★★☆</p>
+          <p>Stylish and comfortable. Great for everyday wear.</p>
+        </article>
+        <article class="review">
+          <p><strong>James P.</strong> ★★★☆☆</p>
+          <p>Good quality but the frame feels a bit fragile.</p>
+        </article>
+      </section>
+    </article>
+
+    <!-- Product Card 3 -->
+    <article class="product-card" role="listitem" aria-label="Cotton Polo">
+      <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSClTapBCd3zhSoPAirAtypkmv8wfvfOuMLWOlOXqKx2Pg7fOYwwEIpK-CblJrye8WRoojTpiK2b0JxiK6cix0dD-kHGQvCNmJdpKWC_iWdXAuCyXl3T0rb" alt="Cotton Polo T-Shirt" />
+      <h2 class="product-title">Cotton Polo</h2>
+      <div class="product-rating" aria-label="Rating: 4 out of 5 stars" role="img" tabindex="0">★★★★☆</div>
+      <p class="product-description">Premium cotton polo t-shirt. Perfect for casual and semi-formal occasions.</p>
+      <ul class="product-specs">
+        <li>Premium cotton fabric</li>
+        <li>Casual and semi-formal wear</li>
+        <li>Durable stitching</li>
+        <li>Comfortable fit</li>
+      </ul>
+      <div class="product-price">₹999</div>
+      <label for="qty3" class="sr-only">Quantity</label>
+      <input type="number" id="qty3" name="qty3" class="quantity-input" min="1" max="10" value="1" aria-live="polite" aria-label="Quantity selector for Cotton Polo" />
+      <button class="buy-btn" aria-label="Add Cotton Polo to cart">Add to Cart</button>
+      <section class="product-reviews" aria-label="Customer reviews for Cotton Polo" style="margin-top: 20px;">
+        <h3>Customer Reviews</h3>
+        <article class="review">
+          <p><strong>Emily R.</strong> ★★★★★</p>
+          <p>High quality and very comfortable.</p>
+        </article>
+        <article class="review">
+          <p><strong>Michael B.</strong> ★★★★☆</p>
+          <p>Fits well and looks great.</p>
+        </article>
+      </section>
+    </article>
+
+    <!-- Product Card 4 -->
+    <article class="product-card" role="listitem" aria-label="V-Neck Cotton Tee">
+      <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS4doKlio_ePPpe4zDxPSHFn8Lj64_XfigmzsNYavLXw8HvAPw6nWcB_TC1EKT-7bk1B0TWdORXtcmi8iBodeYTYmbUQu0KIyrPjymhqncqpClGYxjaTW0WEQ" alt="V-Neck Cotton T-Shirt" />
+      <h2 class="product-title">V-Neck Cotton Tee</h2>
+      <div class="product-rating" aria-label="Rating: 4 out of 5 stars" role="img" tabindex="0">★★★★☆</div>
+      <p class="product-description">Lightweight v-neck t-shirt made from soft cotton fabric. Ideal for summer wear.</p>
+      <ul class="product-specs">
+        <li>Soft cotton fabric</li>
+        <li>Lightweight and breathable</li>
+        <li>V-neck design</li>
+        <li>Comfortable fit</li>
+      </ul>
+      <div class="product-price">₹599</div>
+      <label for="qty4" class="sr-only">Quantity</label>
+      <input type="number" id="qty4" name="qty4" class="quantity-input" min="1" max="10" value="1" aria-live="polite" aria-label="Quantity selector for V-Neck Cotton Tee" />
+      <button class="buy-btn" aria-label="Add V-Neck Cotton Tee to cart">Add to Cart</button>
+      <section class="product-reviews" aria-label="Customer reviews for V-Neck Cotton Tee" style="margin-top: 20px;">
+        <h3>Customer Reviews</h3>
+        <article class="review">
+          <p><strong>Alex P.</strong> ★★★★☆</p>
+          <p>Light and comfortable. Perfect for hot weather.</p>
+        </article>
+        <article class="review">
+          <p><strong>Jessica L.</strong> ★★★☆☆</p>
+          <p>Good quality but shrinks slightly after washing.</p>
+        </article>
+      </section>
+    </article>
+
+  </section>
+
 </body>
 </html>
