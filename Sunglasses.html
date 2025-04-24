@@ -5,6 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sunglasses - TradeVeil</title>
+    <script>
+    // Simple script to handle quantity input validation and add to cart feedback
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.buy-btn');
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const card = button.closest('.product-card');
+          const qtyInput = card.querySelector('.quantity-input');
+          let qty = parseInt(qtyInput.value);
+          if (isNaN(qty) || qty < 1) {
+            alert('Please enter a valid quantity (minimum 1).');
+            qtyInput.focus();
+            return;
+          }
+          button.disabled = true;
+          button.textContent = 'Adding...';
+          setTimeout(() => {
+            button.textContent = 'Add to Cart';
+            button.disabled = false;
+            alert(`Added ${qty} item(s) of "${card.querySelector('.product-title').textContent}" to cart.`);
+          }, 1000);
+        });
+      });
+    });
+  </script>
     <style>
         font-family: 'Poppins', sans-serif;
             background-color: #f9fafb;
