@@ -1,0 +1,212 @@
+:root {
+  --primary: #047857; /* changed from yellow to website green */
+  --secondary: #d1fae5; /* light green background */
+  --accent: #065f46; /* darker green for text */
+  --bg: #f0fdf4; /* very light green background */
+  --card-bg: #ffffff;
+  --radius: 0.5rem; /* changed from 16px to 0.5rem for consistency */
+  --shadow: 0 2px 8px rgba(4, 120, 87, 0.4); /* green tinted shadow */
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif; /* changed font */
+  background: var(--bg);
+  color: var(--accent);
+  min-height: 100vh;
+}
+
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+
+header p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #d1fae5;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Team section */
+.team-section {
+  margin-bottom: 3rem;
+}
+
+.team-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.team-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  padding: 2rem 1rem 1.5rem 1rem;
+  transition: transform 0.13s, box-shadow 0.13s;
+}
+
+.team-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(4, 120, 87, 0.6);
+}
+
+.team-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid var(--primary);
+}
+
+.team-card h3 {
+  margin: 0.2rem 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.team-card .role {
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.team-card p {
+  font-size: 0.97rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.team-card button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.15s;
+}
+
+.team-card button:hover {
+  background: #065f46;
+}
+
+/* Contact form section */
+.contact-section {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 500px;
+  margin: 0 auto 2.5rem auto;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+}
+
+.contact-section h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background: #fff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(4, 120, 87, 0.3);
+}
+
+.contact-form small {
+  color: #888;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.contact-form button {
+  width: 100%;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 0;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(4, 120, 87, 0.4);
+}
+
+.contact-form button:hover {
+  background: #065f46;
+  box-shadow: 0 6px 12px rgba(4, 120, 87, 0.6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  header h1 { font-size: 2rem; }
+  .team-title { font-size: 1.3rem; }
+  .contact-section { padding: 1.2rem 0.5rem; }
+}
+
+@media (max-width: 480px) {
+  .team-card { padding: 1.3rem 0.5rem; }
+  .contact-section { padding: 0.8rem 0.2rem; }
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem 0 0.6rem 0;
+  background: var(--primary);
+  color: #fff;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  margin-top: 2rem;
+  font-size: 1rem;
+}
