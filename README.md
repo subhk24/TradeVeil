@@ -160,7 +160,7 @@ We position TradeVeil not just as a utility, but as a **business secret weapon**
 | Name                     | Role                  | Email                                         | Roll Number     |
 |--------------------------|-----------------------|-----------------------------------------------|-----------------|
 | Subhdeep Kaur            | Manager               | subhdeep0794.becse24@chitkara.edu.in            | 2410990794      |
-| Jasleen Kaur             | Designer              | jasleen0729.becse24@chitkara.edu.in             | 2410990729      |
+| Jasleen Kaur             | Designer + Tester     | jasleen0729.becse24@chitkara.edu.in             | 2410990729      |
 | Shabadmeet Singh Bhatia | Quality Assurance     | shabadmeet0765.becse24@chitkara.edu.in         | 2410990765      |
 | Saksham Jain             | Developer             | saksham0752.becse24@chitkara.edu.in             | 2410990752      |
 | Yash Jindal              | Front-End Developer   | yash0803.becse24@chitkara.edu.in                | 2410990803      |
