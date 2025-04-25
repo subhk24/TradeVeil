@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register | TradeVeil</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <meta name="description" content="Register for TradeVeil, the secure B2B wholesale platform connecting verified wholesalers and retailers." />
+  <meta name="keywords" content="TradeVeil, Register, B2B, Wholesale, Marketplace" />
+  <meta name="author" content="TradeVeil" />
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div class="logo">TradeVeil</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+    <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 1rem; width: 450px; box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px);">
+      <h2 style="text-align: center; margin-bottom: 1.5rem; font-weight: 700; font-size: 1.8rem;">Create Your TradeVeil Account</h2>
+      <form id="registerForm" style="display: flex; flex-direction: column;">
+
+        <label style="margin-bottom: 0.25rem; font-size: 0.9rem;">Select Trade Role</label>
+        <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+          <label><input type="radio" name="tradeRole" value="Retailer" required /> Retailer</label>
+          <label><input type="radio" name="tradeRole" value="Wholeseller" /> Wholeseller</label>
+          <label><input type="radio" name="tradeRole" value="Both" /> Both</label>
+        </div>
+
+        <label for="email" style="margin-bottom: 0.25rem; font-size: 0.9rem;">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required style="padding: 0.5rem; margin-bottom: 1rem; border-radius: 0.5rem; border: none; font-size: 1rem;" />
+
+        <label for="password" style="margin-bottom: 0.25rem; font-size: 0.9rem;">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" required style="padding: 0.5rem; margin-bottom: 1rem; border-radius: 0.5rem; border: none; font-size: 1rem;" />
+
+        <label for="confirmPassword" style="margin-bottom: 0.25rem; font-size: 0.9rem;">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required style="padding: 0.5rem; margin-bottom: 1rem; border-radius: 0.5rem; border: none; font-size: 1rem;" />
+
+        <label for="companyName" style="margin-bottom: 0.25rem; font-size: 0.9rem;">Company Name</label>
+        <input type="text" id="companyName" name="companyName" placeholder="Enter company name" required style="padding: 0.5rem; margin-bottom: 1rem; border-radius: 0.5rem; border: none; font-size: 1rem;" />
+
+        <label for="fullName" style="margin-bottom: 0.25rem; font-size: 0.9rem;">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required style="padding: 0.5rem; margin-bottom: 1rem; border-radius: 0.5rem; border: none; font-size: 1rem;" />
+
+        <label for="gst" style="margin-bottom: 0.25rem; font-size: 0.9rem;">GST Number</label>
+        <input type="text" id="gst" name="gst" placeholder="Enter your GST Number" required style="padding: 0.5rem; margin-bottom: 1rem; border-radius: 0.5rem; border: none; font-size: 1rem;" />
+
+        <div style="margin-bottom: 1rem;">
+          <input type="checkbox" id="terms" required />
+          <label for="terms" style="font-size: 0.85rem;">I agree to the <a href="#" style="color: #047857;">Terms of Use</a> and <a href="#" style="color: #047857;">Privacy Policy</a>.</label>
+        </div>
+
+        <button type="submit" style="padding: 0.75rem; background-color: #08664C; border: none; border-radius: 0.5rem; font-weight: 700; color: white; font-size: 1rem; cursor: pointer;">Create an Account</button>
+      </form>
+
+      <p style="margin-top: 1rem; text-align: center; font-size: 0.9rem;">
+        Already have an account? <a href="login.html" style="color: #047857; text-decoration: none;">Login here</a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 TradeVeil. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const confirmPassword = document.getElementById('confirmPassword').value.trim();
+      const tradeRole = document.querySelector('input[name="tradeRole"]:checked')?.value;
+      const companyName = document.getElementById('companyName').value.trim();
+      const fullName = document.getElementById('fullName').value.trim();
+      const gst = document.getElementById('gst').value.trim();
+      const terms = document.getElementById('terms').checked;
+
+      if (!email || !password || !confirmPassword || !country || !tradeRole || !companyName || !fullName || !gst || !terms) {
+        alert('Please fill all fields and agree to the Terms.');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+        return;
+      }
+
+      let users = JSON.parse(localStorage.getItem('tradeveilUsers')) || [];
+
+      if (users.some(u => u.email === email)) {
+        alert('Email already registered. Please login.');
+        return;
+      }
+
+      const newUser = {
+        email,
+        password,
+        tradeRole,
+        companyName,
+        fullName,
+        gst,
+        id: 'TV-' + Math.random().toString(36).substr(2, 9).toUpperCase(),
+        joined: new Date().toISOString()
+      };
+
+      users.push(newUser);
+      localStorage.setItem('tradeveilUsers', JSON.stringify(users));
+
+      alert('Registration successful! Please login.');
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
