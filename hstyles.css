@@ -27,7 +27,7 @@ header {
   text-transform: uppercase;
   box-shadow: 0 2px 8px rgba(4, 120, 87, 0.5);
   user-select: none;
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 1000;
 }
