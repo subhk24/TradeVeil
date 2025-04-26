@@ -209,8 +209,6 @@
         .add-to-cart-btn:hover {
             background-color: #059669;
         }
-
-        /* Footer */
         footer {
             background-color: #10b981;
             color: white;
@@ -527,16 +525,12 @@
                 p.element.style.display = p.name.includes(query) ? '' : 'none';
             });
         });
-
-        // Hide search results when clicking outside
         document.addEventListener('click', (e) => {
             if (!searchInput.contains(e.target) && !resultsContainer.contains(e.target)) {
                 resultsContainer.style.display = 'none';
                 products.forEach(p => p.element.style.display = '');
             }
         });
-
-        // Function to check registration and execute callback
         function executeIfRegistered(callback) {
             const isRegistered = confirm("Are you a registered user? Click OK for Yes, Cancel for No.");
             if (isRegistered) {
@@ -545,9 +539,6 @@
                 alert("Please login or register to access this feature.");
             }
         }
-
-        // Handle Get Best Price button clicks
-        // Handle View Number button clicks
         document.addEventListener('click', (e) => {
             if (e.target && e.target.classList.contains('view-number-btn')) {
                 executeIfRegistered(() => {
@@ -570,6 +561,27 @@
                 });
             }
         });
+    const toggleBtn = document.getElementById('darkModeToggle');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedMode = localStorage.getItem('theme');
+
+    const setDarkMode = (enable) => {
+        if (enable) {
+            document.documentElement.classList.add('dark-mode');
+            toggleBtn.innerText = '☀️ Light Mode';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.classList.remove('dark-mode');
+            toggleBtn.innerText = '🌙 Dark Mode';
+            localStorage.setItem('theme', 'light');
+        }
+    };
+    setDarkMode(savedMode === 'dark' || (savedMode === null && prefersDark));
+
+    toggleBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains('dark-mode');
+        setDarkMode(!isDark);
+    });
     </script>
 </body>
 </html>
