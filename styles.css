@@ -179,7 +179,7 @@ img {
     border-radius: 0.5rem;
     width: 250px !important;
     height: 250px !important;
-    object-fit: cover;
+    object-fit: container;
 }
 
 img:hover {
