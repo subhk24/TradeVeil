@@ -15,7 +15,7 @@ body {
 
     .dark-section {
       background-color: #019267;
-      padding: 20px 20px;
+      padding: 60px 20px;
       color: white;
       min-height: 100vh;
     }
@@ -23,7 +23,7 @@ body {
     .dark-section h2 {
       text-align: center;
       font-size: 2.5rem;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
 
     .team-grid {
