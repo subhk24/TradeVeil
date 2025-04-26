@@ -146,7 +146,7 @@
             const quantity = parseInt(document.getElementById('quantity').value, 10);
             const additionalInfo = document.getElementById('additional-info').value.trim();
 
-            if (!companyName || !contactName || !email || !phone || !product || !quantity) {
+            if (!companyName || !contactName || !email || !product || !quantity) {
                 errorMessage.textContent = 'Please fill in all required fields.';
                 errorMessage.style.display = 'block';
                 return;
@@ -157,7 +157,6 @@
                 companyName,
                 contactName,
                 email,
-                phone,
                 product,
                 quantity,
                 additionalInfo
