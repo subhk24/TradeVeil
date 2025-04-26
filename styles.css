@@ -4,6 +4,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    padding-top: 60px;
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
     color: #1f2937; 
     line-height: 1.6;
@@ -25,7 +26,9 @@ a:hover {
 nav {
     background-color: #ffffff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
 }
