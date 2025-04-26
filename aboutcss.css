@@ -17,13 +17,13 @@ body {
       background-color: #019267;
       padding: 60px 20px;
       color: white;
-      min-height: 100vh;
+      min-height: 50vh;
     }
 
     .dark-section h2 {
       text-align: center;
       font-size: 2.5rem;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
 
     .team-grid {
