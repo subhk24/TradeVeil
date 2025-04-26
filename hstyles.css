@@ -20,7 +20,6 @@ header {
   background-color: #047857;
   color: #ffffff;
   padding: 30px 20px;
-  padding-top: 100px;
   text-align: center;
   font-size: 32px;
   font-weight: 700;
@@ -28,7 +27,7 @@ header {
   text-transform: uppercase;
   box-shadow: 0 2px 8px rgba(4, 120, 87, 0.5);
   user-select: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 1000;
 }
