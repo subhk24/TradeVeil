@@ -51,7 +51,7 @@ Instances of abusive, disrespectful, or privacy-violating behavior will be inves
 - Removal of harmful content
 
 To report violations or concerns, please contact:  
-**Email:** [your-email@example.com]
+**Email:** [team@tradeveil.com]
 
 We treat all reports seriously and will respond within **5 business days**.
 
