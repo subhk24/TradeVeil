@@ -6,7 +6,7 @@ body {
 
     header {
       background-color: #c4f0dd;
-      padding: 60px 40px 20px;
+      padding: 30px 40px 10px;
       text-align: center;
       font-size: 2.5rem;
       font-weight: bold;
@@ -15,7 +15,7 @@ body {
 
     .dark-section {
       background-color: #019267;
-      padding: 60px 20px;
+      padding: 40px 20px;
       color: white;
       min-height: 50vh;
     }
