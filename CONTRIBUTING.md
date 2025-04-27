@@ -47,3 +47,19 @@ Business Model
 Premium Access: Retailers receive a three-month free trial, then can subscribe for ₹100/month or ₹600–₹700 for three months.
 
 Wholesaler Fees: Wholesalers may be charged a commission based on sales or a fixed fee.
+
+Integrated Revenue: Both premium subscriptions and sales-based commissions support platform sustainability.
+
+Promotion & Unique Features
+Three-month free trial for all users.
+
+Demo product delivery: Retailers can try products before committing to bulk purchases, increasing trust and satisfaction.
+
+Strong emphasis on privacy: Product prices and business details are never exposed to the public.
+
+Active onboarding of wholesalers with assurances of data security and exclusive access to a verified retailer base.
+
+Reporting Bugs
+Use the Issues tab to report bugs or request features.
+
+Join us in building the most secure and private B2B marketplace for local wholesalers and retailers!
