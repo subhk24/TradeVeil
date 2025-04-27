@@ -2,7 +2,7 @@
 
 ## Welcome to TradeVeil
 
-At **TradeVeil**, we’re committed to creating a secure, respectful, and business-focused environment where **verified wholesalers and retailers** can connect privately and professionally.
+At **TradeVeil**, we’re committed to creating a secure, respectful, and business-focused environment where **verified wholesalers and retailers** can connect privately and professionally without any interference of outsider.
 
 TradeVeil is not just another B2B platform — it is a **secure, privacy-first marketplace** designed exclusively to foster **local B2B relationships**. Our mission is to protect the **profitability and privacy** of businesses, while bridging the gap that exists in India’s wholesale ecosystem.
 
@@ -52,13 +52,14 @@ Instances of abusive, disrespectful, or privacy-violating behavior will be inves
 
 To report violations or concerns, please contact:  
 **Email:** [team@tradeveil.com]
+
 You can also direct report violations or concerns according to there respective contribution, please contact:  
                                    
-Subhdeep Kaur	            ( Manager ) -              subhdeep0794.becse24@chitkara.edu.in	    
-Jasleen Kaur	            ( Designer + Tester ) -	    jasleen0729.becse24@chitkara.edu.in	      
-Shabadmeet Singh Bhatia	  ( Quality Assurance ) -	    shabadmeet0765.becse24@chitkara.edu.in	  
-Saksham Jain	            ( Developer ) -	          saksham0752.becse24@chitkara.edu.in     
-Yash Jindal	              ( Front-End Developer ) -	  yash0803.becse24@chitkara.edu.in	        
+**Subhdeep Kaur**	            ( Manager ) -               subhdeep0794.becse24@chitkara.edu.in	    
+**Jasleen Kaur	**            ( Designer + Tester ) -	    jasleen0729.becse24@chitkara.edu.in	      
+**Shabadmeet Singh Bhatia**	  ( Quality Assurance ) -	    shabadmeet0765.becse24@chitkara.edu.in	  
+**Saksham Jain	**            ( Developer ) -	            saksham0752.becse24@chitkara.edu.in     
+**Yash Jindal	 **             ( Front-End Developer ) -	  yash0803.becse24@chitkara.edu.in	        
 
 
 We treat all reports seriously and will respond within **5 business days**.
@@ -79,7 +80,7 @@ We treat all reports seriously and will respond within **5 business days**.
 
 We are building India's most trusted B2B network — one that values **privacy, trust, and business growth**.
 
-**Together, let’s revolutionize local B2B trade!**
+**Together , let’s revolutionize local B2B trade!**
 
 ---
 
