@@ -18,3 +18,19 @@ Push to the branch (git push origin feature/YourFeature)
 Open a Pull Request
 
 Please ensure your code follows our style guides and passes all tests.
+
+Registration Process
+For Wholesalers:
+
+Registration is strictly based on GST number and business credentials (business name, email, etc.).
+
+Only verified wholesalers can list product categories.
+
+For Retailers:
+
+Retailers must provide a GST number and select a business category (e.g., mobile shop, clothing, stationery).
+
+Retailers can only view products and prices relevant to their chosen category, ensuring privacy and market segmentation.
+
+For small shops without GST, alternative documents (such as shop bills, electricity bills, income tax returns, or shop license) must be submitted for manual verification by our team.
+
