@@ -53,12 +53,12 @@ Instances of abusive, disrespectful, or privacy-violating behavior will be inves
 To report violations or concerns, please contact:  
 **Email:** [team@tradeveil.com]
 You can also direct report violations or concerns according to there respective contribution, please contact:  
-Name	                    Role	                Email	                                    Roll Number
-Subhdeep Kaur	            Manager	              subhdeep0794.becse24@chitkara.edu.in	    2410990794
-Jasleen Kaur	            Designer + Tester	    jasleen0729.becse24@chitkara.edu.in	      2410990729
-Shabadmeet Singh Bhatia	  Quality Assurance	    shabadmeet0765.becse24@chitkara.edu.in	  2410990765
-Saksham Jain	            Developer	            saksham0752.becse24@chitkara.edu.in     	2410990752
-Yash Jindal	              Front-End Developer	  yash0803.becse24@chitkara.edu.in	        2410990803
+                                   
+Subhdeep Kaur	            ( Manager ) -              subhdeep0794.becse24@chitkara.edu.in	    
+Jasleen Kaur	            ( Designer + Tester ) -	    jasleen0729.becse24@chitkara.edu.in	      
+Shabadmeet Singh Bhatia	  ( Quality Assurance ) -	    shabadmeet0765.becse24@chitkara.edu.in	  
+Saksham Jain	            ( Developer ) -	          saksham0752.becse24@chitkara.edu.in     
+Yash Jindal	              ( Front-End Developer ) -	  yash0803.becse24@chitkara.edu.in	        
 
 
 We treat all reports seriously and will respond within **5 business days**.
