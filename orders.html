@@ -13,6 +13,7 @@
             margin: 0;
             padding: 0;
             color: #333;
+            box-sizing: border-box;
         }
         header {
             background-color: #10b981;
@@ -22,6 +23,7 @@
             font-weight: 700;
             font-size: 2rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
         }
         nav {
             background-color: #059669;
@@ -55,6 +57,7 @@
             background: white;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
         h2 {
             color: #10b981;
@@ -71,16 +74,23 @@
             padding: 0.75rem 1rem;
             border-bottom: 1px solid #ddd;
             text-align: left;
+            line-height: 1.5;
         }
         th {
             background-color: #e6f4ea;
             color: #059669;
         }
+        tr:hover {
+            background-color: #f1fdf3;
+        }
         .empty-message {
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: #555;
             margin: 2rem 0;
+            background-color: #e6f4ea;
+            padding: 20px;
+            border-radius: 8px;
         }
         footer {
             background-color: #10b981;
@@ -89,6 +99,12 @@
             padding: 1rem 0;
             font-weight: 500;
             box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+            margin-top: 1rem;
+        }
+        footer .total-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -122,26 +138,33 @@
                 <!-- Orders will be dynamically inserted here -->
             </tbody>
         </table>
-        <div id="empty-message" class="empty-message" style="display:none;">You have no orders yet.</div>
+        <div id="empty-message" class="empty-message" style="display:none;">You have not ordered yet.</div>
     </main>
-    <footer>
+    <footer aria-label="footer">
         © 2025 TradeVeil. All rights reserved.
+        <div id="total-value" class="total-value" style="display:none;">Total Value: ₹0.00</div>
     </footer>
     <script>
         const ordersBody = document.getElementById('orders-body');
         const emptyMessage = document.getElementById('empty-message');
+        const totalValueDisplay = document.getElementById('total-value');
 
         function loadOrders() {
             const orders = JSON.parse(localStorage.getItem('tradeveilOrders')) || [];
+            let totalValue = 0;
+
             if (orders.length === 0) {
                 emptyMessage.style.display = 'block';
                 document.getElementById('orders-table').style.display = 'none';
+                totalValueDisplay.style.display = 'none';
                 return;
             }
+
             emptyMessage.style.display = 'none';
             document.getElementById('orders-table').style.display = 'table';
-
+            totalValueDisplay.style.display = 'block';
             ordersBody.innerHTML = '';
+
             orders.forEach(order => {
                 const tr = document.createElement('tr');
 
@@ -162,11 +185,16 @@
                 tr.appendChild(quantityTd);
 
                 const subtotalTd = document.createElement('td');
-                subtotalTd.textContent = (order.price * order.quantity).toFixed(2);
+                const subtotal = (order.price * order.quantity).toFixed(2);
+                subtotalTd.textContent = subtotal;
                 tr.appendChild(subtotalTd);
 
                 ordersBody.appendChild(tr);
+
+                totalValue += parseFloat(subtotal);
             });
+
+            totalValueDisplay.textContent = `Total Value: ₹${totalValue.toFixed(2)}`;
         }
 
         document.addEventListener('DOMContentLoaded', () => {
