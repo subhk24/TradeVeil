@@ -34,3 +34,16 @@ Retailers can only view products and prices relevant to their chosen category, e
 
 For small shops without GST, alternative documents (such as shop bills, electricity bills, income tax returns, or shop license) must be submitted for manual verification by our team.
 
+Privacy & Access
+General public cannot access product listings or prices.
+
+Only verified wholesalers and retailers can interact on the platform.
+
+Addresses are not shared until a deal is finalized; demo product delivery uses a pick-and-drop service to protect identities.
+
+Each wholesaler and retailer sees only the information relevant to their business, maintaining confidentiality and competitive advantage.
+
+Business Model
+Premium Access: Retailers receive a three-month free trial, then can subscribe for ₹100/month or ₹600–₹700 for three months.
+
+Wholesaler Fees: Wholesalers may be charged a commission based on sales or a fixed fee.
