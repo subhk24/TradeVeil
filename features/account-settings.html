@@ -147,6 +147,65 @@
             return user;
         }
 
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    errorMessage.style.display = 'none';
+    successMessage.style.display = 'none';
+
+    const user = loadUser();
+    if (!user) return;
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const currentPassword = document.getElementById('current-password').value.trim();
+    const newPassword = document.getElementById('new-password').value.trim();
+    const confirmPassword = document.getElementById('confirm-password').value.trim();
+
+    if (!name || !email || !currentPassword) {
+        errorMessage.textContent = 'Please fill in all required fields.';
+        errorMessage.style.display = 'block';
+        return;
+    }
+
+    if (currentPassword !== user.password) {
+        errorMessage.textContent = 'Current password is incorrect.';
+        errorMessage.style.display = 'block';
+        return;
+    }
+
+    if (newPassword && newPassword !== confirmPassword) {
+        errorMessage.textContent = 'New password and confirmation do not match.';
+        errorMessage.style.display = 'block';
+        return;
+    }
+
+    // Update user info
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    const userIndex = users.findIndex(u => u.email === user.email);
+    if (userIndex === -1) {
+        errorMessage.textContent = 'User not found.';
+        errorMessage.style.display = 'block';
+        return;
+    }
+
+    users[userIndex].name = name;
+    users[userIndex].email = email;
+    if (newPassword) {
+        users[userIndex].password = newPassword;
+    }
+    localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('currentUser', JSON.stringify(users[userIndex]));
+
+    successMessage.textContent = 'Profile updated successfully.';
+    successMessage.style.display = 'block';
+
+    // Clear password fields
+    document.getElementById('current-password').value = '';
+    document.getElementById('new-password').value = '';
+    document.getElementById('confirm-password').value = '';
+});
+
+window.onload = loadUser;
        
     </script>
 </body>
