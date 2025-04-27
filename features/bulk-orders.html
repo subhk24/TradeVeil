@@ -157,6 +157,59 @@ function createProductRow(product) {
 
     return tr;
 }
+
+
+function populateProducts() {
+    products.forEach(product => {
+        const row = createProductRow(product);
+        productsTbody.appendChild(row);
+    });
+}
+
+bulkOrderForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    errorMessage.style.display = 'none';
+    successMessage.style.display = 'none';
+
+    const inputs = bulkOrderForm.querySelectorAll('input[type="number"]');
+    let valid = true;
+    let orderDetails = [];
+
+    inputs.forEach(input => {
+        const qty = parseInt(input.value, 10);
+        const minQty = parseInt(input.dataset.minQty, 10);
+        const productId = input.dataset.productId;
+
+        if (qty > 0 && qty < minQty) {
+            valid = false;
+            errorMessage.textContent = `Minimum order quantity for ${productId.replace(/-/g, ' ')} is ${minQty}.`;
+            errorMessage.style.display = 'block';
+        }
+
+        if (qty >= minQty) {
+            orderDetails.push({ productId, quantity: qty });
+        }
+    });
+
+    if (!valid) return;
+
+    if (orderDetails.length === 0) {
+        errorMessage.textContent = 'Please enter order quantities for at least one product.';
+        errorMessage.style.display = 'block';
+        return;
+    }
+
+    // Simulate order submission
+    console.log('Order submitted:', orderDetails);
+    successMessage.textContent = 'Your bulk order has been submitted successfully!';
+    successMessage.style.display = 'block';
+
+    // Reset form
+    bulkOrderForm.reset();
+});
+
+populateProducts();
+        
     </script>
 </body>
 </html>
