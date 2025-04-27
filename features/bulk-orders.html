@@ -125,6 +125,38 @@
             { id: 'scotch-tape', name: 'Scotch Tape', price: 99, minQty: 40 }
         ];
 
+const productsTbody = document.getElementById('products-tbody');
+const errorMessage = document.getElementById('error-message');
+const successMessage = document.getElementById('success-message');
+const bulkOrderForm = document.getElementById('bulk-order-form');
+
+function createProductRow(product) {
+    const tr = document.createElement('tr');
+
+    const tdName = document.createElement('td');
+    tdName.textContent = product.name;
+    tr.appendChild(tdName);
+
+    const tdPrice = document.createElement('td');
+    tdPrice.textContent = product.price;
+    tr.appendChild(tdPrice);
+
+    const tdMinQty = document.createElement('td');
+    tdMinQty.textContent = product.minQty;
+    tr.appendChild(tdMinQty);
+
+    const tdOrderQty = document.createElement('td');
+    const inputQty = document.createElement('input');
+    inputQty.type = 'number';
+    inputQty.min = 0;
+    inputQty.value = 0;
+    inputQty.dataset.productId = product.id;
+    inputQty.dataset.minQty = product.minQty;
+    tdOrderQty.appendChild(inputQty);
+    tr.appendChild(tdOrderQty);
+
+    return tr;
+}
     </script>
 </body>
 </html>
