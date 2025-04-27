@@ -24,8 +24,10 @@ This lack of privacy and focus makes current platforms ineffective for Indian wh
 Key goals:
 - Facilitate **genuine B2B connections**
 - Protect **price privacy and product data**
+- Ensure that pricing is **only visible to the businesses** and the business who wants to buy product
 - Ensure only **verified users** can access the platform
 - Streamline product discovery **based on business category**
+- **Builds trust** between the seller and buyer
 
 Retailers can view only relevant categories. Wholesalers can list products without worrying about price exposure or customer leakage.
 
@@ -157,11 +159,11 @@ We position TradeVeil not just as a utility, but as a **business secret weapon**
 
 ## 👥 Team
 
-| Name                     | Role                  | Email                                         | Roll Number     |
-|--------------------------|-----------------------|-----------------------------------------------|-----------------|
+| Name                     | Role                  | Email                                           | Roll Number     |
+|--------------------------|-----------------------|-------------------------------------------------|-----------------|
 | Subhdeep Kaur            | Manager               | subhdeep0794.becse24@chitkara.edu.in            | 2410990794      |
 | Jasleen Kaur             | Designer + Tester     | jasleen0729.becse24@chitkara.edu.in             | 2410990729      |
-| Shabadmeet Singh Bhatia | Quality Assurance     | shabadmeet0765.becse24@chitkara.edu.in         | 2410990765      |
+| Shabadmeet Singh Bhatia  | Quality Assurance     | shabadmeet0765.becse24@chitkara.edu.in          | 2410990765      |
 | Saksham Jain             | Developer             | saksham0752.becse24@chitkara.edu.in             | 2410990752      |
 | Yash Jindal              | Front-End Developer   | yash0803.becse24@chitkara.edu.in                | 2410990803      |
 
@@ -176,5 +178,6 @@ We position TradeVeil not just as a utility, but as a **business secret weapon**
 ## 🤝 Conclusion
 
 TradeVeil is more than just a B2B platform. It’s a **strategic enabler** designed to foster trust, protect privacy, and drive profitability in India’s wholesale-to-retail supply chain.
+It is the unique as it didn't share the actual pricing of the goods to the audience . So , the profit is high as there is less chances of bargaining.
 
 Let’s reshape India’s retail future — securely, smartly, and together.
