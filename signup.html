@@ -9,6 +9,13 @@
   <meta name="description" content="Register for TradeVeil, the secure B2B wholesale platform connecting verified wholesalers and retailers." />
   <meta name="keywords" content="TradeVeil, Register, B2B, Wholesale, Marketplace" />
   <meta name="author" content="TradeVeil" />
+  <!-- Additional Meta Tags for Social Sharing -->
+  <meta property="og:title" content="Register | TradeVeil" />
+  <meta property="og:image" content="favicon.ico" />
+  <meta property="og:description" content="Register for TradeVeil, the secure B2B wholesale platform." />
+  <meta property="og:url" content="https://www.tradeveil.com" />
+  <!-- External font link for better font choices -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
   <nav>
@@ -25,7 +32,9 @@
     <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 1rem; width: 450px; box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px);">
       <h2 style="text-align: center; margin-bottom: 1.5rem; font-weight: 700; font-size: 1.8rem;">Create Your TradeVeil Account</h2>
       <form id="registerForm" style="display: flex; flex-direction: column;">
-
+        <!-- Added Line for Alignment -->
+        <hr style="margin-bottom: 1rem; border: 1px solid #ddd;" />
+        
         <label style="margin-bottom: 0.25rem; font-size: 0.9rem;">Select Trade Role</label>
         <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
           <label><input type="radio" name="tradeRole" value="Retailer" required /> Retailer</label>
@@ -50,6 +59,7 @@
         <label for="gst" style="margin-bottom: 0.25rem; font-size: 0.9rem;">GST Number</label>
         <input type="text" id="gst" name="gst" placeholder="Enter your GST Number" required style="padding: 0.5rem; margin-bottom: 1rem; border-radius: 0.5rem; border: none; font-size: 1rem;" />
 
+        <!-- Added Line for Spacer -->
         <div style="margin-bottom: 1rem;">
           <input type="checkbox" id="terms" required />
           <label for="terms" style="font-size: 0.85rem;">I agree to the <a href="#" style="color: #047857;">Terms of Use</a> and <a href="#" style="color: #047857;">Privacy Policy</a>.</label>
@@ -57,6 +67,9 @@
 
         <button type="submit" style="padding: 0.75rem; background-color: #08664C; border: none; border-radius: 0.5rem; font-weight: 700; color: white; font-size: 1rem; cursor: pointer;">Create an Account</button>
       </form>
+
+      <!-- Added Line for Horizontal Rule -->
+      <hr style="margin-top: 1.5rem; border: 1px solid #ddd;" />
 
       <p style="margin-top: 1rem; text-align: center; font-size: 0.9rem;">
         Already have an account? <a href="login.html" style="color: #047857; text-decoration: none;">Login here</a>
@@ -81,7 +94,7 @@
       const gst = document.getElementById('gst').value.trim();
       const terms = document.getElementById('terms').checked;
 
-      if (!email || !password || !confirmPassword || !country || !tradeRole || !companyName || !fullName || !gst || !terms) {
+      if (!email || !password || !confirmPassword || !tradeRole || !companyName || !fullName || !gst || !terms) {
         alert('Please fill all fields and agree to the Terms.');
         return;
       }
