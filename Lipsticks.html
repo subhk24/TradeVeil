@@ -7,47 +7,31 @@
   <link rel="stylesheet" href="hstyles.css" />
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const button = document.querySelector('.buy-btn');
-      button.addEventListener('click', () => {
-        const card = button.closest('.product-card');
-        const qtyInput = card.querySelector('.quantity-input');
-        let qty = parseInt(qtyInput.value);
-        if (isNaN(qty) || qty < 1) {
-          alert('Please enter a valid quantity (minimum 1).');
-          qtyInput.focus();
-          return;
-        }
-        button.disabled = true;
-        button.textContent = 'Adding...';
-        setTimeout(() => {
-          button.textContent = 'Add to Cart';
-          button.disabled = false;
-          alert(`Added ${qty} item(s) of "${card.querySelector('.product-title').textContent}" to cart.`);
-        }, 1000);
+      const buttons = document.querySelectorAll('.buy-btn');
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const card = button.closest('.product-card');
+          const qtyInput = card.querySelector('.quantity-input');
+          let qty = parseInt(qtyInput.value);
+          if (isNaN(qty) || qty < 1) {
+            alert('Please enter a valid quantity (minimum 1).');
+            qtyInput.focus();
+            return;
+          }
+          button.disabled = true;
+          button.textContent = 'Adding...';
+          setTimeout(() => {
+            button.textContent = 'Add to Cart';
+            button.disabled = false;
+            alert(Added ${qty} item(s) of "${card.querySelector('.product-title').textContent}" to cart.);
+          }, 1000);
+        });
       });
     });
   </script>
   <style>
-    
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f7f7f7;
-    }
-    header {
-      background-color: #11C38B; 
-      color: white;
-      text-align: center;
-      padding: 1rem 0;
-      font-size: 2rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-  
     nav {
-      background-color: #ff4081;
+      background-color: #059669;
       padding: 0.5rem 0;
     }
     nav ul {
@@ -63,109 +47,19 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background-color 0.3s ease;
       padding: 0.25rem 0.5rem;
       border-radius: 4px;
     }
     nav ul li a:hover,
     nav ul li a.active {
-      background-color: #e91e63;
-      color: #fff;
+      background-color: #047857;
     }
-
-    
     main.container {
       max-width: 1200px;
       margin: 2rem auto 4rem auto;
       padding: 0 1rem;
     }
-
-    
-    .product-card {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 1.5rem;
-      background-color: white;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    .product-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    }
-    .product-badge {
-      background-color: #ff4081;
-      color: white;
-      padding: 0.5rem;
-      border-radius: 4px;
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-size: 0.8rem;
-    }
-    .product-rating {
-      color: #ff9800;
-      margin: 10px 0;
-    }
-    .product-price {
-      font-size: 1.8rem;
-      color: #ff4081;
-      font-weight: bold;
-      margin-top: 10px;
-      transition: color 0.3s ease;
-    }
-    .product-price:hover {
-      color: #d500f9;
-    }
-
-    
-    .buy-btn {
-      background-color: #ff4081;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-    .buy-btn:hover {
-      background-color: #e91e63;
-      transform: scale(1.05);
-    }
-
-    
-    .quantity-input {
-      padding: 0.5rem;
-      width: 60px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      border: 2px solid #ff4081;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-
-    
-    .product-reviews {
-      text-align: left;
-      margin-top: 20px;
-      font-size: 1rem;
-      color: #444;
-    }
-    .review {
-      margin-bottom: 10px;
-      padding: 10px;
-      background-color: #f0f0f0;
-      border-radius: 4px;
-    }
-    .review p {
-      margin: 0;
-    }
-    .review strong {
-      color: #ff4081;
-    }
-
   </style>
 </head>
 <body>
@@ -190,34 +84,94 @@
 
   <section class="product-grid" role="list" aria-label="Lipsticks product list">
     <article class="product-card" role="listitem" aria-label="Cocoa Shot Shade Lipsticks">
-      <span class="product-badge" aria-label="New Product">New Arrival</span>
+      <span class="product-badge" aria-label="New Product">New</span>
       <img src="https://i.pinimg.com/736x/04/c5/36/04c536a45c11350048bc8b50db41fb30.jpg" alt="Cocoa Shot Shade Lipsticks" />
       <h2 class="product-title">Cocoa Shot Shade Lipstick</h2>
       <div class="product-rating" aria-label="Rating: 4.5 out of 5 stars" role="img" tabindex="0">★★★★☆</div>
-      <p class="product-description">A rich, cocoa brown that gives you a bold and beautiful look. Perfect for an elegant evening or daily office wear!</p>
+      <p class="product-description">Brand: LAKME.</p>
       <ul class="product-specs">
-        <li>Long-lasting hydration</li>
-        <li>Highly pigmented formula</li>
-        <li>Luxury matte finish</li>
+        <li>Extremely long-lasting</li>
+        <li>bold pigment</li>
+        <li>Stunning bold color</li>
         <li>Brand: LAKME</li>
       </ul>
       <div class="product-price">₹2,990</div>
       <label for="qty1" class="sr-only">Quantity</label>
-      <input type="number" id="qty1" name="qty1" class="quantity-input" min="1" max="10" value="1" aria-live="polite" aria-label="Quantity selector for Cocoa Shot Shade Lipstick" />
+      <input type="number" id="qty1" name="qty1" class="quantity-input" min="1" max="10" value="1" aria-live="polite" aria-label="Quantity selector for Aviator Classic sunglasses" />
       <button class="buy-btn" aria-label="Add Cocoa Shot Shade Lipsticks to cart">Add to Cart</button>
-      <section class="product-reviews" aria-label="Customer reviews for Cocoa Shot Shade Lipsticks">
-        <h3>What Our Customers Are Saying:</h3>
+      <section class="product-reviews" aria-label="Customer reviews for Cocoa Shot Shade Lipsticks" style="margin-top: 20px;">
+        <h3>Customer Reviews</h3>
         <article class="review">
           <p><strong>Manhas Monika</strong> ★★★★★</p>
-          <p>"This brown is absolutely perfect for dusky skin tones. A must-have in your makeup bag!"</p>
+          <p>Perfect subtle brown for dusky people.</p>
         </article>
         <article class="review">
           <p><strong>Kirti</strong> ★★★★☆</p>
-          <p>"The shade is super flattering! I use it for both casual and formal looks."</p>
+          <p>A perfectly toasted shade of brown. Suitable for all skin types and all occasions.</p>
         </article>
       </section>
     </article>
-  </section>
+
+    <article class="product-card" role="listitem" aria-label="Nude Shade Lipsticks">
+      <span class="product-badge" aria-label="Best Seller">Best Seller</span>
+      <img src="https://i.pinimg.com/736x/e6/55/c0/e655c05337f43fd14871291259386267.jpg" alt="Nude Shade lipsticks" />
+      <h2 class="product-title">Nude shade lipstick</h2>
+      <div class="product-rating" aria-label="Rating: 4 out of 5 stars" role="img" tabindex="0">★★★★☆</div>
+      <p class="product-description">Brand: MAC.</p>
+      <ul class="product-specs">
+        <li>Iconic color</li>
+        <li>Suits a lot of skin tones</li>
+        <li>Comfortable on the lips</li>
+        <li>Brand: MAC</li>
+      </ul>
+      <div class="product-price">₹999</div>
+      <label for="qty2" class="sr-only">Quantity</label>
+      <input type="number" id="qty2" name="qty2" class="quantity-input" min="1" max="10" value="1" aria-live="polite" aria-label="Quantity selector for Fastrack Wayfarer sunglasses" />
+      <button class="buy-btn" aria-label="Add Nude Shade Lipsticks to cart">Add to Cart</button>
+      <section class="product-reviews" aria-label="Customer reviews for Nide Shade Lipsticks" style="margin-top: 20px;">
+        <h3>Customer Reviews</h3>
+        <article class="review">
+          <p><strong>Shubha</strong> ★★★★☆</p>
+          <p>Loved it! Smoothly glides on lips even without lip balm.</p>
+        </article>
+        <article class="review">
+          <p><strong>Sreeparna Ganguly</strong> ★★★☆☆</p>
+          <p>arthy brown neutral lipcolour that suits almost all skin tones.</p>
+        </article>
+      </section>
+    </article>
+
+    <article class="product-card" role="listitem" aria-label="Deep Red Pink Shade Lipsticks">
+      <img src="https://i.pinimg.com/736x/fe/5b/e6/fe5be6824f09f12c5557d06604902010.jpg" alt="Oakley Sport Sunglasses" />
+      <h2 class="product-title">Deep Red Pink Shade Lipsticks</h2>
+      <div class="product-rating" aria-label="Rating: 4.5 out of 5 stars" role="img" tabindex="0">★★★★☆</div>
+      <p class="product-description">Brand: MAX FACTOR'S.</p>
+      <ul class="product-specs">
+        <li>Feels luxe</li>
+        <li>Soft-focus matte</li>
+        <li>Classic shade</li>
+        <li>Brand: MAX FACTOR'S</li>
+      </ul>
+      <div class="product-price">₹3,490</div>
+      <label for="qty3" class="sr-only">Quantity</label>
+      <input type="number" id="qty3" name="qty3" class="quantity-input" min="1" max="10" value="1" aria-live="polite" aria-label="Quantity selector for Oakley Sport sunglasses" />
+      <button class="buy-btn" aria-label="Add Deep Red Pink Shade Lipsticks to cart">Add to Cart</button>
+      <section class="product-reviews" aria-label="Customer reviews for Deep Red Pink Shade Lipsticks" style="margin-top: 20px;">
+        <h3>Customer Reviews</h3>
+        <article class="review">
+          <p><strong>Aastha</strong> ★★★★☆</p>
+          <p>Smooth and pigmented texture, lovely.</p>
+        </article>
+        <article class="review">
+          <p><strong>Shreya</strong> ★★★☆☆</p>
+          <p>It has a bold color, soothes the lips, and doesn't dry out.</p>
+        </article>
+      </section>
+    </article>
+
+</section>
 
 </body>
 </html>
+
+
