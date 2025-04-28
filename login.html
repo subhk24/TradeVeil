@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>User Authentication - TradeVeil</title>
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" />
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f9fafb;
+            background-color: #10b981; /* Green background */
             margin: 0;
             padding: 0;
             color: #333;
@@ -17,6 +17,8 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden; /* Hides anything weird */
+            position: relative; /* Helps with positioning */
         }
         .auth-container {
             background: white;
@@ -24,6 +26,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             width: 360px;
+            z-index: 10; /* Ensures it's above anything */
         }
         h2 {
             color: #10b981;
@@ -84,6 +87,7 @@
     </style>
 </head>
 <body>
+
     <div class="auth-container" id="auth-container">
         <h2 id="form-title">Login</h2>
         <div class="error-message" id="error-message"></div>
@@ -134,7 +138,6 @@
         }
 
         function addRegisterFields() {
-            // Add name and role fields
             const nameLabel = document.createElement('label');
             nameLabel.setAttribute('for', 'name');
             nameLabel.textContent = 'Full Name';
@@ -191,7 +194,6 @@
             errorMessage.textContent = '';
 
             if (isLogin) {
-                // Perform login
                 const email = document.getElementById('email').value.trim();
                 const password = document.getElementById('password').value.trim();
 
@@ -206,7 +208,6 @@
                     errorMessage.style.display = 'block';
                 }
             } else {
-                // Perform registration
                 const name = document.getElementById('name').value.trim();
                 const email = document.getElementById('email').value.trim();
                 const password = document.getElementById('password').value.trim();
@@ -233,19 +234,6 @@
             }
         });
     </script>
-    <script>
-        // Automatically set a default guest user to allow access without login
-        window.addEventListener('load', () => {
-            if (!localStorage.getItem('currentUser')) {
-                const guestUser = {
-                    name: 'Guest User',
-                    email: 'guest@tradeveil.com',
-                    role: 'guest'
-                };
-                localStorage.setItem('currentUser', JSON.stringify(guestUser));
-            }
-        });
-    </script>
+
 </body>
 </html>
-
