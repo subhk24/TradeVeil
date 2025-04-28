@@ -2,7 +2,7 @@
 
 ## Welcome to TradeVeil
 
-At **TradeVeil**, we’re committed to creating a secure, respectful, and business-focused environment where **verified wholesalers and retailers** can connect privately and professionally without any interference of outsider.
+At **TradeVeil** , we are committed to creating a secure, respectful, and business-focused environment where **verified wholesalers and retailers** can connect privately and professionally without any interference of outsider.
 
 TradeVeil is not just another B2B platform — it is a **secure, privacy-first marketplace** designed exclusively to foster **local B2B relationships**. Our mission is to protect the **profitability and privacy** of businesses, while bridging the gap that exists in India’s wholesale ecosystem.
 
@@ -15,7 +15,7 @@ By participating in our platform, you agree to follow the spirit of collaboratio
 We pledge to foster a **welcoming and inclusive** environment for all participants:
 
 - Wholesalers and retailers will always be treated **respectfully**.
-- Communication should encourage **growth, learning, and mutual success**.
+- Communication should encourage **growth , learning, and mutual success**.
 - We will protect user **privacy and data** with utmost seriousness.
 
 Our goal is to create a **trusted space** for business collaboration without the interference of unauthorized parties or exposure of sensitive business details.
