@@ -7,7 +7,7 @@
 
 ## 🌍 The Problem
 
-India's retail economy is expanding rapidly, but there's a huge digital disconnect in how retailers source products from wholesalers. Most existing platforms are either consumer-focused (like Flipkart, Amazon) or export-driven (like Alibaba), leaving a **gaping hole in the local B2B ecosystem**.
+India's retail economy is expanding rapidly day by day, but there's a huge digital disconnect in how retailers source products from wholesalers. Most existing platforms are either consumer-focused (like Flipkart, Amazon) or export-driven (like Alibaba), leaving a **gaping hole in the local B2B ecosystem**.
 
 Platforms such as IndiaMART attempt to fill this gap but fall short due to:
 - **Public pricing visibility**, hurting retailer profits and wholesaler privacy
@@ -79,7 +79,8 @@ Many small businesses lack GST registration. We allow alternatives like:
 - Income Tax Return (ITR)
 - Recent invoices/purchase bills
 
-All submissions are manually verified by our **customer care/verification team**. Access is only granted upon approval, ensuring platform trust and security.
+All submissions are manually verified by our **customer care/verification team**. 
+Access is only granted upon approval, ensuring platform trust and security.
 
 ---
 
