@@ -7,13 +7,13 @@ TradeVeil is dedicated to building a secure, private, and efficient digital mark
 How to Contribute
 Fork the repository
 
-Create a new branch (git checkout -b feature/YourFeature)
+Create a new branch : (git checkout -b feature/YourFeature)
 
 Make your changes
 
-Commit your changes (git commit -m 'Add new feature')
+Commit your changes : (git commit -m 'Add new feature')
 
-Push to the branch (git push origin feature/YourFeature)
+Push to the branch : (git push origin feature/YourFeature)
 
 Open a Pull Request
 
@@ -62,4 +62,4 @@ Active onboarding of wholesalers with assurances of data security and exclusive 
 Reporting Bugs
 Use the Issues tab to report bugs or request features.
 
-Join us in building the most secure and private B2B marketplace for local wholesalers and retailers!
+Join us in building the most secure and private B2B marketplace for local wholesalers and retailers to experience best trading platform!
