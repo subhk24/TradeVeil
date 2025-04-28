@@ -1,272 +1,251 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Login | TradeVeil</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <meta name="description" content="Login to TradeVeil, the secure B2B wholesale platform connecting verified wholesalers and retailers." />
-  <meta name="keywords" content="TradeVeil, Login, B2B, Wholesale, Marketplace" />
-  <meta name="author" content="TradeVeil" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Authentication - TradeVeil</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .auth-container {
+            background: white;
+            padding: 2rem 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 360px;
+        }
+        h2 {
+            color: #10b981;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        button {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #059669;
+        }
+        .toggle-link {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .toggle-link a {
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .toggle-link a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-  <nav>
-    <div class="container">
-      <div class="logo">TradeVeil</div>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="signup.html">Register</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main class="container" style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
-    <div class="box" style="position: relative; border-radius: 20px; transform-style: preserve-3d; background: rgba(255, 255, 255, 0.1); width: 400px; height: 600px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.5); border-top: 1px solid rgba(255, 255, 255, 0.75); border-left: 1px solid rgba(255, 255, 255, 0.75); box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);">
-      <div style="text-align:center; color:white; font-size:2rem; font-weight:bold; margin-bottom: 20px;">
-        TradeVeil
-      </div>
-      <div class="elements name" style="position: absolute; top: 80px; left: 50%; transform: translateX(-50%) translateZ(100px); width: auto; padding: 15px; text-align: center; color: white;">
-        <h2>Login</h2>
-      </div>
-      <div class="elements content" style="position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%) translateZ(180px); width: 70%; height: 300px; padding: 15px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <form id="signInForm" style="width: 100%;">
-          <div class="form-group" style="margin-bottom: 15px; display: flex; flex-direction: column; align-items: flex-start; position: relative;">
-            <label for="business name" style="font-size: 12px; margin-bottom: 4px;">Business Name:</label>
-            <input type="business name" id="business name" name="business name" placeholder="" required style="background: transparent; padding: 6px 30px 6px 10px; font-size: 0.9em; outline: none; border: none; width: 100%; border: 1px solid rgba(255, 255, 255, 0.5); border-top: 1px solid rgba(255, 255, 255, 0.75); border-left: 1px solid rgba(255, 255, 255, 0.75); border-radius: 10px; color: white;">
-          </div>
-          <div class="form-group" style="margin-bottom: 15px; display: flex; flex-direction: column; align-items: flex-start; position: relative;">
-            <label for="password" style="font-size: 12px; margin-bottom: 4px;">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required style="background: transparent; padding: 6px 30px 6px 10px; font-size: 0.9em; outline: none; border: none; width: 100%; border: 1px solid rgba(255, 255, 255, 0.5); border-top: 1px solid rgba(255, 255, 255, 0.75); border-left: 1px solid rgba(255, 255, 255, 0.75); border-radius: 10px; color: white;">
-            <i class="fa-solid fa-eye toggle-password" id="togglePassword" style="position: absolute; right: 10px; top: 32px; cursor: pointer; color: #ccc;"></i>
-          </div>
-          <div class="forgot-password" style="width: 100%; text-align: right; font-size: 12px; margin-bottom: 10px;">
-            <a href="forgot_page.html" style="color: #ccc; text-decoration: underline;">Forgot Password?</a>
-          </div>
-          <div class="form-group" style="margin-bottom: 15px;">
-            <button type="submit" style="width: 100%; background-color: transparent; color: white; padding: 10px 0; font-size: 12px; font-weight: 600; border-radius: 10px; cursor: pointer; border: 1px solid rgba(255, 255, 255, 0.5); border-top: 1px solid rgba(255, 255, 255, 0.75); border-left: 1px solid rgba(255, 255, 255, 0.75);">Sign In</button>
-          </div>
-          <p class="register-link" style="text-align: center; margin-top: 10px; font-size: 12px;">
-            New to our platform?
-            <a href="signup.html" style="color: #047857; text-decoration: none;">Register here</a>
-          </p>
+    <div class="auth-container" id="auth-container">
+        <h2 id="form-title">Login</h2>
+        <div class="error-message" id="error-message"></div>
+        <form id="auth-form">
+            <label for="email">Email</label>
+            <input type="email" id="email" required />
+            <label for="password">Password</label>
+            <input type="password" id="password" required />
+            <button type="submit" id="submit-btn">Login</button>
         </form>
-      </div>
-      <div class="card"></div>
+        <div class="toggle-link" id="toggle-link">
+            Don't have an account? <a id="toggle-form">Register here</a>
+        </div>
     </div>
-  </main>
 
-  <footer>
-    <p>© 2025 TradeVeil. All rights reserved.</p>
-  </footer>
+    <script>
+        const authContainer = document.getElementById('auth-container');
+        const formTitle = document.getElementById('form-title');
+        const authForm = document.getElementById('auth-form');
+        const toggleLink = document.getElementById('toggle-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const errorMessage = document.getElementById('error-message');
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-  <script>
-    VanillaTilt.init(document.querySelector(".box"), {
-      max: 15,
-      speed: 1000,
-      glare: true,
-      "max-glare": 0.2,
-    });
+        let isLogin = true;
 
-    document.getElementById("togglePassword").addEventListener("click", function () {
-      let passwordField = document.getElementById("password");
-      if (passwordField.type === "password") {
-        passwordField.type = "text";
-        this.classList.replace("fa-eye", "fa-eye-slash");
-      } else {
-        passwordField.type = "password";
-        this.classList.replace("fa-eye-slash", "fa-eye");
-      }
-    });
+        function clearForm() {
+            authForm.reset();
+            errorMessage.style.display = 'none';
+            errorMessage.textContent = '';
+        }
 
-    document.getElementById("signInForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const business name = document.getElementById("business name").value.trim();
-      const password = document.getElementById("password").value.trim();
-      const overlay = document.getElementById("loadingOverlay");
+        function switchForm() {
+            clearForm();
+            if (isLogin) {
+                // Switch to Register
+                formTitle.textContent = 'Register';
+                submitBtn.textContent = 'Register';
+                toggleLink.textContent = 'Login here';
+                addRegisterFields();
+            } else {
+                // Switch to Login
+                formTitle.textContent = 'Login';
+                submitBtn.textContent = 'Login';
+                toggleLink.textContent = 'Register here';
+                removeRegisterFields();
+            }
+            isLogin = !isLogin;
+        }
 
-      let users = JSON.parse(localStorage.getItem('tradeveilUsers')) || [];
-      const user = users.find(u => u.business name === business name && u.password === password);
+        function addRegisterFields() {
+            // Add name and role fields
+            const nameLabel = document.createElement('label');
+            nameLabel.setAttribute('for', 'name');
+            nameLabel.textContent = 'Full Name';
+            nameLabel.id = 'name-label';
 
-      if (!user) {
-        alert("Invalid business name or password.");
-        return;
-      }
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            nameInput.id = 'name';
+            nameInput.required = true;
 
-      overlay.style.display = "flex";
-      overlay.style.opacity = 0;
-      setTimeout(() => {
-        overlay.style.transition = "opacity 0.3s ease";
-        overlay.style.opacity = 1;
-      }, 10);
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 2000);
-    });
-  </script>
+            const roleLabel = document.createElement('label');
+            roleLabel.setAttribute('for', 'role');
+            roleLabel.textContent = 'Role';
+            roleLabel.id = 'role-label';
 
-<style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #1a202c;
-      margin: 0;
-      padding: 0;
-      color: #f7fafc;
-    }
-  
-    nav {
-      background-color: #047857;
-      padding: 20px 0;
-    }
-  
-    nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-  
-    nav .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: white;
-    }
-  
-    nav ul {
-      display: flex;
-      list-style: none;
-    }
-  
-    nav ul li {
-      margin-left: 20px;
-    }
-  
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-  
-    nav ul li a:hover {
-      color: #f7fafc;
-    }
-  
-    .box {
-      position: relative;
-      background: rgba(0, 0, 0, 0.6);
-      width: 400px;
-      height: 500px;
-      border-radius: 15px;
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-      padding: 30px;
-      color: white;
-    }
-  
-    .box .elements h2 {
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-      font-weight: 600;
-    }
-  
-    .form-group {
-      margin-bottom: 20px;
-      position: relative;
-    }
-  
-    .form-group input {
-      background: transparent;
-      color: white;
-      padding: 10px;
-      width: 100%;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 8px;
-      font-size: 1rem;
-      outline: none;
-      transition: border 0.3s ease;
-    }
-  
-    .form-group input:focus {
-      border: 1px solid #047857;
-    }
-  
-    .form-group label {
-      font-size: 0.9rem;
-      margin-bottom: 6px;
-    }
-  
-    .toggle-password {
-      position: absolute;
-      right: 15px;
-      top: 10px;
-      cursor: pointer;
-      color: #ccc;
-    }
-  
-    .forgot-password a {
-      font-size: 0.85rem;
-      color: #ccc;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-  
-    .forgot-password a:hover {
-      color: #047857;
-    }
-  
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #047857;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-  
-    button:hover {
-      background-color: #065f46;
-    }
-  
-    .register-link a {
-      font-size: 0.9rem;
-      color: #047857;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-  
-    .register-link a:hover {
-      color: #065f46;
-    }
-  
-    footer {
-      background-color: #1a202c;
-      text-align: center;
-      padding: 20px;
-      color: white;
-      font-size: 0.85rem;
-    }
-  
-    footer a {
-      color: #047857;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-  
-    footer a:hover {
-      color: #065f46;
-    }
-  
-  </style>
-  
+            const roleSelect = document.createElement('select');
+            roleSelect.id = 'role';
+            roleSelect.required = true;
+
+            const optionBuyer = document.createElement('option');
+            optionBuyer.value = 'buyer';
+            optionBuyer.textContent = 'Buyer';
+
+            const optionWholesaler = document.createElement('option');
+            optionWholesaler.value = 'wholesaler';
+            optionWholesaler.textContent = 'Wholesaler';
+
+            roleSelect.appendChild(optionBuyer);
+            roleSelect.appendChild(optionWholesaler);
+
+            authForm.insertBefore(nameLabel, authForm.firstChild);
+            authForm.insertBefore(nameInput, authForm.children[1]);
+            authForm.insertBefore(roleLabel, authForm.children[2]);
+            authForm.insertBefore(roleSelect, authForm.children[3]);
+        }
+
+        function removeRegisterFields() {
+            const nameLabel = document.getElementById('name-label');
+            const nameInput = document.getElementById('name');
+            const roleLabel = document.getElementById('role-label');
+            const roleSelect = document.getElementById('role');
+
+            if (nameLabel) authForm.removeChild(nameLabel);
+            if (nameInput) authForm.removeChild(nameInput);
+            if (roleLabel) authForm.removeChild(roleLabel);
+            if (roleSelect) authForm.removeChild(roleSelect);
+        }
+
+        toggleLink.addEventListener('click', switchForm);
+
+        authForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            errorMessage.style.display = 'none';
+            errorMessage.textContent = '';
+
+            if (isLogin) {
+                // Perform login
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value.trim();
+
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const user = users.find(u => u.email === email && u.password === password);
+                if (user) {
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    alert('Login successful! Welcome, ' + user.name);
+                    window.location.href = '../dashboard.html';
+                } else {
+                    errorMessage.textContent = 'Invalid email or password.';
+                    errorMessage.style.display = 'block';
+                }
+            } else {
+                // Perform registration
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value.trim();
+                const role = document.getElementById('role').value;
+
+                if (!name || !email || !password || !role) {
+                    errorMessage.textContent = 'Please fill in all fields.';
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+                if (users.find(u => u.email === email)) {
+                    errorMessage.textContent = 'Email already registered.';
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+
+                const newUser = { name, email, password, role };
+                users.push(newUser);
+                localStorage.setItem('users', JSON.stringify(users));
+                alert('Registration successful! You can now login.');
+                switchForm();
+            }
+        });
+    </script>
+    <script>
+        // Automatically set a default guest user to allow access without login
+        window.addEventListener('load', () => {
+            if (!localStorage.getItem('currentUser')) {
+                const guestUser = {
+                    name: 'Guest User',
+                    email: 'guest@tradeveil.com',
+                    role: 'guest'
+                };
+                localStorage.setItem('currentUser', JSON.stringify(guestUser));
+            }
+        });
+    </script>
 </body>
 </html>
+
